@@ -1,6 +1,6 @@
 # LeanTutorials
 
-Source codes of the website: https://lean.lookeng.cn.
+Source codes of the website: https://leanprover.cn
 
 ## Run the website locally
 

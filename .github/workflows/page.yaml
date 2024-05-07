@@ -1,0 +1,22 @@
+name: Deploy Docsify Site
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: tool3/docsify-action@master
+      with:
+        github_token: ${{ secrets.GP_TOKEN }} 
+        dir: docs
+        branch: gh-pages
+        commit_msg: 'Automated docs deployment 🚀'

@@ -1,6 +1,6 @@
 # Lean 学习教程
 
-网站 https://lean.lookeng.cn 的源代码。
+网站 https://www.leanprover.cn 的源代码。
 
 ## 本地运行
 

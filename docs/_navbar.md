@@ -1,5 +1,5 @@
 * 相关项目
-  * [GlimpseOfLean](https://leanprover.cn/glimpse_of_lean)
+  * [GlimpseOfLean](https://www.leanprover.cn/GlimpseOfLean/)
   * [NNG4](https://adam.math.hhu.de/#/game/nng)
 
 * 相关链接
@@ -7,4 +7,4 @@
   * [Zulip 社区](https://leanprover.zulipchat.com/)
 
 * 语言
-  * [简体中文](https://leanprover.cn)
+  * [简体中文](https://www.leanprover.cn)

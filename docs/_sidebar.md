@@ -1,1 +1,2 @@
 - [README](README.md)
+  - [安装教程](install.md)

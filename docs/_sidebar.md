@@ -1,2 +1,3 @@
 - [README](README.md)
-  - [安装教程](install.md)
+  - [安装教程](tutorial/install.md)
+  - [Lean4 游戏开发教程](tutorial/lean4game.md)

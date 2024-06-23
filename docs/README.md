@@ -14,15 +14,15 @@ Lean 是一个交互式定理证明器（Interactive Theorem Prover, ITP），�
 
 ## 相关资源
 
-安装教程：[Lean4 安装及 Lake 环境管理](./install.md)
+安装教程：[Lean4 安装及 Lake 环境管理](./tutorial/install.md)
 
-已翻译：
+已完成：
   * Lean 语言初探：[Glimpse Of Lean](https://www.leanprover.cn/GlimpseOfLean/)
   * NNG4 自然数游戏：[Natural Number Game of Lean 4](https://nng4.lookeng.cn)
+  * Lean4Game 教程：[Lean4 定理证明游戏](tutorial/lean4game.md)
 
 进行中：
   * [Lean 函数式编程](https://github.com/Lean-zh/fp-lean-zh)
-  * [Lean 4 Game](https://github.com/leanprover-community/lean4game/) 教程
   * [Lean Dojo](https://github.com/lean-dojo/LeanDojo) 教程及源码解读
 
 

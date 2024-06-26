@@ -19,7 +19,7 @@ Lean 是一个交互式定理证明器（Interactive Theorem Prover, ITP），�
 已完成：
   * Lean 语言初探：[Glimpse Of Lean](https://www.leanprover.cn/GlimpseOfLean/)
   * NNG4 自然数游戏：[Natural Number Game of Lean 4](https://nng4.lookeng.cn)
-  * Lean4Game 教程：[Lean4 定理证明游戏](tutorial/lean4game.md)
+  * Lean4Game 教程：[Lean4 游戏开发教程](tutorial/lean4game.md)
 
 进行中：
   * [Lean 函数式编程](https://github.com/Lean-zh/fp-lean-zh)

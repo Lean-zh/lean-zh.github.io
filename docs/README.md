@@ -17,20 +17,24 @@ Lean 是一个交互式定理证明器（Interactive Theorem Prover, ITP），�
 安装教程：[Lean4 安装及 Lake 环境管理](./tutorial/install.md)
 
 已完成：
-  * Lean 语言初探：[Glimpse Of Lean](https://www.leanprover.cn/GlimpseOfLean/)
-  * NNG4 自然数游戏：[Natural Number Game of Lean 4](https://nng4.lookeng.cn)
-  * Lean4Game 教程：[Lean4 游戏开发教程](tutorial/lean4game.md)
+  * [Lean 语言初探](https://www.leanprover.cn/GlimpseOfLean/)
+  * [Lean 函数式编程](https://github.com/Lean-zh/fp-lean-zh)
+  * [Lean 4 定理证明](https://www.leanprover.cn/tp-lean-zh/)
+  * [Lean 4 自然数游戏](https://game.leanprover.cn/#/g/local/NNG4)
+  * [Lean 4 游戏开发教程](tutorial/lean4game.md)
 
 进行中：
-  * [Lean 函数式编程](https://github.com/Lean-zh/fp-lean-zh)
   * [Lean Dojo](https://github.com/lean-dojo/LeanDojo) 教程及源码解读
 
 
 后续计划：
-  * Lean4 形式定理证明：[Theorem Proving in Lean 4](https://lean-lang.org/theorem_proving_in_lean4/)
   * Lean 形式化数学：[Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/index.html)
   * LeanCopliot，LLMStep 等工具教程及实现机制
   * ...
+
+相关推荐：
+  * 软件基础：[Software Foundations](https://coq-zh.github.io/SF-zh/)
+  * [编程语言基础：Agda 描述](https://agda-zh.github.io/PLFA-zh/)
 
 ## 联系我们
 

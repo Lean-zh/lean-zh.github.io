@@ -1,3 +1,4 @@
 - [README](README.md)
-  - [安装教程](tutorial/install.md)
-  - [Lean4 游戏开发教程](tutorial/lean4game.md)
+  - [Lean4 安装教程](tutorial/install.md)
+  - [Lean4 游戏教程](tutorial/lean4game.md)
+  - [LeanDojo 使用教程](tutorial/lean-dojo.md)

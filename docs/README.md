@@ -21,10 +21,11 @@ Lean 是一个交互式定理证明器（Interactive Theorem Prover, ITP），�
   * [Lean 函数式编程](https://www.leanprover.cn/fp-lean-zh/)
   * [Lean 4 定理证明](https://www.leanprover.cn/tp-lean-zh/)
   * [Lean 4 自然数游戏](https://game.leanprover.cn/#/g/local/NNG4)
-  * [Lean 4 游戏开发教程](tutorial/lean4game.md)
+  * [Lean 4 游戏教程](tutorial/lean4game.md)
+  * [LeanDojo 使用教程](tutorial/lean-dojo.md)
 
 进行中：
-  * [Lean Dojo](https://github.com/lean-dojo/LeanDojo) 教程及源码解读
+  * [GlimpseGame 定理证明游戏的制作及翻译](https://github.com/Lean-zh/GlimpseGame)
 
 
 后续计划：

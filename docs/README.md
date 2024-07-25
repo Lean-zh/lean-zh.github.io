@@ -26,6 +26,7 @@ Lean 是一个交互式定理证明器（Interactive Theorem Prover, ITP），�
 
 进行中：
   * [GlimpseGame 定理证明游戏的制作及翻译](https://github.com/Lean-zh/GlimpseGame)
+  * [Lake 官方文档](https://github.com/leanprover/lean4/tree/master/src/lake)
 
 
 后续计划：

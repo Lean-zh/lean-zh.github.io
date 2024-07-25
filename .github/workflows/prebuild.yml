@@ -1,0 +1,33 @@
+name: Deploy to Remote Server via SSH
+
+on: 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install SSH Client
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install openssh-client -y
+      - name: Setup SSH Keys and Known Hosts
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          echo "$SSH_CONFIG" > ~/.ssh/config
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
+          ssh -vT lean "echo Successfully connected to cube"
+          
+      - name: Deploy using SSH
+        run: |
+            scp -r docs lean:/var/www/preview
+

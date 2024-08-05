@@ -10,18 +10,11 @@ body {
   }
 
   .md-content img {
-    max-width: 200px;
+    max-width: 75%;
     display: block;
     margin: 0 auto;
   }
   
-  .md-content blockquote {
-    font-style: italic;
-    color: #555;
-    border-left: 4px solid #8bc34a;
-    padding-left: 15px;
-    margin-left: 0;
-  }
   
   .md-content p {
     margin-top: 20px;

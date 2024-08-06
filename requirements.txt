@@ -1,0 +1,6 @@
+mkdocs-static-i18n
+mkdocs-material
+mkdocs-awesome-pages-plugin
+mkdocs-minify-plugin
+mkdocs-redirects
+mike

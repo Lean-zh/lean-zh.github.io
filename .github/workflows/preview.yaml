@@ -1,0 +1,57 @@
+name: preview
+on:
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.head.repo.fork }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install -r requirements.txt
+      - run: |
+          git fetch origin
+          mike deploy dev -p --allow-empty
+          echo "Preview URL: https://leanprover.cn/dev/" >> $GITHUB_STEP_SUMMARY
+
+      - name: Comment PR with Preview Link
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { payload } = context;
+            const prNumber = payload.number;
+            const baseUrl = 'https://leanprover.cn';
+            const previewLink = `${baseUrl}/dev/`;
+            const comments = await github.rest.issues.listComments({
+              issue_number: prNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            const existingComment = comments.data.find(comment => comment.body.includes(previewLink));
+            if (!existingComment) {
+              await github.rest.issues.createComment({
+                issue_number: prNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `Preview available at: ${previewLink}`
+              });
+            }

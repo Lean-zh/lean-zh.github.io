@@ -1,5 +1,0 @@
-- [README](README.md)
-  - [Lean4 安装教程及 Lake 环境管理](tutorial/install.md)
-  - [Lean4 游戏教程](tutorial/lean4game.md)
-  - [LeanDojo 使用教程](tutorial/lean-dojo.md)
-  - [Lake 官方文档](references/lake-doc.md)

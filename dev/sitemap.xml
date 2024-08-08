@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://leanprover.cn/dev/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/dev/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/deven/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/links/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/dev/links/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/deven/links/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/references/lake-doc/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/dev/references/lake-doc/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/deven/references/lake-doc/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/tutorial/install/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/dev/tutorial/install/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/deven/tutorial/install/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/tutorial/lean-dojo/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/dev/tutorial/lean-dojo/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/deven/tutorial/lean-dojo/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/tutorial/lean4game/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/dev/tutorial/lean4game/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/deven/tutorial/lean4game/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/en/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/dev/en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/dev"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/en/links/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/dev/en/links/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/devlinks/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/en/references/lake-doc/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/dev/en/references/lake-doc/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/devreferences/lake-doc/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/en/tutorial/install/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/dev/en/tutorial/install/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/devtutorial/install/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/en/tutorial/lean-dojo/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/dev/en/tutorial/lean-dojo/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/devtutorial/lean-dojo/"/>
+    </url>
+    <url>
+        <loc>https://leanprover.cn/dev/en/tutorial/lean4game/</loc>
+        <lastmod>2024-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://leanprover.cn/dev/en/tutorial/lean4game/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://leanprover.cn/devtutorial/lean4game/"/>
+    </url>
+</urlset>

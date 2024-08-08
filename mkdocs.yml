@@ -26,6 +26,16 @@ plugins:
       lang: zh
   - minify:
       minify_html: true
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          name: English
+          build: true
+        - locale: zh
+          name: 中文
+          default: true
+          build: true
 
 markdown_extensions:
   - admonition

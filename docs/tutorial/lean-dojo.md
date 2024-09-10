@@ -95,7 +95,6 @@ repo = LeanGitRepo("https://github.com/PatrickMassot/GlimpseOfLean", "8d73d32d90
 print("repo.url", repo.url)
 print("repo.commit", repo.commit)
 print("repo.repo", repo.repo)
-print("repo.lean_version", repo.lean_version)
 print(repo.get_config("lean-toolchain"))
 ```
 
@@ -105,11 +104,15 @@ print(repo.get_config("lean-toolchain"))
 repo.url https://github.com/PatrickMassot/GlimpseOfLean
 repo.commit 8d73d32d90ec2315616ad8e720754eeacfb96af6
 repo.repo Repository(full_name="PatrickMassot/GlimpseOfLean")
-repo.lean_version 873ef2d894af80d8fc672e35f7e28bae314a1f6f
 {'content': 'leanprover/lean4:v4.8.0-rc2\n'}
 ```
 
-这里 `lean_version` 是一个 commit hash，而不是直观的版本字符串。
+此外，从 2.1.0 版本开始，LeanDojo 支持追踪本地仓库：
+
+```python
+repo = LeanGitRepo("<local_path>", "<commit_hash>")
+repo = LeanGitRepo.from_path("<local_path>")
+```
 
 ### Trace 操作
 

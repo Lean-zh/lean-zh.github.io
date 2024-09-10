@@ -226,7 +226,7 @@ Lake uses a lot of terms common in software development -- like workspace, packa
 - A **package** is the **fundamental unit of code distribution in Lake**. Packages can be sourced from the local file system or downloaded from the web (e.g., via Git). The `package` declaration in package's lakefile names it and [defines its basic properties](https://github.com/leanprover/lean4/tree/master/src/lake#package-configuration-options).
 -->
 
-- **包（package）** 是 Lake **代码分发的基本单元**。包可以来源于本地文件系统，也可以从网络下载（如通过 Git）。包的 lakefile 中的 `package` 声明决定了包的名称，并[定义其基本属性](https://github.com/leanprover/lean4/tree/master/src/lake#package-configuration-options)。
+- **包（package）** 是 Lake **代码分发的基本单元**。包可以来源于本地文件系统，也可以从网络下载（如通过 Git）。包的 lakefile 中的 `package` 声明决定了包的名称，并[定义其基本属性](#包配置选项)。
 
 <!--
 - A **lakefile** is the Lean file that configures a package. It defines how to view, edit, build, and run the code within it, and it specifies what other packages it may require in order to do so.
@@ -238,43 +238,43 @@ Lake uses a lot of terms common in software development -- like workspace, packa
 - If package `B` requires package `A`, then package `A` is a **dependency** of package B and package `B` is its **dependent**. Package `A` is **upstream** of package `B` and package `B` is reversely **downstream** of package `A`. See the [Adding Dependencies section](https://github.com/leanprover/lean4/tree/master/src/lake#adding-dependencies) for details on how to specify dependencies.
 -->
 
-- 如果包 B 依赖包 A，包 A 就是包 B 的 **依赖**（dependency），而包 B 就是包 A 的 **下游依赖**（dependent）。包 A 是包 B 的 **上游**，反之包 B 是包 A 的 **下游**。参见[添加依赖](https://github.com/leanprover/lean4/tree/master/src/lake#adding-dependencies) 以了解如何指定依赖。
+- 如果包 B 依赖包 A，包 A 就是包 B 的 **依赖**（dependency），而包 B 就是包 A 的 **下游依赖**（dependent）。包 A 是包 B 的 **上游**，反之包 B 是包 A 的 **下游**。参见[添加依赖](#添加依赖) 以了解如何指定依赖。
 
 <!--
 - A **workspace** is the **broadest organizational unit in Lake**. It bundles together a package (termed the **root**), its transitive dependencies, and Lake's environment. Every package can operate as the root of a workspace and the workspace will derive its configuration from this root.
 -->
 
-- **工作空间（workspace）** 是 Lake 中 **最大的组织单元**。它将一个被称为 **根** 的包、其传递依赖以及 Lake 的环境组合在一起。每个包都可以作为工作区的根，并且工作区将从这个根派生其配置。
+- **工作空间（workspace）** 是 Lake 中 **最大的组织单元**。它将一个被称为 **root(根)** 的包、传递的依赖以及 Lake 的环境组合在一起。每个包都可以作为工作区的根，并且工作区将从这个根派生其配置。
 
 <!--
 A **module** is the **smallest unit of code visible to Lake's build system**. It is generally represented by a Lean source file and a set of binary libraries (i.e., a Lean `olean` and `ilean` plus a system shared library if `precompileModules` is turned on). Modules can import one another in order to use each other's code and Lake exists primarily to facilitate this process.
 -->
 
-- **模块（module）** 是 Lake **构建系统可见的最小代码单元**。模块通常由一个 Lean 源文件和一组二进制库文件（如 `olean` 和 `ilean`，若 `precompileModules` 选项开启，还包括系统共享库）组成。模块之间可以相互导入以使用彼此的代码，Lake 的主要作用就是促进这一过程。
+- **模块（module）** 是 Lake **构建系统可见的最小代码单元**。模块通常由一个 Lean 源文件和一组二进制库文件（如 `olean` 和 `ilean`，若开启 `precompileModules` 选项，还包括系统共享库）组成。模块之间可以相互导入以使用彼此的代码，Lake 的主要作用就是促进这一过程。
 
 <!--
 A **Lean library** is a collection of modules that share a single configuration. Its configuration defines a set of **module roots** that determines which modules are part of the library, and a set of **module globs** that selects which modules to build on a `lake build` of the library. See the [Lean Libraries section](https://github.com/leanprover/lean4/tree/master/src/lake#lean-libraries) for more details.
 -->
 
-- **Lean 库（Lean library）** 是一组共享同一配置的模块集合。其配置定义了一组 **模块根（module roots）**，用于确定哪些模块属于该库，以及一组 **模块全局模式（module globs）**，用于在库的 `lake build` 过程中选择要构建的模块。参见[Lean 库部分](https://github.com/leanprover/lean4/tree/master/src/lake#lean-libraries)了解更多详情。
+- **Lean 库（Lean library）** 是一组共享同一配置的模块集合。其配置定义了一组 **模块根（module roots）**，用于确定哪些模块属于该库，以及一组 **模块全局模式（module globs）**，用于在库的 `lake build` 过程中选择要构建的模块。参见[Lean 库部分](#lean-库)了解更多详情。
 
 <!--
 A **Lean binary executable** is a binary executable (i.e., a program a user can run on their computer without Lean installed) built from a Lean module termed its **root** (which should have a `main` definition). See the [Binary Executables section](https://github.com/leanprover/lean4/tree/master/src/lake#binary-executables) for more details.
 -->
 
-- **Lean 二进制可执行文件（Lean binary executable）** 是一个由根模块（其中应包含 `main` 定义）构建的二进制可执行文件（即用户在未安装 Lean 时就能在电脑上运行的程序）。参见[二进制可执行文件部分](https://github.com/leanprover/lean4/tree/master/src/lake#binary-executables)了解更多详情。
+- **Lean 二进制可执行文件（Lean binary executable）** 是一个由根模块（其中应包含 `main` 定义）构建的二进制可执行文件（即用户在未安装 Lean 时就能在电脑上运行的程序）。参见[二进制可执行文件部分](#二进制可执行文件)了解更多详情。
 
 <!--
 An **external library** is a native (static) library built from foreign code (e.g., C) that is required by a package's Lean code in order to function (e.g., because it uses `@[extern]` to invoke code written in a foreign language). An `extern_lib` target is used to inform Lake of such a requirement and instruct Lake on how to build requisite library. Lake then automatically links the external library when appropriate to give the Lean code access to the foreign functions (or, more technically, the foreign symbols) it needs. See the [External Libraries section](https://github.com/leanprover/lean4/tree/master/src/lake#external-libraries) for more details.
 -->
 
-- **外部库（external library）** 是由外部代码（如 C 语言）构建的原生（静态）库，Lean 代码需要这些库来实现功能（例如，使用 `@[extern]` 调用外部代码）。`extern_lib` 目标用于告知 Lake 此类需求并指示 Lake 如何构建必要的库。Lake 随后会在适当时自动链接外部库，以便使 Lean 代码能够访问所需的外部函数（或更专业地说，是外部符号）。参见[外部库部分](https://github.com/leanprover/lean4/tree/master/src/lake#external-libraries)了解更多详情。
+- **外部库（external library）** 是由外部代码（如 C 语言）构建的原生（静态）库，Lean 代码需要这些库来实现功能（例如，使用 `@[extern]` 调用外部代码）。`extern_lib` 目标用于告知 Lake 此类需求并指示 Lake 如何构建必要的库。Lake 随后会在适当时自动链接外部库，以便使 Lean 代码能够访问所需的外部函数（或更专业地说，是外部符号）。参见[外部库部分](#外部库)了解更多详情。
 
 <!--
 A **target** is the **fundamental build unit of Lake**. A package can defining any number of targets. Each target has a name, which is used to instruct Lake to build the target (e.g., through `lake build <target>`) and to keep track internally of a target's build status. Lake defines a set of builtin target types -- [Lean libraries](https://github.com/leanprover/lean4/tree/master/src/lake#lean-libraries), [binary executables](https://github.com/leanprover/lean4/tree/master/src/lake#binary-executables), and [external libraries](https://github.com/leanprover/lean4/tree/master/src/lake#external-libraries) -- but a user can [define their own custom targets as well](https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets). Complex types (e.g., packages, libraries, modules) have multiple facets, each of which count as separate buildable targets. See the [Defining Build Targets section](https://github.com/leanprover/lean4/tree/master/src/lake#defining-build-targets) for more details.
 -->
 
-- **目标（target）** 是 Lake **构建的基本单元**。一个包可以定义任意数量的目标。每个目标都有一个名称，用于指示 Lake 去构建该目标（例如，通过 `lake build <target>`）并在内部跟踪目标的构建状态。Lake 定义了一组内置目标类型 —— [Lean 库](https://github.com/leanprover/lean4/tree/master/src/lake#lean-libraries)、[二进制可执行文件](https://github.com/leanprover/lean4/tree/master/src/lake#binary-executables) 和 [外部库](https://github.com/leanprover/lean4/tree/master/src/lake#external-libraries) —— 但用户也可以[定义自己的自定义目标](https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets)。复杂类型（如包、库、模块）具有多个 facet，每个 facet 都算作独立的可构建目标。参见[定义构建目标部分](https://github.com/leanprover/lean4/tree/master/src/lake#defining-build-targets)了解更多详情。
+- **目标（target）** 是 Lake **构建的基本单元**。一个包可以定义任意数量的目标。每个目标都有一个名称，用于指示 Lake 去构建该目标（例如，通过 `lake build <target>`）并在内部跟踪目标的构建状态。Lake 定义了一组内置目标类型 —— [Lean 库](#lean-库)、[二进制可执行文件](#二进制可执行文件) 和 [外部库](#外部库) —— 但用户也可以[定义自己的自定义目标](#自定义目标)。复杂类型（如包、库、模块）具有多个 facet，每个 facet 都算作独立的可构建目标。参见[定义构建目标部分](#设定构建目标)了解更多详情。
 
 <!--
 A **facet** is an element built from another organizational unit (e.g., a package, module, library, etc.). For instance, Lake produces `olean`, `ilean`, `c`, and `o` files all from a single module. Each of these components are thus termed a _facet_ of the module. Similarly, Lake can build both static and shared binaries from a library. Thus, libraries have both `static` and `shared` facets. Lake also allows users to define their own custom facets to build from modules and packages, but this feature is currently experimental and not yet documented.
@@ -449,7 +449,7 @@ You can specify definition from a dependency as a package's test or lint driver 
 <!--
 These options define a cloud release for the package. See the section on [GitHub Release Builds](https://github.com/leanprover/lean4/tree/master/src/lake#github-release-builds) for more information.
 -->
-这些选项为包定义云发布。详细信息参见[GitHub 发布构建](https://github.com/leanprover/lean4/tree/master/src/lake#github-release-builds)部分。
+这些选项为包定义云发布。详细信息参见[GitHub 发布构建](#github-发布构建)部分。
 
 <!--
 - `releaseRepo`: The URL of the GitHub repository to upload and download releases of this package. If `none` (the default), for downloads, Lake uses the URL the package was download from (if it is a dependency) and for uploads, uses `gh`'s default.
@@ -661,7 +661,9 @@ A external library target is a non-Lean **static** library that will be linked
 
 外部库目标是一个非 Lean 的**静态**库，将链接到包及其依赖项的二进制文件（例如，它们的共享库和可执行文件）。
 
+<!-- 
 **Important:** For the external library to link properly when `precompileModules` is on, the static library produced by an `extern_lib` target must following the platform's naming conventions for libraries (i.e., be named `foo.a` on Windows and `libfoo.a` on Unix). To make this easy, there is the `Lake.nameToStaticLib` utility function to convert a library name into its proper file name for the platform.
+-->
 
 **重要:** 为了在 `precompileModules` 开启时外部库正确链接，由 `extern_lib` 目标生成的静态库必须遵循平台的库命名约定（即在 Windows 上命名为 `foo.a`，在 Unix 上命名为 `libfoo.a`）。为了简化此操作，可以使用 `Lake.nameToStaticLib` 实用函数将库名称转换为适合平台的正确文件名称。
 
@@ -929,7 +931,7 @@ Lake 支持将构建产物（即已归档的构建目录）上传到 GitHub 发�
 
 ### 下载
 
-要下载产物，用户应配置包的 [选项](https://github.com/leanprover/lean4/tree/master/src/lake#cloud-releases)`releaseRepo?` 和 `buildArchive?`，指向托管发布的 GitHub 仓库及其中的正确产物名称（如果默认设置不够）。然后，设置 `preferReleaseBuild := true` 以告知 Lake 获取并解压它作为额外的包依赖项。
+要下载产物，用户应配置包的 [选项](#云发布)`releaseRepo?` 和 `buildArchive?`，指向托管发布的 GitHub 仓库及其中的正确产物名称（如果默认设置不够）。然后，设置 `preferReleaseBuild := true` 以告知 Lake 获取并解压它作为额外的包依赖项。
 
 Lake 仅在其标准构建过程中才会获取发布构建，如果需要的包是依赖项（因为根包通常会被修改，因此不常与此方案兼容）。然而，如果希望获取根包的发布（例如，在克隆发布的源码后但在编辑之前），可以通过 `lake build :release` 手动执行此操作。
 

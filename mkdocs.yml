@@ -67,11 +67,11 @@ extra:
     alias: true
 
 nav:
-  - 主页: index.md
-  - 文档教程:
-    - Lean4 安装教程及 Lake 环境管理: tutorial/install.md
+  - 主页: 
+    - Lean-zh: index.md
+    - Lean4 安装教程: tutorial/install.md
     - Lean4Game 教程: tutorial/lean4game.md
     - LeanDojo 使用教程: tutorial/lean-dojo.md
-    - Lake 文档: references/lake-doc.md    
-  - 其他链接: links.md
+    - Lake 包管理教程: references/lake-doc.md    
+  - 官方教程: tutorials.md
 

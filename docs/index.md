@@ -28,15 +28,15 @@ Lean 是一个交互式定理证明器（Interactive Theorem Prover, ITP），�
 在形式化方面，Lean 提供了一套严格的逻辑和数学框架，使得用户可以进行精确的推理和证明。这个特性使得 Lean 在数学和计算机科学研究中非常有用，它可以帮助研究人员发现和改正概念上的错误，同时也让他们能够更深入地理解其研究主题。
 很多数学家选择使用 Lean 的标准库 mathlib 作为基础，这个仓库被称为[未来的数学图书馆](https://www.quantamagazine.org/building-the-mathematical-library-of-the-future-20201001/)。
 
+## Lean-zh
+
+Lean-zh 旨在提高 Lean 在中文学术和编程社区的普及和应用。
+
 
 ## 相关资源
 
-### 翻译及教程
+### 文档教程
   * [Lean4 安装及 Lake 环境管理](tutorial/install.md)
-  - <a href="https://www.leanprover.cn/GlimpseOfLean/" target="_blank"> Lean4 语言初探 <i class="fas fa-external-link-alt"></i></a>
-  - <a href="https://www.leanprover.cn/fp-lean-zh/" target="_blank"> Lean4 函数式编程 <i class="fas fa-external-link-alt"></i></a>
-  - <a href="https://www.leanprover.cn/tp-lean-zh/" target="_blank">Lean4 定理证明 <i class="fas fa-external-link-alt"></i> </a>
-  - <a href="https://game.leanprover.cn/#/g/local/NNG4" target="_blank"> Lean4 自然数游戏 <i class="fas fa-external-link-alt"></i></a>
   * [Lean4 游戏教程](tutorial/lean4game.md)
   * [LeanDojo 使用教程](tutorial/lean-dojo.md)
 

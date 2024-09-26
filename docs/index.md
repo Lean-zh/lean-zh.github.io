@@ -49,6 +49,7 @@ Lean-zh 是一个自发组成的团体，旨在推动 Lean 在中文学术和编
   - <a href="https://www.leanprover.cn/fp-lean-zh/" target="_blank"> Lean4 函数式编程 <i class="fas fa-external-link-alt"></i></a>
   - <a href="https://www.leanprover.cn/tp-lean-zh/" target="_blank">Lean4 定理证明 <i class="fas fa-external-link-alt"></i> </a>
   - <a href="https://game.leanprover.cn/#/g/local/NNG4" target="_blank"> Lean4 自然数游戏 <i class="fas fa-external-link-alt"></i></a>
+  - <a href="https://www.leanprover.cn/mp-lean-zh/" target="_blank">Lean4 元编程 <i class="fas fa-external-link-alt"></i> </a>
 
 ### 进行中
 

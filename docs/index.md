@@ -54,10 +54,10 @@ Lean-zh 是一个自发组成的团体，旨在推动 Lean 在中文学术和编
 ### 进行中
 
   * [GlimpseToGame 定理证明游戏的制作及翻译](https://github.com/Lean-zh/GlimpseGame)
+  * [Lean 形式化数学](https://www.leanprover.cn/math-in-lean-zh/)
 
 ### 计划中
-
-  * Lean 形式化数学：[Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/index.html)
+  * Tactic手册及如何编写tactic
   * LeanCopliot，LLMStep 等工具教程及实现机制
   * ...
 

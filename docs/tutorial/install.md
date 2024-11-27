@@ -52,36 +52,21 @@ del elan-x86_64-pc-windows-msvc.zip
 wget -q https://raw.githubusercontent.com/leanprover-community/mathlib4/master/scripts/install_debian.sh && bash install_debian.sh ; rm -f install_debian.sh && source ~/.profile
 ```
 
-该命令执行了一个脚本：[install_debian.sh](https://raw.githubusercontent.com/leanprover-community/mathlib4/master/scripts/install_debian.sh)，主要安装了 VsCode，Lean 插件，以及 elan。
+该命令通过执行脚本 [install_debian.sh](https://raw.githubusercontent.com/leanprover-community/mathlib4/master/scripts/install_debian.sh) 安装了 VsCode，Lean 插件，以及 elan。
 
-如果访问 GitHub 存在问题，可以在安装 VS Code 和 Lean 插件后，手动安装 elan。
+如果访问 GitHub 存在问题，可以手动安装 VS Code 和 Lean 插件以及 elan。
 
-在 GitHub [release 页面](https://github.com/leanprover/elan/releases)根据系统版本下载新版 elan，比如 `linux-x86_64` 系统的 elan 安装器地址为：
+具体地，访问 GitHub [release 页面](https://github.com/leanprover/elan/releases)或者 [上交镜像源](https://s3.jcloud.sjtu.edu.cn/899a892efef34b1b944a19981040f55b-oss01/elan/mirror_clone_list.html) ，根据系统版本下载新版 elan。
 
-```bash
-https://github.com/leanprover/elan/releases/download/v3.1.1/elan-x86_64-unknown-linux-gnu.tar.gz
-```
-
-或者在[上交镜像源](https://s3.jcloud.sjtu.edu.cn/899a892efef34b1b944a19981040f55b-oss01/elan/mirror_clone_list.html)下载，查询你自己系统对应的 elan 版本。
-
-如果不确定系统架构，执行 `uname -s` 和 `uname -m` 查看：
-
-```bash
-❯ uname -s
-Linux
-❯ uname -m
-x86_64
-```
-
-下载文件并解压：
+比如 `linux-x86_64` 系统的 elan 工具并解压：
 
 ```bash
 # 如果网络不行就本地下载再上传
-curl https://github.com/leanprover/elan/releases/download/v3.1.1/elan-x86_64-unknown-linux-gnu.tar.gz -o elan.tar.gz
+curl -L https://github.com/leanprover/elan/releases/download/v3.1.1/elan-x86_64-unknown-linux-gnu.tar.gz -o elan.tar.gz
 tar xf elan.tar.gz
 ```
 
-解压得到 `elan-init` 文件，赋予可执行权限并执行：
+解压得到 `elan-init` 文件，赋予可执行权限并执行安装：
 
 ```bash
 chmod +x elan-init
@@ -95,6 +80,7 @@ export PATH="$HOME/.elan/bin:$PATH"
 ```
 
 重启终端，检查 `elan` 版本和默认安装的 Lean 版本：
+
 ```bash
 ❯ elan -V
 elan 3.1.1 (71ddc6633 2024-02-22)

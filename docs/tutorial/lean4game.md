@@ -3,7 +3,7 @@
 
 本篇介绍如何用 Lean4Game 添加 Lean4 游戏。这类互动游戏不仅利于 Lean 本身的学习，还能促进对学科知识的理解，让关联的学科群体对 Lean 有更直观的认识。
 
-当前在个人服务器部署了社区游戏：[nng4.leanprover.cn](https://nng4.leanprover.cn) ，后续计划写一个李代数入门的（mark 开坑）。
+当前部署了 NNG4 游戏：[nng4.leanprover.cn](https://nng4.leanprover.cn) ，可在线体验，后续计划写一个李代数入门的（mark 开坑）。
 
 ### 相关项目与资源
 
@@ -13,7 +13,7 @@
 - **GameSkeleton**：Lean4 游戏的模板代码（[GitHub 仓库](https://github.com/hhu-adam/GameSkeleton.git)）。
 - **NNG4**：自然数游戏，从皮亚诺公理开始，构建自然数的基本运算和性质（[GitHub 仓库](https://github.com/leanprover-community/NNG4)）。
 
-社区官网目前贴了自然数和集合论等游戏，也欢迎根据自己的学科知识，贡献更多的游戏~
+社区官网目前提供了自然数和集合论等游戏，也欢迎根据自己的学科知识，贡献更多的游戏~
 
 <!-- ![20240623160501](https://qiniu.wzhecnu.cn/PicBed6/picgo/20240623160501.png) -->
 
@@ -23,7 +23,7 @@
 
 ### 下载游戏模板
 
-首先，下载 GameSkeleton 模板仓库：
+首先，下载 GameSkeleton 模板仓库，这个是网页上最终展示的内容：
 
 ```bash
 git clone https://github.com/hhu-adam/GameSkeleton.git
@@ -69,7 +69,7 @@ lake build
 
 Lean4Game 是游戏的前后端框架，用于创建游戏的主页面。
 
-首先，安装 Node.js 和 npm，然后下载 Lean4Game，并将其放在游戏的**同级目录**：
+首先，安装 Node.js 和 npm
 
 ```bash
 # 安装 nvm
@@ -77,6 +77,11 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 # 安装 nodejs
 nvm install node
 nvm use node
+```
+
+下载 Lean4Game，并将其放在游戏的**同级目录**：
+
+```bash
 # 下载 Lean4Game
 git clone https://github.com/leanprover-community/lean4game.git
 cd lean4game
@@ -84,21 +89,21 @@ cd lean4game
 npm install --force
 ```
 
-推荐使用的 Node 版本是 `22.2.0`。执行 `npm start` 启动游戏，或者指定服务端口：
+设置环境变量（可选）：
 
 ```bash
 export PORT=8080
 export CLIENT_PORT=3000
-npm start
+export VITE_CLIENT_DEFAULT_LANGUAGE=zh
 ```
 
-这里 `PORT` 为运行 Lean 代码的后端端口，默认是 8080；`CLIENT_PORT` 为前端访问端口，默认是 3000。
+其中 `PORT` 为运行 Lean 代码的后端端口，默认是 `8080`；`CLIENT_PORT` 为前端访问端口，默认是 `3000`；`VITE_CLIENT_DEFAULT_LANGUAGE` 为界面语言，默认为 `en`。
 
-如果看到以下页面，就表示访问成功：
+执行 `npm start` 启动游戏，如果看到以下页面，就表示访问成功：
 
 ![20240623121710](https://qiniu.wzhecnu.cn/PicBed6/picgo/20240623121710.png)
 
-此外，可以在右上角的偏好设置中选择语言：
+此外，可以在右上角的偏好设置切换语言：
 
 ![20240623164430](https://qiniu.wzhecnu.cn/PicBed6/picgo/20240623164430.png)
 

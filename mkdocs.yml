@@ -69,8 +69,11 @@ extra:
 nav:
   - 主页: 
     - Lean-zh: index.md
-    - Lean4 安装教程: tutorial/install.md
+    - 安装指南: tutorial/install.md
+  - 教程:
+    - elan 及 lake 用法: tutorial/elan-lake.md
     - Lean4Game 教程: tutorial/lean4game.md
     - LeanDojo 使用教程: tutorial/lean-dojo.md
+  - 文档:
     - Lake 包管理教程: references/lake-doc.md    
 

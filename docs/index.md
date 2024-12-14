@@ -21,12 +21,11 @@ description: Lean-zh Documentation
 </div>
 
 
-## Lean 简介
+## Lean 是什么？
 
 Lean 是一个交互式定理证明器（Interactive Theorem Prover, ITP），也是一门通用函数式编程语言。微软研究院在 2013 年推出这一计算机定理证明器，数学家可以把数学定理转换成代码，再输入到 Lean 中，让程序来验证定理是否正确。当被视为编程语言时，Lean 是一种具有 **依赖类型** 的 **严格** 的 **纯函数式** 语言(strict pure functional with dependent types)。
 
-在形式化方面，Lean 提供了一套严格的逻辑和数学框架，使得用户可以进行精确的推理和证明。这个特性使得 Lean 在数学和计算机科学研究中非常有用，它可以帮助研究人员发现和改正概念上的错误，同时也让他们能够更深入地理解其研究主题。
-很多数学家选择使用 Lean 的标准库 mathlib 作为基础，这个仓库被称为[未来的数学图书馆](https://www.quantamagazine.org/building-the-mathematical-library-of-the-future-20201001/)。
+在形式化方面，Lean 提供了一套严格的逻辑和数学框架，使得用户可以进行精确的推理和证明。这个特性使得 Lean 在数学和计算机科学研究中非常有用，它可以帮助研究人员发现和改正概念上的错误，同时也让他们能够更深入地理解其研究主题。Lean 的标准库 mathlib 也被称为[未来的数学图书馆](https://www.quantamagazine.org/building-the-mathematical-library-of-the-future-20201001/)。
 
 ## Lean-zh
 
@@ -35,15 +34,15 @@ Lean-zh 是一个自发组成的团体，旨在推动 Lean 在中文学术和编
 如果你对 Lean 感兴趣，对编写 Lean 教程、翻译官方文档、开发 Lean 项目，或者任何其他形式的贡献感兴趣，欢迎加入我们。
 
 
-## 相关工作
+## 文档及教程
 
-### Lean4 教程
+Lean4 教程：
 
   * [Lean4 安装教程](tutorial/install.md)
   * [Lean4Game 游戏编写教程](tutorial/lean4game.md)
   * [LeanDojo 使用教程](tutorial/lean-dojo.md)
 
-### 文档翻译
+文档翻译：
 
   - <a href="https://www.leanprover.cn/GlimpseOfLean/" target="_blank"> Lean4 语言初探 <i class="fas fa-external-link-alt"></i></a>
   - <a href="https://www.leanprover.cn/fp-lean-zh/" target="_blank"> Lean4 函数式编程 <i class="fas fa-external-link-alt"></i></a>
@@ -67,7 +66,8 @@ Lean-zh 是一个自发组成的团体，旨在推动 Lean 在中文学术和编
   * [编程语言基础：Agda 描述](https://agda-zh.github.io/PLFA-zh/)
 
 ## 其他链接
-  
+
+Lean-zh 相关：
   * Lean-zh 官网: https://leanprover.cn
   * Lean 社区官网: https://lean-lang.org
   * Lean 的 Zulip 社区: https://leanprover.zulipchat.com

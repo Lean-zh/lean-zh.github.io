@@ -40,6 +40,7 @@ elan 在 Windows 下的管理目录为 `%USERPROFILE%\.elan\bin`，在 Linux 下
 ```
 
 文件说明：
+
 - `toolchains` 存放下载的各个 Lean 版本
 - `settings.toml` 是 elan 的配置文件。
 - `bin` 存放常用的二进制文件，比如 `lake`。
@@ -93,6 +94,7 @@ require mathlib from git
 保存文件后 VS code 会提示 "Restart Lean"，点不点都没关系。
 
 下面要下载 Mathlib，注意让终端路径在你的项目文件夹下。如果你的网络情况好，那么在终端中运行
+
 ```bash
 curl -L https://raw.githubusercontent.com/leanprover-community/mathlib4/master/lean-toolchain -o lean-toolchain
 lake update
@@ -116,11 +118,13 @@ unpacked in 12345 ms
 同时你的项目文件夹中出现了 `.lake\packages` 文件夹，那么证明你安装 Mathlib 成功了，此时 "Restart Lean" 即可使用。**注意：你要在项目所在的目录中运行 VS code，才能让 Lean 使用Mathlib。**
 
 这里提供一个实例来测试你的安装：
+
 ```bash
 import Mathlib.Data.Real.Basic
 example (a b : ℝ) : a * b = b * a := by
   rw [mul_comm a b]
 ```
+
 如果你的 Lean infoview 没有任何报错，并且光标放在文件最后一行时会提示 "No goals"，证明你的 Mathlib 已经正确安装了。
 
 如果你想更新 Mathlib，在终端中运行
@@ -148,4 +152,4 @@ lake update
 lake run <script>
 ```
 
-关于 Lake 的更多用法可参考[ lake 文档](../references/lake-doc.md)。
+关于 Lake 的更多用法可参考 [lake 文档](../references/lake-doc.md)。

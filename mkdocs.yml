@@ -69,11 +69,16 @@ extra:
 nav:
   - 主页: 
     - Lean-zh: index.md
-    - 安装指南: tutorial/install.md
-  - 教程:
-    - elan 及 lake 用法: tutorial/elan-lake.md
+    - 安装指南: install.md
+  - 交互工具:
+    - LeanDojo 教程: tutorial/lean-dojo.md
+    - REPL 教程: tutorial/repl.md
+    - PantoGraph 教程: tutorial/pantograph.md
+    - jixia 数据分析: tutorial/jixia.md
+    - Jupyter-lean 教程: tutorial/jupyter-lean.md
+  - 文档翻译:
+    - Lake 包管理: references/lake-doc.md    
+  - 其他教程:
+    - 版本管理与包管理: tutorial/elan-lake.md
     - Lean4Game 教程: tutorial/lean4game.md
-    - LeanDojo 使用教程: tutorial/lean-dojo.md
-  - 文档:
-    - Lake 包管理教程: references/lake-doc.md    
-
+    - Lean4web 在线编译器: tutorial/lean4web.md

@@ -122,7 +122,7 @@ repo = LeanGitRepo.from_path("<local_path>")
 from lean_dojo import trace
 
 repo = LeanGitRepo("https://github.com/yangky11/lean4-example", "04e29174a45eefaccb49b835a372aa762321194e")
-trace(repo, dst_dir="traced_lean4-example")
+trace(repo, dst_dir="traced_lean4-example", build_deps=False)
 ```
 
 `trace` 主要执行以下步骤：

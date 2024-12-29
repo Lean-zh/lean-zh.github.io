@@ -20,61 +20,75 @@ description: Lean-zh Documentation
   </a>
 </div>
 
-## Lean 是什么？
+## Lean 是什么
 
-Lean 是一个交互式定理证明器（Interactive Theorem Prover, ITP），也是一门通用函数式编程语言。微软研究院在 2013 年推出这一计算机定理证明器，数学家可以把数学定理转换成代码，再输入到 Lean 中，让程序来验证定理是否正确。当被视为编程语言时，Lean 是一种具有 **依赖类型** 的 **严格** 的 **纯函数式** 语言(strict pure functional with dependent types)。
+Lean 是微软研究院在 2013 年推出的计算机定理证明器。Lean4 于 2021 年发布，为 Lean 定理证明器的重新实现，能够生成 C 代码后进行编译，以便开发高效的特定领域自动化。
 
-在形式化方面，Lean 提供了一套严格的逻辑和数学框架，使得用户可以进行精确的推理和证明。这个特性使得 Lean 在数学和计算机科学研究中非常有用，它可以帮助研究人员发现和改正概念上的错误，同时也让他们能够更深入地理解其研究主题。Lean 的标准库 mathlib 也被称为[未来的数学图书馆](https://www.quantamagazine.org/building-the-mathematical-library-of-the-future-20201001/)。
+Lean 作为一门独特的语言，兼具 **数学和编程** 两方面的特性。
+
+- 作为交互式定理证明器，Lean 提供了严格的逻辑框架，**数学家可以将数学定理转换成代码，并严格验证这些定理的正确性**。
+- 作为通用函数式编程语言，它具有 **依赖类型** 的 **严格** 的 **纯函数式** 语言性质。
+
+这些特性让 Lean 在数学和计算机科学研究中非常有用，它可以帮助研究人员发现并纠正概念上的错误，同时加深他们对研究对象的理解。Lean 的标准库 [mathlib](https://github.com/leanprover-community/mathlib4) 被称为[未来的数学图书馆](https://www.quantamagazine.org/building-the-mathematical-library-of-the-future-20201001/)。
 
 ## 关于 Lean-zh
 
 Lean-zh 是一个自发组成的团体，旨在推动 Lean 在中文学术和编程社区的普及和应用。
 
-如果你对 Lean 感兴趣，对编写 Lean 教程、翻译官方文档、开发 Lean 项目，或者任何其他形式的贡献感兴趣，欢迎加入我们。
+Lean-zh 提供了一个学习与实践的平台，如果你对 Lean 感兴趣，无论是参与编写 Lean 教程、翻译官方文档、开发 Lean 项目，还是以其他方式贡献力量，欢迎你的加入！
 
-相关链接：
+### 快速上手
 
-* Lean-zh 官网：<https://leanprover.cn>
-* 自然数游戏: <https://nng4.leanprover.cn>
-* Lean 在线编辑器：<https://live.leanprover.cn>
+学习 Lean 的教程和途径很多，具体取决于个人的知识背景和偏好。这些教程有偏数学的也有偏编程的。
 
-## 文档及教程
+**数学方面**：
 
-Lean4 教程：
+1. 自然数游戏 [NNG4](https://nng4.leanprover.cn)：在线交互式 Lean 教程，重点在证明自然数基本运算的属性。此外，Lean Game Server 托管各种学习游戏，包括集合论、逻辑和 Robo（一个关于本科数学的故事）等。
+2. 快速上手的[ Lean 初探教程](https://github.com/Lean-zh/GlimpseOfLean)：涵盖使用 Lean 证明的一些基本概念，也包括初级分析、初等数论和数理逻辑的独立主题。
 
-* [Lean4 安装教程](tutorial/install.md)
-* [Lean4Game 游戏编写教程](tutorial/lean4game.md)
-* [LeanDojo 使用教程](tutorial/lean-dojo.md)
+**编程方面**：可以浏览网站顶部的其他标签，包括与 Lean 交互的常用编程工具和 Lean 项目教程等，教程干货正在路上。。。
 
-文档翻译：
+### Lean-zh 译制
 
-- <a href="https://www.leanprover.cn/GlimpseOfLean/" target="_blank"> Lean4 语言初探 <i class="fas fa-external-link-alt"></i></a>
-- <a href="https://www.leanprover.cn/fp-lean-zh/" target="_blank"> Lean4 函数式编程 <i class="fas fa-external-link-alt"></i></a>
-- <a href="https://www.leanprover.cn/tp-lean-zh/" target="_blank">Lean4 定理证明 <i class="fas fa-external-link-alt"></i> </a>
-- <a href="https://game.leanprover.cn/#/g/local/NNG4" target="_blank"> Lean4 自然数游戏 <i class="fas fa-external-link-alt"></i></a>
-- <a href="https://www.leanprover.cn/mp-lean-zh/" target="_blank">Lean4 元编程 <i class="fas fa-external-link-alt"></i> </a>
+目前 Lean-zh 已翻译的资源：
 
-### 进行中
+- [Lean4 函数式编程（Functional Programming in Lean）](https://www.leanprover.cn/fp-lean-zh/)
+- [Lean4 定理证明（Theorem Proving in Lean）](https://www.leanprover.cn/tp-lean-zh/)
+- [Lean4 元编程（Metaprogramming in Lean）](https://www.leanprover.cn/mp-lean-zh/)
 
-* [GlimpseToGame 定理证明游戏制作及翻译](https://github.com/Lean-zh/GlimpseGame)
-* [Lean 形式化数学](https://www.leanprover.cn/math-in-lean-zh/)
+**进行中**
 
-### 计划中
+* [Lean 形式化数学(Mathematics in Lean)](https://www.leanprover.cn/math-in-lean-zh/)
+* Lean 交互工具和实用项目的教程介绍
 
-* Tactic手册及如何编写tactic
-* LeanCopliot，LLMStep 等工具教程及实现机制
+**计划进行**
+
+* [GlimpseToGame 定理证明游戏制作及翻译](https://github.com/Lean-zh/GlimpseToGame)
+* Tactic 手册及如何编写 tactic
+* LeanCopliot，LLMStep 等实用工具教程及实现机制
 * ...
 
-### 相关推荐
+
+### 联系我们
+
+如果有任何问题、建议或想参与到社区中来，欢迎加入 QQ 群 897971266 或 Telegram [讨论组](https://t.me/Lean_zh_CN) 来一起交流。
+
+## 其他资源
+
+**数学导向**：
+
+  - 经典教材 [Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/)
+  - 节奏更缓的 [The Mechanics of Proof](https://hrmacbeth.github.io/math2001/)
+  - 从类型论基础出发的 [Theorem Proving in Lean](https://leanprover.github.io/theorem_proving_in_lean4/title_page.html)
+
+**计算机导向**：
+
+  - 侧重将 Lean 作为编程语言的 [Functional Programming in Lean](https://leanprover.github.io/functional_programming_in_lean/)
+  - 侧重元编程策略编写的 [Metaprogramming in Lean](https://github.com/arthurpaulino/lean4-metaprogramming-book)
+  - 更关注 LEAN 本身而不仅是使用的 [Reference manual](https://leanprover.github.io/lean4/doc/)
+  - 计算机科学角度的 [The Hitchhiker's Guide to Logical Verification](https://raw.githubusercontent.com/blanchette/logical_verification_2023/main/hitchhikers_guide.pdf)
+
+**其他推荐**：
 
 * 软件基础：[Software Foundations](https://coq-zh.github.io/SF-zh/)
 * [编程语言基础：Agda 描述](https://agda-zh.github.io/PLFA-zh/)
-
-## 其他链接
-
-Lean 社区官网: https://lean-lang.org
-Lean 社区 Zulip 论坛: https://leanprover.zulipchat.com
-
-## 联系我们
-
-如果有任何问题、建议或想参与到社区中来，欢迎加入 QQ 群 897971266 或 Telegram [讨论组](https://t.me/Lean_zh_CN) 来一起交流。

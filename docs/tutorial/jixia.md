@@ -1,4 +1,4 @@
-# jixia 数据分析
+# jixia 数据分析 | TODO
 
 jixia 是一个为 Lean 4 设计的新静态分析工具，其旨在支持构建具有 Lean 感知能力的集成开发环境（IDE），并为机器学习提取有用的数据。该项目是北京大学数学科学学院（BICMR）人工智能与数学程序项目的一部分。"jixia" 这个名字来源于历史上的“稷下学宫”，位于现在的山东淄博。
 
@@ -74,98 +74,6 @@ example : ∀ (p q: Prop), p ∨ q → q ∨ p := by
 lake exe jixia -d test.decl.json -s test.sym.json -e test.elab.json -l test.lines.json test.lean
 ```
 
-输出结果：
+## 参数介绍
 
-```json
-[
-  {
-    "value": {
-      "range": [
-        60,
-        181
-      ],
-      "original": true
-    },
-    "type": {
-      "range": [
-        23,
-        59
-      ],
-      "original": true
-    },
-    "signature": {
-      "str": " : ∀ (p q : Prop), p ∨ q → q ∨ p",
-      "range": [
-        21,
-        59
-      ],
-      "original": true
-    },
-    "scopeInfo": {
-      "varDecls": [],
-      "openDecl": [],
-      "omitVars": [],
-      "levelNames": [],
-      "includeVars": [],
-      "currNamespace": []
-    },
-    "ref": {
-      "str": "example : ∀ (p q : Prop), p ∨ q → q ∨ p := by\n  intro p q h\n  cases h\n  . apply Or.inr\n    assumption\n  . apply Or.inl\n    assumption",
-      "range": [
-        13,
-        181
-      ],
-      "original": true
-    },
-    "params": [],
-    "name": [
-      "_example"
-    ],
-    "modifiers": {
-      "visibility": "regular",
-      "recKind": "default",
-      "isUnsafe": false,
-      "isNoncomputable": false,
-      "attrs": []
-    },
-    "kind": "example",
-    "id": {
-      "range": [
-        13,
-        181
-      ],
-      "original": false
-    }
-  }
-]
-```
-
-
-
-
-
-
-要分析单个文件，可以使用以下命令：
-
-```sh
-/path/to/jixia -d Example.decl.json -s Example.sym.json -e Example.elab.json -l Example.lines.json Example.lean
-```
-
-该命令会从声明、符号、精化和行插件生成相应的 JSON 文件。如果省略了某个标志，相应的插件将不会运行。
-
-要分析包中的模块，首先需要使用 `lake build` 命令构建你的包（对于基于 mathlib 的项目，使用 `lake exe cache get`）。还需要设置环境变量以使导入工作，或者在你的项目根目录（即包含 lakefile.lean 的目录）中运行以下命令：
-
-```sh
-lake env /path/to/jixia -d Example.decl.json [...其他参数]
-```
-
-### 注意事项
-- 初始化：如果文件包含 `initialize` 命令，可能需要使用 `-i` 标志来启用初始化器的执行。特别是，在分析 mathlib4 时应包含此标志。
-- 编译器兼容性：jixia 必须与要分析的文件使用完全相同的 Lean 版本构建。jixia 已知与 Lean v4.13.0 兼容。
-
-### 常见问题解答
-- “未知的模块前缀 ...” ：使用 `lake env`。
-- “... 无法评估 [init] 声明” ：使用 `-i` 标志。
-- “... 无法读取文件 ..., 无效的头部” ：构建 jixia 使用的 Lean 版本必须与目标文件/项目完全匹配。 
-
-以上就是 jixia 工具及其基本用法的介绍。希望这些信息能够帮助你更好地了解和利用这个工具。
+TODO。

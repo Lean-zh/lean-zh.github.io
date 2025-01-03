@@ -70,6 +70,8 @@ nav:
   - 主页: 
     - Lean-zh: index.md
     - 安装指南: install.md
+    - 版本管理与包管理: tutorial/elan-lake.md
+    - Lake 包管理: references/lake-doc.md   
   - 交互工具:
     - LeanDojo 教程: tutorial/lean-dojo.md
     - REPL 教程: tutorial/repl.md
@@ -78,7 +80,4 @@ nav:
   - 项目教程:
     - Lean4web 在线编译器: tutorial/lean4web.md
     - jixia 数据分析: tutorial/jixia.md
-    - Lean4Game 教程: tutorial/lean4game.md
-  - 其他:
-    - 版本管理与包管理: tutorial/elan-lake.md
-    - Lake 包管理: references/lake-doc.md    
+    - Lean4Game 教程: tutorial/lean4game.md     

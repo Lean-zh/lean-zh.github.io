@@ -81,3 +81,6 @@ nav:
     - Lean4web 在线编译器: tutorial/lean4web.md
     - jixia 数据分析: tutorial/jixia.md
     - Lean4Game 教程: tutorial/lean4game.md     
+  - 贡献指南:
+    - 文档翻译: contribute/translation.md
+    - 项目教程: contribute/project.md

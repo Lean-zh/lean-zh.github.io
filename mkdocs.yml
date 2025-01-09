@@ -78,9 +78,11 @@ nav:
     - PantoGraph 教程: tutorial/pantograph.md
     - Lean4 Jupyter: tutorial/lean4-jupyter.md
   - 项目教程:
-    - Lean4web 在线编译器: tutorial/lean4web.md
-    - jixia 数据分析: tutorial/jixia.md
-    - Lean4Game 教程: tutorial/lean4game.md     
+    - Lean4web 在线编译器: projects/lean4web.md
+    - jixia 数据分析: projects/jixia.md
+    - Lean4Game 教程: projects/lean4game.md
+    - BluePrints 教程: projects/blueprints.md
   - 贡献指南:
+    - 指引: contribute/guide.md
     - 文档翻译: contribute/translation.md
     - 项目教程: contribute/project.md

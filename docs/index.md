@@ -59,7 +59,8 @@ Lean-zh 提供了一个学习与实践的平台，如果你对 Lean 感兴趣，
 **进行中**
 
 * [Lean 形式化数学(Mathematics in Lean)](https://www.leanprover.cn/math-in-lean-zh/)
-* Lean 交互工具和实用项目的教程介绍
+* Lean 交互工具的使用教程
+* Lean 项目的实践教程
 
 **计划进行**
 

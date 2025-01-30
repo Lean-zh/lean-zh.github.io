@@ -70,7 +70,7 @@ nav:
   - 主页: 
     - Lean-zh: index.md
     - 安装指南: install.md
-    - 版本管理与包管理: tutorial/elan-lake.md
+    - Lean4 工具链: tutorial/elan-lake.md
     - Lake 包管理: references/lake-doc.md   
   - 交互工具:
     - LeanDojo 教程: tutorial/lean-dojo.md

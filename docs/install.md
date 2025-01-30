@@ -1,18 +1,22 @@
-# LEAN 4 安装教程 
+# LEAN 4 安装教程
 
-Lean 4 工作环境由以下几部分组成：
+Lean 是一个开源的定理证明助手和函数式编程语言，由微软研究院开发。它既可以用于形式化数学证明，也可以用于通用程序设计。
 
-1. [elan](https://github.com/leanprover/elan)：Lean 版本管理器。功能类似于 Rust 的 `rustup` 或 Node.js 的 `nvm`，用于安装、管理和切换不同版本的 Lean。
-2. [lake](https://github.com/leanprover/lake)：Lean 的包管理器，全称 Lean Make，已合并为 Lean 4 仓库源码的一部分。用于创建 Lean 项目，构建 Lean 包，配置 Mathlib 和编译 Lean 可执行文件。
-3. （非必须）[Mathlib](https://leanprover-community.github.io/mathlib4_docs/)：Lean 的数学库。
+## Lean 4 工具链
 
-为了使用 Lean，你需要先安装 [VS Code](https://code.visualstudio.com/) 和 Git，然后安装 elan，elan 会自动帮你安装 Lean 4 stable 以及 lake 包管理器，接下来就可以使用 lake 创建自己的 Lean 项目。
+Lean 4 的完整开发环境由以下核心组件构成：
 
-> 如果希望快速了解和使用 Lean，除了在本地安装，也可以通过 [live.lean-lang.org](https://live.lean-lang.org) 或 [live.leanprover.cn](https://live.leanprover.cn) 在线体验。
+1. [elan](https://github.com/leanprover/elan)：Lean 的版本管理工具，用于安装、管理和切换不同版本的 Lean，类似于 Rust 的 `rustup` 或 Node.js 的 `nvm`。
+2. [lake](https://github.com/leanprover/lake)（Lean Make）：Lean 的包管理器和构建器，已集成到 Lean 4 核心仓库中。用于创建 Lean 项目，构建 Lean 包,编译 Lean 可执行文件等。
+3. [lean](https://github.com/leanprover/lean4)：语言本身的核心组件，负责实际的代码编译和语言服务器协议（LSP）支持，用户不需要直接与 `lean` 交互。
+
+此外，还有 Lean 的标准数学库 [Mathlib](https://leanprover-community.github.io/mathlib4_docs/)，包含大量数学定义和定理，以及实用的证明工具和策略。
+
+为了使用 Lean，需要先安装 [VS Code](https://code.visualstudio.com/) 和 Git，然后安装 elan。再通过 elan 安装各个 Lean4 版本以及 lake 包管理器，接下来就可以使用 lake 创建自己的 Lean 项目。工具链的用法示例参见 [Lean 工具链](tutorial/elan-lake.md) 一节或 [lake 文档](references/lake-doc.md)。
+
+> 如果希望快速了解和使用 Lean，除了在本地安装，也可以直接访问 [live.lean-lang.org](https://live.lean-lang.org) 或 [live.leanprover.cn](https://live.leanprover.cn) 在线体验。
 
 ## Linux 安装 elan
-
-以下内容在 Ubuntu 22.04 系统上测试通过。
 
 如果没有网络问题，用一行命令安装：
 
@@ -20,7 +24,7 @@ Lean 4 工作环境由以下几部分组成：
 wget -q https://raw.githubusercontent.com/leanprover-community/mathlib4/master/scripts/install_debian.sh && bash install_debian.sh ; rm -f install_debian.sh && source ~/.profile
 ```
 
-脚本执行内容包括：检查并安装 VsCode，Lean 插件以及 elan。
+脚本内容包括：检查并安装 VsCode，Lean 插件，并安装 elan。
 
 如果访问 GitHub 存在问题，可以在安装 vscode 后，手动安装 elan。
 
@@ -72,11 +76,11 @@ powershell -ExecutionPolicy Bypass -f elan-init.ps1
 del elan-init.ps1
 ```
 
-如果遇到了 `"SSL connect error", "Timeout was reached","Failed to connect to github.com port 443"...` 等错误，就是说明你的网络环境不理想。如果这样可以通过[上交镜像源](https://s3.jcloud.sjtu.edu.cn/899a892efef34b1b944a19981040f55b-oss01/elan/mirror_clone_list.html)安装。下面演示在网络环境不理想的条件下的安装。
+如果遇到了 `"SSL connect error", "Timeout was reached","Failed to connect to github.com port 443"...` 等错误，就是说明你的网络环境不理想。如果这样可以通过[上交镜像源](https://s3.jcloud.sjtu.edu.cn/899a892efef34b1b944a19981040f55b-oss01/elan/elan/releases/download/mirror_clone_list.html)下载安装。下面演示在网络环境不理想的条件下的安装。
 
 打开 cmd 或 Powershell，运行
 ```
-curl -O --location https://s3.jcloud.sjtu.edu.cn/899a892efef34b1b944a19981040f55b-oss01/elan/elan/releases/download/eager-resolution-v5/elan-x86_64-pc-windows-msvc.zip
+curl -O --location https://s3.jcloud.sjtu.edu.cn/899a892efef34b1b944a19981040f55b-oss01/elan/elan/releases/download/v4.0.0-rc1/elan-x86_64-pc-windows-msvc.zip
 unzip -o elan-x86_64-pc-windows-msvc.zip
 .\elan-init.exe
 ```

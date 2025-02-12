@@ -71,7 +71,8 @@ nav:
     - Lean-zh: index.md
     - 安装指南: install.md
     - Lean4 工具链: tutorial/elan-lake.md
-    - Lake 包管理: references/lake-doc.md   
+    - Lake 包管理: references/lake-doc.md
+    - 项目示例 - 元编程: projects/meta-example.md
   - 交互工具:
     - LeanDojo 教程: tutorial/lean-dojo.md
     - REPL 教程: tutorial/repl.md

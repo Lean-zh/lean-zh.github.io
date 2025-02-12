@@ -34,7 +34,7 @@ wget -q https://raw.githubusercontent.com/leanprover-community/mathlib4/master/s
 
 ```bash
 # 如果网络不行就本地下载再上传
-curl -L https://github.com/leanprover/elan/releases/download/v3.1.1/elan-x86_64-unknown-linux-gnu.tar.gz -o elan.tar.gz
+curl -L https://github.com/leanprover/elan/releases/download/v4.0.0/elan-x86_64-unknown-linux-gnu.tar.gz -o elan.tar.gz
 tar xf elan.tar.gz
 ```
 

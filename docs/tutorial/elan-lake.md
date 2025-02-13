@@ -1,8 +1,6 @@
 # Lean 工具链使用指南
 
-[上篇](../install.md)安装 Lean4 提到了 Lean 项目开发的三件套：版本管理器 [elan](https://github.com/leanprover/elan) + 包管理器和构建工具 [lake](https://github.com/leanprover/lake) + 语言本身的核心组件 [lean](https://github.com/leanprover/lean4)。下边分别介绍这三个工具的基本用法。
-
-> 这类设计与其他编程语言类似，如 Rust（rustup + cargo + rustc）或 Node.js（nvm + npm + node）。
+[前文](../install.md)安装 Lean4 提到了 Lean 项目开发的三件套：版本管理器 [elan](https://github.com/leanprover/elan) + 包管理器和构建工具 [lake](https://github.com/leanprover/lake) + 语言本身的核心组件 [lean](https://github.com/leanprover/lean4)。本篇分别介绍这三个工具的基本用法。
 
 ## elan 常用功能
 
@@ -71,7 +69,7 @@ elan 配置记录可以在 `~/.elan/settings.toml` 查看。
 - `settings.toml` 是 elan 的配置文件。
 - `bin` 存放常用的二进制文件，比如 `lake`。
 
-## Lake 基本用法
+## lake 基本用法
 
 [lake](https://github.com/leanprover/lake) 全称 Lean Make，是 Lean 4 的包管理器，用于创建 Lean 项目，构建 Lean 包和编译 Lean 可执行文件。
 
@@ -179,7 +177,7 @@ lake update
 lake run <script>
 ```
 
-## lean
+## lean 检验证明
 
 [lean](https://github.com/leanprover/lean4) 是语言本身的核心组件，通常不需要直接与 `lean` 交互。
 
@@ -202,7 +200,7 @@ elan run leanprover/lean4:v4.10.0 lean --run hello.lean
 # Version: 4.10.0
 ```
 
-验证 Lean 代码：
+验证 Lean 证明代码：
 
 ```lean
 -- proof.lean

@@ -267,7 +267,7 @@ echo '{ "cmd": "import Mathlib" }' | lake env /path/to/repl/.lake/build/bin/repl
 
 ## 更多示例
 
-最后，附上 REPL 测试代码提供的示例，为展示方便，我们将输出结果拼接到对应的输入行后边。
+最后，附上 REPL 提供的测试示例，以下内容由模型结合测试代码生成。
 
 ### 基础示例：检查变量定义
 

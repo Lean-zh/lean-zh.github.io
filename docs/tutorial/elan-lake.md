@@ -1,23 +1,47 @@
-# elan 及 Lake 用法示例
+# Lean 工具链使用指南
+
+[前文](../install.md)安装 Lean4 提到了 Lean 项目开发的三件套：版本管理器 [elan](https://github.com/leanprover/elan) + 包管理器和构建工具 [lake](https://github.com/leanprover/lake) + 语言本身的核心组件 [lean](https://github.com/leanprover/lean4)。本篇分别介绍这三个工具的基本用法。
 
 ## elan 常用功能
 
-[elan](https://github.com/leanprover/elan) 是 Lean 环境版本管理器，用于安装、管理和切换不同版本的 Lean。
+[elan](https://github.com/leanprover/elan) 是 Lean 版本管理器，用于安装、管理和切换不同版本的 Lean。
+
+版本管理：
 
 ```bash
 elan --version   # 输出版本号来测试安装是否成功
 elan self update # 更新 elan
 elan show        # 显示已安装的 Lean 版本
 
-# 切换默认的 Lean 版本，例如 leanprover/lean4:v4.11.0-rc1 
-# stable 是最新稳定版本，所有版本可见 https://github.com/leanprover/lean4/releases
+# 下载指定 Lean 版本，所有版本可见 https://github.com/leanprover/lean4/releases
+elan install leanprover/lean4:v4.10.0
+
+# 下载最新稳定版本 stable
 elan default leanprover/lean4:stable 
 
-# 也可设置，只在当前目录下使用的 Lean 版本
+# 切换默认的 Lean 版本
+# 切换到 leanprover/lean4:v4.11.0-rc1 
+elan default leanprover/lean4:v4.11.0-rc1 
+
+# 设置在当前目录下使用的 Lean 版本
 elan override set leanprover/lean4:stable
+# info: info: override toolchain for 'xxx' set to 'leanprover/lean4:stable'
 ```
 
-elan 在 Windows 下的管理目录为 `%USERPROFILE%\.elan\bin`，在 Linux 下的管理目录为 `$HOME/.elan`，内容形如
+指定版本运行 `lake` 或 `lean` 命令：
+
+```bash
+lake --version # 使用 elan 默认版本
+# 使用指定版本
+elan run leanprover/lean4:v4.10.0 lake --version
+elan run leanprover/lean4:v4.10.0 lean --version
+# 创建指定版本的项目
+elan run leanprover/lean4:v4.10.0 lake new package
+```
+
+elan 配置记录可以在 `~/.elan/settings.toml` 查看。
+
+具体地，Windows 下的 elan 管理目录为 `%USERPROFILE%\.elan\bin`，Linux/Mac 下的管理目录为 `$HOME/.elan`，内容形如
 
 ```bash
 ❯ tree .elan -L 2
@@ -45,11 +69,11 @@ elan 在 Windows 下的管理目录为 `%USERPROFILE%\.elan\bin`，在 Linux 下
 - `settings.toml` 是 elan 的配置文件。
 - `bin` 存放常用的二进制文件，比如 `lake`。
 
-## 通过 Lake 创建 Lean 项目
-
-对创建 Lean 项目的详细介绍参考[这个教程](https://www.leanprover.cn/fp-lean-zh/hello-world/starting-a-project.html)。此处演示最基本的用法。
+## lake 基本用法
 
 [lake](https://github.com/leanprover/lake) 全称 Lean Make，是 Lean 4 的包管理器，用于创建 Lean 项目，构建 Lean 包和编译 Lean 可执行文件。
+
+本节介绍 `lake` 的基本用法，[Lean 函数式编程](https://www.leanprover.cn/fp-lean-zh/hello-world/starting-a-project.html)也提供了创建 Lean 项目的例子，而更全面的参数介绍可参考 [lake 文档](../references/lake-doc.md)。
 
 在终端中运行（`your_project_name` 替换为你自己起的名字）
 
@@ -73,7 +97,8 @@ your_project_name
 └── ...
 ```
 
-其中 `lakefile.lean` 是当前项目的配置文件，`lean-toolchain` 是当前项目使用的 Lean 版本。其他文件的功能以及更多细节请参考[这个教程](https://www.leanprover.cn/fp-lean-zh/hello-world/starting-a-project.html)。
+
+其中 `lakefile.lean` 是当前项目的配置文件，`lean-toolchain` 是当前项目使用的 Lean 版本。
 
 初次让 Lean Server 运行该项目时会添加
 
@@ -152,4 +177,47 @@ lake update
 lake run <script>
 ```
 
-关于 Lake 的更多用法可参考 [lake 文档](../references/lake-doc.md)。
+## lean 检验证明
+
+[lean](https://github.com/leanprover/lean4) 是语言本身的核心组件，通常不需要直接与 `lean` 交互。
+
+这里介绍常见的两个操作：运行 Lean 脚本，以及验证 Lean 代码。
+
+执行 Lean 脚本，入口为 `main` 函数：
+
+```lean
+-- hello.lean
+def main : IO Unit := IO.println s!"Version: {Lean.versionString}"
+```
+
+在终端中运行：
+
+```bash
+elan default leanprover/lean4:v4.11.0-rc1
+lean --run hello.lean
+# Version: 4.11.0-rc1
+elan run leanprover/lean4:v4.10.0 lean --run hello.lean
+# Version: 4.10.0
+```
+
+验证 Lean 证明代码：
+
+```lean
+-- proof.lean
+theorem my_first_theorem : 1 + 1 = 2 := by
+  simp
+
+theorem my_false_theorem : 1 + 1 = 1 := by
+  simp
+
+theorem my_syntax_error_themore 1 + 1 = 2 := by
+  simp
+```
+
+在终端中运行：`lean proof.lean`，返回错误信息：
+
+```bash
+hello.lean:5:40: error: unsolved goals
+⊢ False
+hello.lean:8:31: error: unexpected token; expected ':'
+```

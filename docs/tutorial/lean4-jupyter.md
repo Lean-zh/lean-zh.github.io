@@ -1,4 +1,4 @@
-# Lean4 Juptyer | TODO
+# Lean4 Juptyer
 
 基于 REPL 的 Jupyter Kernel。
 

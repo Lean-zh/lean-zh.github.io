@@ -35,7 +35,7 @@ Lean 作为一门独特的语言，兼具 **数学和编程** 两方面的特性
 
 Lean-zh 是一个自发组成的团体，旨在推动 Lean 在中文学术和编程社区的普及和应用。
 
-Lean-zh 提供了一个学习与实践的平台，如果你对 Lean 感兴趣，无论是参与编写 Lean 教程、翻译官方文档、开发 Lean 项目，还是以其他方式贡献力量，欢迎你的加入！
+Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Lean 感兴趣，无论是参与编写 Lean 教程、翻译官方文档、开发 Lean 项目，还是以其他方式贡献力量，欢迎你的加入！
 
 ### 快速上手
 
@@ -46,7 +46,7 @@ Lean-zh 提供了一个学习与实践的平台，如果你对 Lean 感兴趣，
 1. 自然数游戏 [NNG4](https://nng4.leanprover.cn)：在线交互式 Lean 教程，重点在证明自然数基本运算的属性。此外，Lean Game Server 托管各种学习游戏，包括集合论、逻辑和 Robo（一个关于本科数学的故事）等。
 2. 快速上手的[ Lean 初探教程](https://github.com/Lean-zh/GlimpseOfLean)：涵盖使用 Lean 证明的一些基本概念，也包括初级分析、初等数论和数理逻辑的独立主题。
 
-**编程方面**：可以浏览网站顶部的其他标签，包括与 Lean 交互的常用编程工具和 Lean 项目教程等，教程干货正在路上。。。
+**编程方面**：浏览网站顶部的其他标签，包括与 Lean 交互的常用编程工具和 Lean 项目教程等，教程干货正在路上。。。
 
 ### Lean-zh 译制
 
@@ -69,27 +69,34 @@ Lean-zh 提供了一个学习与实践的平台，如果你对 Lean 感兴趣，
 * LeanCopliot，LLMStep 等实用工具教程及实现机制
 * ...
 
+### 其他推荐
 
-### 联系我们
-
-如果有任何问题、建议或想参与到社区中来，欢迎加入 QQ 群 897971266 或 Telegram [讨论组](https://t.me/Lean_zh_CN) 来一起交流。
-
-## 其他资源
-
-**数学导向**：
-
-  - 经典教材 [Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/)
-  - 节奏更缓的 [The Mechanics of Proof](https://hrmacbeth.github.io/math2001/)
-  - 从类型论基础出发的 [Theorem Proving in Lean](https://leanprover.github.io/theorem_proving_in_lean4/title_page.html)
-
-**计算机导向**：
-
-  - 侧重将 Lean 作为编程语言的 [Functional Programming in Lean](https://leanprover.github.io/functional_programming_in_lean/)
-  - 侧重元编程策略编写的 [Metaprogramming in Lean](https://github.com/arthurpaulino/lean4-metaprogramming-book)
-  - 更关注 LEAN 本身而不仅是使用的 [Reference manual](https://leanprover.github.io/lean4/doc/)
-  - 计算机科学角度的 [The Hitchhiker's Guide to Logical Verification](https://raw.githubusercontent.com/blanchette/logical_verification_2023/main/hitchhikers_guide.pdf)
-
-**其他推荐**：
-
+- [The Mechanics of Proof](https://hrmacbeth.github.io/math2001/)
+- [The Hitchhiker's Guide to Logical Verification](https://raw.githubusercontent.com/blanchette/logical_verification_2023/main/hitchhikers_guide.pdf)
 * 软件基础：[Software Foundations](https://coq-zh.github.io/SF-zh/)
 * [编程语言基础：Agda 描述](https://agda-zh.github.io/PLFA-zh/)
+
+## 贡献指南
+
+欢迎各种形式的贡献，无论你是:
+- 对 Lean 感兴趣的初学者
+- 有经验的数学爱好者
+- 程序开发者
+- 或者其他任何对形式化证明感兴趣的朋友
+
+Lean 兼具 **数学和编程** 两重属性，可以根据个人兴趣从这两个方向参与贡献：
+
+- 如果你对数学形式化感兴趣，可以参与 Lean 教材和文档的翻译，分享个人学习笔记和心得，编写入门教程或示例等等。
+- 如果你更偏向编程技术，可以编写 Lean 项目使用教程或开发教程，从学习别人项目开始，到逐步开发自己项目，从发现项目的不足，到参与代码贡献等等。
+
+目前 Lean 社区的项目非常多，包括交互式工具、证明分析、集成外部工具、在线 Lean 服务等等。
+
+在项目开发方面，这里提供了一个[参考示例](projects/meta-example.md)，演示从项目创建，管理依赖，到编写元策略，Lean 终端交互，再到测试自动化和发布的过程。
+
+除了直接与 Lean 相关的贡献，也可以帮助优化基础设置，比如优化 Markdown book 的中文搜索，完善仓库的 i18n-next 自动化等。
+
+希望通过开源协作，共同学习与进步！
+
+## 联系我们
+
+如果有任何问题、建议或想参与到社区中来，欢迎加入 QQ 群 897971266 或 Telegram [讨论组](https://t.me/Lean_zh_CN) 来一起交流。

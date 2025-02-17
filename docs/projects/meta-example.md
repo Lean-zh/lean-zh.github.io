@@ -1,22 +1,23 @@
 # Lean4 项目实战
 
-[前文](../tutorial/elan-lake.md)介绍了 Lean 开发的三件套工具：elan、lake 和 lean。这些工具的组合类似于其他语言生态中的工具链，比如：
+[前文](../tutorial/elan-lake.md)介绍了 Lean 项目的基本结构和文件组织方式，也介绍了 Lean 开发的三件套工具：elan、lake 和 lean。这些工具组合类似于其他语言生态中的工具链，比如：
 
 - Rust 中的 rustup + cargo + rustc
 - Node.js 中的 nvm + npm + node
 
-也介绍了 Lean 项目的基本结构和文件组织方式。
 
 本文将进行实战演练，完整体验 Lean 项目的开发流程，包括：
 
 - 项目创建
 - 依赖管理与配置
-- 编写元编程代码
-- 测试，自动化以及收录
+- 终端交互和元编程策略编写
+- 测试，自动化以及收录相关
+
+相关代码可以在仓库找到：[Lean-zh/MyTactics](https://github.com/Lean-zh/MyTactics)。
 
 **参考资源**
 
-- 元编程示例：[MetaExamples](https://github.com/siddhartha-gadgil/MetaExamples)
+- 元编程示例教程：[MetaExamples](https://github.com/siddhartha-gadgil/MetaExamples)
 - Lean 中文文档：[函数式编程](https://www.leanprover.cn/fp-lean-zh/)，[Lake 文档](../references/lake-doc.md)以及 [Lean4 安装指南](../install.md)
 
 **准备工作**
@@ -25,7 +26,6 @@
 
 1. 已正确安装 Lean4 开发环境，可以在命令行中运行 `elan`、`lake` 和 `lean` 命令
 2. 了解 Lean 项目的基本结构，熟悉 `lakefile.lean` 和 `lakefile.toml` 等配置文件的作用
-
 
 ## 创建项目
 
@@ -368,8 +368,6 @@ example : 30 < 40 := by
 1. Hello World 程序：`Hello/Greet.lean`
 2. 如何处理用户输入：`Demo.lean`
 3. 元策略示例：`MyTactics/Basic.lean`
-
-完整代码可以在仓库中找到：[Lean-zh/MyTactics](https://github.com/Lean-zh/MyTactics)。
 
 
 ## 测试，自动化及发布

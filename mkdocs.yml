@@ -74,10 +74,12 @@ nav:
     - Lake 包管理: references/lake-doc.md
     - 项目示例 - 元编程: projects/meta-example.md
   - 交互工具:
-    - LeanDojo 教程: tutorial/lean-dojo.md
-    - REPL 教程: tutorial/repl.md
-    - PantoGraph 教程: tutorial/pantograph.md
+    - 交互工具: tool/index.md
+    - LeanDojo 教程: tool/lean-dojo.md
+    - REPL 教程: tool/repl.md
+    - PantoGraph 教程: tool/pantograph.md
   - 项目教程:
     - Lean4web 在线编译器: projects/lean4web.md
     - jixia 数据分析: projects/jixia.md
     - Lean4Game 教程: projects/lean4game.md
+  - 贡献指南: contributing.md

@@ -292,7 +292,7 @@ def main : IO Unit := do
 
 ![lake-demo](../assets/imgs/lake-demo.svg)
 
-Lean 社区的 [REPL](../tutorial/repl.md) 就是基于类似的机制实现 Lean 与外部环境的信息交流。
+Lean 社区的 [REPL](../tool/repl.md) 就是基于类似的机制实现 Lean 与外部环境的信息交流。
 
 ### 编写元策略
 

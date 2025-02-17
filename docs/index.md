@@ -9,11 +9,11 @@ description: Lean-zh Documentation
   <a href="mailto:leanprover@outllook.com">
     <img src="https://img.shields.io/badge/Email-联系我们-informational?style=flat&logo=microsoft-outlook&logoColor=white" alt="Email Badge">
   </a>
-  <a href="https://t.me/Lean_zh_CN">
-    <img src="https://img.shields.io/badge/Telegram-加入讨论-blue?style=flat&logo=telegram&logoColor=white" alt="Telegram Badge">
-  </a>
   <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=tC0R88AwoljjpvA2fGAvkucJCOeJnLDR&authKey=AHE8WSVpMeNAoc4Ax8%2BkiM%2FrBkAcpFfcuc7V746wcdIWXYloyGWcn2IkBhpVsumI&noverify=0&group_code=897971266">
     <img src="https://img.shields.io/badge/QQ-加入群聊-blue.svg?logo=tencent-qq&style=flat" alt="QQ群">
+  </a>
+  <a href="https://t.me/Lean_zh_CN">
+    <img src="https://img.shields.io/badge/Telegram-加入讨论-blue?style=flat&logo=telegram&logoColor=white" alt="Telegram Badge">
   </a>
   <a href="https://www.leanprover.cn">
     <img src="https://img.shields.io/badge/Website-访问主页-blue.svg?style=flat" alt="Website">
@@ -29,7 +29,7 @@ Lean 作为一门独特的语言，兼具 **数学和编程** 两方面的特性
 - 作为交互式定理证明器，Lean 提供了严格的逻辑框架，**数学家可以将数学定理转换成代码，并严格验证这些定理的正确性**。
 - 作为通用函数式编程语言，它具有 **依赖类型** 的 **严格** 的 **纯函数式** 语言性质。
 
-这些特性让 Lean 在数学和计算机科学研究中非常有用，它可以帮助研究人员发现并纠正概念上的错误，同时加深他们对研究对象的理解。Lean 的标准库 [mathlib](https://github.com/leanprover-community/mathlib4) 被称为[未来的数学图书馆](https://www.quantamagazine.org/building-the-mathematical-library-of-the-future-20201001/)。
+这些特性让 Lean 在数学和计算机科学研究中非常有用，它可以帮助研究人员发现并纠正概念上的错误，同时加深他们对研究对象的理解。
 
 ## 关于 Lean-zh
 
@@ -62,7 +62,7 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 * Lean 交互工具的使用教程
 * Lean 项目的实践教程
 
-**计划进行**
+**计划中**
 
 * [GlimpseToGame 定理证明游戏制作及翻译](https://github.com/Lean-zh/GlimpseToGame)
 * Tactic 手册及如何编写 tactic
@@ -75,27 +75,6 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 - [The Hitchhiker's Guide to Logical Verification](https://raw.githubusercontent.com/blanchette/logical_verification_2023/main/hitchhikers_guide.pdf)
 * 软件基础：[Software Foundations](https://coq-zh.github.io/SF-zh/)
 * [编程语言基础：Agda 描述](https://agda-zh.github.io/PLFA-zh/)
-
-## 贡献指南
-
-欢迎各种形式的贡献，无论你是:
-- 对 Lean 感兴趣的初学者
-- 有经验的数学爱好者
-- 程序开发者
-- 或者其他任何对形式化证明感兴趣的朋友
-
-Lean 兼具 **数学和编程** 两重属性，可以根据个人兴趣从这两个方向参与贡献：
-
-- 如果你对数学形式化感兴趣，可以参与 Lean 教材和文档的翻译，分享个人学习笔记和心得，编写入门教程或示例等等。
-- 如果你更偏向编程技术，可以编写 Lean 项目使用教程或开发教程，从学习别人项目开始，到逐步开发自己项目，从发现项目的不足，到参与代码贡献等等。
-
-目前 Lean 社区的项目非常多，包括交互式工具、证明分析、集成外部工具、在线 Lean 服务等等。
-
-在项目开发方面，这里提供了一个[参考示例](projects/meta-example.md)，演示从项目创建，管理依赖，到编写元策略，Lean 终端交互，再到测试自动化和发布的过程。
-
-除了直接与 Lean 相关的贡献，也可以帮助优化基础设置，比如优化 Markdown book 的中文搜索，完善仓库的 i18n-next 自动化等。
-
-希望通过开源协作，共同学习与进步！
 
 ## 联系我们
 

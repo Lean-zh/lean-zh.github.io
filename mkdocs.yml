@@ -79,6 +79,8 @@ nav:
     - REPL 教程: tool/repl.md
     - Polyrith 策略: tool/polyrith.md
     - PantoGraph 教程: tool/pantograph.md
+    - aesop教程: tool/aesop.md
+    - duper教程: tool/duper.md
   - 项目教程:
     - Lean4web 在线编译器: projects/lean4web.md
     - jixia 数据分析: projects/jixia.md

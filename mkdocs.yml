@@ -83,4 +83,10 @@ nav:
     - Lean4web 在线编译器: projects/lean4web.md
     - jixia 数据分析: projects/jixia.md
     - Lean4Game 教程: projects/lean4game.md
+  - Mathlib4Help:
+    - Mathlib4Help: mathlib4_help/index.md
+    - attributes: mathlib4_help/attributes.md
+    - commands: mathlib4_help/commands.md
+    - options: mathlib4_help/options.md
+    - tactics: mathlib4_help/tactics.md
   - 贡献指南: contributing.md

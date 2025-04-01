@@ -4,10 +4,10 @@ LeanSearchClient 提供了在 Lean 内使用 [leansearch API](https://leansearch
 
 我们提供了用于发起查询的语法，并生成 `TryThis` 选项，方便你点击或使用代码操作来利用搜索结果。查询共有四种形式：
 
-* `命令` 语法：以命令形式使用 `#search "search query"`。
-* `项` 语法：以项的形式使用 `#search "search query"`。
-* `策略` 语法：以策略形式使用 `#search "search query"`。
-* 基于状态的 `策略` 语法：直接使用 `#search`。
+* `command` 语法：以命令形式使用 `#search "search query"`。
+* `Term` 语法：以项的形式使用 `#search "search query"`。
+* `Tactic` 语法：以策略形式使用 `#search "search query"`。
+* 基于状态的 `Tactic` 语法：直接使用 `#search`。
 
 在所有情况下，结果都会显示在 Lean 信息视图中，点击结果会替换原查询文本。而在策略查询中，只会显示有效的策略。
 
@@ -17,7 +17,7 @@ LeanSearchClient 提供了在 Lean 内使用 [leansearch API](https://leansearch
 
 以下是使用 leansearch API 的示例。当查询语句以句号或问号结束时，搜索将会被触发。
 
-### 查询命令
+### 查询 command
 
 适用于所有后端的通用命令：
 
@@ -38,7 +38,7 @@ LeanSearchClient 提供了在 Lean 内使用 [leansearch API](https://leansearch
 ```
 
 
-### 查询项
+### 查询 Term
 
 通用命令：
 
@@ -59,7 +59,7 @@ example := #moogle "If a natural number n is less than m, then the successor of 
 ```
 
 
-### 查询策略
+### 查询 Tactic
 
 请注意，只会显示有效的策略。
 

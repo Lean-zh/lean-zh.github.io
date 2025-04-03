@@ -4,7 +4,7 @@ LeanSearchClient 提供了在 Lean 内使用 [leansearch API](https://leansearch
 
 我们提供了用于发起查询的语法，并生成 `TryThis` 选项，方便你点击或使用代码操作来利用搜索结果。查询共有四种形式：
 
-* `command` 语法：以命令形式使用 `#search "search query"`。
+* `Command` 语法：以命令形式使用 `#search "search query"`。
 * `Term` 语法：以项的形式使用 `#search "search query"`。
 * `Tactic` 语法：以策略形式使用 `#search "search query"`。
 * 基于状态的 `Tactic` 语法：直接使用 `#search`。

@@ -56,8 +56,10 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 - [Lean4 定理证明（Theorem Proving in Lean）](https://www.leanprover.cn/tp-lean-zh/)
 - [Lean4 元编程（Metaprogramming in Lean）](https://www.leanprover.cn/mp-lean-zh/)
 - [Lean 形式化数学（Mathematics in Lean）](https://www.leanprover.cn/math-in-lean-zh/)
+- [Lean4 中的类型检查（Type checking in Lean）](https://www.leanprover.cn/type-checking-in-lean-zh/)
 
 **进行中**
+
 
 * Lean 交互工具的使用教程
 * Lean 项目的实践教程

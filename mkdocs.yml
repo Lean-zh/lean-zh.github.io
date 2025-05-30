@@ -79,6 +79,7 @@ nav:
     - REPL 教程: tool/repl.md
     - Polyrith 策略: tool/polyrith.md
     - PantoGraph 教程: tool/pantograph.md
+    - PyPantoGraph 教程: tool/Pypantograph.md
     - aesop教程: tool/aesop.md
     - duper教程: tool/duper.md
     - leansearch教程: tool/leansearch.md

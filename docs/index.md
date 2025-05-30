@@ -56,27 +56,27 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 - [Lean4 定理证明（Theorem Proving in Lean）](https://www.leanprover.cn/tp-lean-zh/)
 - [Lean4 元编程（Metaprogramming in Lean）](https://www.leanprover.cn/mp-lean-zh/)
 - [Lean 形式化数学（Mathematics in Lean）](https://www.leanprover.cn/math-in-lean-zh/)
-- [Lean4 中的类型检查（Type checking in Lean）](https://www.leanprover.cn/type-checking-in-lean-zh/)
+- [Lean4 中的类型检查（Type Checking in Lean）](https://www.leanprover.cn/type-checking-in-lean-zh/)
 
 **进行中**
 
 
-* Lean 交互工具的使用教程
-* Lean 项目的实践教程
+- [逻辑验证漫游指南 2025 版（The Hitchhiker's Guide to Logical Verification 2025）](https://github.com/Lean-zh/LoVe2025-zh)
+- Lean 交互工具的使用教程
+- Lean 项目的实践教程
 
 **计划中**
 
-* [GlimpseToGame 定理证明游戏制作及翻译](https://github.com/Lean-zh/GlimpseToGame)
-* Tactic 手册及如何编写 tactic
-* LeanCopliot，LLMStep 等实用工具教程及实现机制
-* ...
+- [GlimpseToGame 定理证明游戏制作及翻译](https://github.com/Lean-zh/GlimpseToGame)
+- Tactic 手册及如何编写 tactic
+- LeanCopliot，LLMStep 等实用工具教程及实现机制
+- ...
 
 ### 其他推荐
 
 - [The Mechanics of Proof](https://hrmacbeth.github.io/math2001/)
-- [The Hitchhiker's Guide to Logical Verification](https://raw.githubusercontent.com/blanchette/logical_verification_2023/main/hitchhikers_guide.pdf)
-* 软件基础：[Software Foundations](https://coq-zh.github.io/SF-zh/)
-* [编程语言基础：Agda 描述](https://agda-zh.github.io/PLFA-zh/)
+- [软件基础：Software Foundations](https://coq-zh.github.io/SF-zh/)
+- [编程语言基础：Agda 描述](https://agda-zh.github.io/PLFA-zh/)
 
 ## 联系我们
 

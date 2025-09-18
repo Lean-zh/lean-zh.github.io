@@ -54,13 +54,12 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - def_list
-  - attr_list
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 extra_css:
-  - assets/css/admonition-def.css
+  - assets/css/admonition-custom.css
   - assets/css/custom.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
 

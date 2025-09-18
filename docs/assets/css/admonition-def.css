@@ -1,9 +1,0 @@
-.md-typeset .admonition.note > .admonition-title {
-  display: inline-block;
-  padding: .15rem .5rem;
-  border-radius: 999px;
-  font-weight: 700;
-  background: var(--md-default-fg-color--lightest);
-  color: var(--md-default-fg-color);
-  border: 1px solid var(--md-default-fg-color--lighter);
-}

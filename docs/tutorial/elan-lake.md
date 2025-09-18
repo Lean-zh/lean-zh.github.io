@@ -90,15 +90,14 @@ mkdir your_folder_name && cd your_folder_name && lake init your_project_name
 your_project_name
 ├── YourProjectName
 │   └── Basic.lean
-├── lakefile.lean
+├── lakefile.toml
 ├── lean-toolchain
 ├── Main.lean
 ├── YourProjectName.lean
 └── ...
 ```
 
-
-其中 `lakefile.lean` 是当前项目的配置文件，`lean-toolchain` 是当前项目使用的 Lean 版本。
+其中 `lakefile.toml` 是当前项目的配置文件，`lean-toolchain` 是当前项目使用的 Lean 版本。
 
 初次让 Lean Server 运行该项目时会添加
 
@@ -109,12 +108,22 @@ your_project_name
 ├── lake-manifest.json
 ```
 
-如果你想在这个现有的工程中引用 Mathlib4，你需要在 `lakefile.lean` 文件尾中加入
+如果你想在这个现有的工程中引用 Mathlib4，你需要在 `lakefile.toml` 文件尾中加入
 
 ```bash
-require mathlib from git
-  "https://github.com/leanprover-community/mathlib4"
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.20.0" 
 ```
+
+其中 `rev = "v4.20.0"` 是版本号，也可以是 `main` ，对应 Lean 4 `stable` 版本。
+
+> 旧版本项目配置文件是 `lakefile.lean` ，相应地在内容中加入
+> ```bash
+> require mathlib from git
+>   "https://github.com/leanprover-community/mathlib4" @ "v4.20.0"
+> ```
 
 保存文件后 VS code 会提示 "Restart Lean"，点不点都没关系。
 

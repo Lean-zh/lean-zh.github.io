@@ -20,6 +20,7 @@ theme:
     - search.share
     - content.code.copy
     - content.code.annotate
+    - content.tooltips
 
 plugins:
   - search:
@@ -52,11 +53,14 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - def_list
+  - attr_list
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 extra_css:
+  - assets/css/admonition-def.css
   - assets/css/custom.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
 
@@ -87,6 +91,7 @@ nav:
     - Lean4web 在线编译器: projects/lean4web.md
     - jixia 数据分析: projects/jixia.md
     - Lean4Game 教程: projects/lean4game.md
+    - Verso 教程: projects/verso.md
   - Mathlib4Help:
     - Mathlib4Help: mathlib4_help/index.md
     - attributes: mathlib4_help/attributes.md

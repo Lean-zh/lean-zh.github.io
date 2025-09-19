@@ -54,6 +54,7 @@ markdown_extensions:
   - pymdownx.tilde
   - def_list
   - attr_list
+  - md_in_html
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
@@ -72,29 +73,29 @@ extra:
 nav:
   - 主页: 
     - Lean-zh: index.md
-    - 安装指南: install.md
-    - Lean4 工具链: tutorial/elan-lake.md
-    - Lake 包管理: references/lake-doc.md
-    - 项目示例 - 元编程: projects/meta-example.md
-  - 交互工具:
-    - 交互工具: tool/index.md
-    - LeanDojo 教程: tool/lean-dojo.md
-    - REPL 教程: tool/repl.md
-    - Polyrith 策略: tool/polyrith.md
-    - PantoGraph 教程: tool/pantograph.md
-    - PyPantoGraph 教程: tool/Pypantograph.md
-    - aesop教程: tool/aesop.md
-    - duper教程: tool/duper.md
-    - leansearch教程: tool/leansearch.md
+  #   - 安装指南: install.md
+  #   - Lean4 工具链: tutorial/elan-lake.md
+  #   - Lake 包管理: references/lake-doc.md
+  #   - 项目示例 - 元编程: projects/meta-example.md
+  # - 交互工具:
+  #   - 交互工具: tool/index.md
+  #   - LeanDojo 教程: tool/lean-dojo.md
+  #   - REPL 教程: tool/repl.md
+  #   - Polyrith 策略: tool/polyrith.md
+  #   - PantoGraph 教程: tool/pantograph.md
+  #   - PyPantoGraph 教程: tool/Pypantograph.md
+  #   - aesop教程: tool/aesop.md
+  #   - duper教程: tool/duper.md
+  #   - leansearch教程: tool/leansearch.md
   - 项目教程:
-    - Lean4web 在线编译器: projects/lean4web.md
-    - jixia 数据分析: projects/jixia.md
-    - Lean4Game 教程: projects/lean4game.md
+    # - Lean4web 在线编译器: projects/lean4web.md
+    # - jixia 数据分析: projects/jixia.md
+    # - Lean4Game 教程: projects/lean4game.md
     - Verso 教程: projects/verso.md
-  - Mathlib4Help:
-    - Mathlib4Help: mathlib4_help/index.md
-    - attributes: mathlib4_help/attributes.md
-    - commands: mathlib4_help/commands.md
-    - options: mathlib4_help/options.md
-    - tactics: mathlib4_help/tactics.md
-  - 贡献指南: contributing.md
+  # - Mathlib4Help:
+  #   - Mathlib4Help: mathlib4_help/index.md
+  #   - attributes: mathlib4_help/attributes.md
+  #   - commands: mathlib4_help/commands.md
+  #   - options: mathlib4_help/options.md
+  #   - tactics: mathlib4_help/tactics.md
+  # - 贡献指南: contributing.md

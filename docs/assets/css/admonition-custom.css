@@ -1,58 +1,38 @@
-/* ---------- 通用变量（亮/暗配色可按需加[data-md-color-scheme]分支） ---------- */
 :root{
-  --admon-def-fg:   #1e88e5;  --admon-def-bg:   rgba(30,136,229,.08);
-  --admon-lemma-fg: #8e24aa;  --admon-lemma-bg: rgba(142,36,170,.08);
-  --admon-api-fg:   #00897b;  --admon-api-bg:   rgba(0,137,123,.08);
+  --admon-def-fg:#1e88e5;   --admon-def-bg:rgba(30,136,229,.08);
+  --admon-lemma-fg:#8e24aa; --admon-lemma-bg:rgba(142,36,170,.08);
+  --admon-api-fg:#00897b;   --admon-api-bg:rgba(0,137,123,.08);
 }
 
-/* ---------- 基础外观：圆角边框 + 内边距 ---------- */
+/* 容器：圆角 + 顶部留出角标空间 */
 .md-typeset .admonition.def,
 .md-typeset .admonition.lemma,
-.md-typeset .admonition.api,
-.md-typeset details.def,
-.md-typeset details.lemma,
-.md-typeset details.api{
-  position: relative;
-  border: 1px solid var(--md-default-fg-color--lighter);
-  border-radius: 12px;
-  padding: .6rem 1rem 1rem;
+.md-typeset .admonition.api{
+  position:relative; border:1px solid var(--md-default-fg-color--lighter);
+  border-radius:12px; padding:1.2rem 1rem 1rem; margin-top:1rem;
+  background:var(--md-default-bg-color);
 }
 
-/* ---------- 隐藏默认的标题与图标，防止“气泡”被遮挡 ---------- */
+/* 去掉默认小图标，避免挡住“胶囊” */
+.md-typeset .admonition.def   > .admonition-title::before,
+.md-typeset .admonition.lemma > .admonition-title::before,
+.md-typeset .admonition.api   > .admonition-title::before{ content:none; }
+
+/* 标题=左上角胶囊 */
 .md-typeset .admonition.def   > .admonition-title,
 .md-typeset .admonition.lemma > .admonition-title,
-.md-typeset .admonition.api   > .admonition-title{ display:none; }
-/*（若你还想保留原标题，仅隐藏图标，改成：.admonition-title::before{content:none;}）*/
-
-/* ---------- 左上“胶囊角标” ---------- */
-.md-typeset .admonition.def::before,
-.md-typeset .admonition.lemma::before,
-.md-typeset .admonition.api::before{
-  position: absolute; content: attr(data-label);
-  top: -12px; left: 16px; padding: .1rem .6rem;
-  border-radius: 999px; font-weight: 700; font-size: .85rem;
-  border: 1px solid;
-  background: var(--md-default-bg-color);
+.md-typeset .admonition.api   > .admonition-title{
+  position:absolute; top:-0.9rem; left:1rem; margin:0; padding:.1rem .6rem;
+  border-radius:999px; font-weight:700; font-size:.85rem;
+  background:var(--md-default-bg-color); border:1px solid currentColor;
 }
 
-/* 各类型配色（边框 & 胶囊前景/边框） */
-.md-typeset .admonition.def{
-  border-color: var(--admon-def-fg); box-shadow: 0 0 0 1px var(--admon-def-bg) inset;
-}
-.md-typeset .admonition.def::before{
-  color: var(--admon-def-fg); border-color: var(--admon-def-fg);
-}
+/* 配色 */
+.md-typeset .admonition.def{   border-color:var(--admon-def-fg);   box-shadow:0 0 0 1px var(--admon-def-bg) inset;}
+.md-typeset .admonition.def>.admonition-title{   color:var(--admon-def-fg); }
 
-.md-typeset .admonition.lemma{
-  border-color: var(--admon-lemma-fg); box-shadow: 0 0 0 1px var(--admon-lemma-bg) inset;
-}
-.md-typeset .admonition.lemma::before{
-  color: var(--admon-lemma-fg); border-color: var(--admon-lemma-fg);
-}
+.md-typeset .admonition.lemma{ border-color:var(--admon-lemma-fg); box-shadow:0 0 0 1px var(--admon-lemma-bg) inset;}
+.md-typeset .admonition.lemma>.admonition-title{ color:var(--admon-lemma-fg); }
 
-.md-typeset .admonition.api{
-  border-color: var(--admon-api-fg); box-shadow: 0 0 0 1px var(--admon-api-bg) inset;
-}
-.md-typeset .admonition.api::before{
-  color: var(--admon-api-fg); border-color: var(--admon-api-fg);
-}
+.md-typeset .admonition.api{   border-color:var(--admon-api-fg);   box-shadow:0 0 0 1px var(--admon-api-bg) inset;}
+.md-typeset .admonition.api>.admonition-title{   color:var(--admon-api-fg); }

@@ -20,7 +20,6 @@ theme:
     - search.share
     - content.code.copy
     - content.code.annotate
-    - content.tooltips
 
 plugins:
   - search:
@@ -54,6 +53,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - def_list
+  - attr_list
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML

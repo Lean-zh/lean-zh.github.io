@@ -1,0 +1,278 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://leanprover.cn/tool/Pypantograph/ rel=canonical><link rel=icon href=../../assets/images/favicon.png><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.6.20"><title>PyPantograph - Lean Prover 中文文档</title><link rel=stylesheet href=../../assets/stylesheets/main.e53b48f4.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.06af60db.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../../assets/css/admonition-custom.css><link rel=stylesheet href=../../assets/css/custom.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=green data-md-color-accent=light-green> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#pypantograph class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <div data-md-color-scheme=default data-md-component=outdated hidden> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title="Lean Prover 中文文档" class="md-header__button md-logo" aria-label="Lean Prover 中文文档" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Lean Prover 中文文档 </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> PyPantograph </span> </div> </div> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" title=Share aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg> </a> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap tabindex=0 data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/Lean-zh/Lean-zh.github.io title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg> </div> <div class=md-source__repository> Lean-zh </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class=md-grid> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=../.. class=md-tabs__link> 主页 </a> </li> <li class=md-tabs__item> <a href=../../projects/verso/ class=md-tabs__link> 项目教程 </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Lean Prover 中文文档" class="md-nav__button md-logo" aria-label="Lean Prover 中文文档" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg> </a> Lean Prover 中文文档 </label> <div class=md-nav__source> <a href=https://github.com/Lean-zh/Lean-zh.github.io title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg> </div> <div class=md-source__repository> Lean-zh </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_1> <label class=md-nav__link for=__nav_1 id=__nav_1_label tabindex=0> <span class=md-ellipsis> 主页 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_1_label aria-expanded=false> <label class=md-nav__title for=__nav_1> <span class="md-nav__icon md-icon"></span> 主页 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> <span class=md-ellipsis> Lean-zh </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> 项目教程 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> 项目教程 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../projects/verso/ class=md-nav__link> <span class=md-ellipsis> Verso 教程 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=pypantograph>PyPantograph<a class=headerlink href=#pypantograph title="Permanent link">&para;</a></h1> <p>本文档翻译自<a href=https://centaur.stanford.edu/PyPantograph/intro.html>PyPantograph用户文档</a>，仅作介绍用，详细API请参考原始文档。</p> <h1 id=_1>介绍<a class=headerlink href=#_1 title="Permanent link">&para;</a></h1> <p>这是 Pantograph，一个用于 Lean 4 的机器对机器交互接口。它的主要目的是训练和评估定理证明智能体。主要特性包括：</p> <ol> <li>通过 Python 库、REPL 或 C 库进行接口交互</li> <li>结合基于表达式和基于策略的证明方式</li> <li>Pantograph 设计时考虑了便于搜索的需求。定理证明智能体可以同时探索证明的多个分支。</li> <li>处理元变量耦合</li> <li>读取/添加环境中的符号</li> <li>提取策略训练数据</li> <li>支持草稿功能</li> </ol> <h2 id=_2>名称由来<a class=headerlink href=#_2 title="Permanent link">&para;</a></h2> <p>Pantograph 这个名字有双关含义：</p> <ul> <li>Pantograph 是一种用于复制书写内容的仪器。当智能体探索庞大的证明搜索空间时，Pantograph 记录当前状态以确保证明的正确性。</li> <li>Pantograph 也是电力机车的受电弓设备，向机车供应电力。相比之下，相对简单的 Pantograph 软件为定理证明项目提供动力。</li> </ul> <h2 id=_3>设计理念<a class=headerlink href=#_3 title="Permanent link">&para;</a></h2> <p>Lean 4 的接口不适合搜索。熟悉 Coq 的读者可能知道，Coq Serapi 被 CoqLSP 替代。作者认为这是一个错误。一个适合人工操作员编写证明的接口，往往并不适合自动搜索。</p> <p>Pantograph 的大部分业务逻辑均用 Lean 编写，实现了数据提取和证明搜索组件间更紧密的耦合。</p> <h2 id=_4>注意事项与限制<a class=headerlink href=#_4 title="Permanent link">&para;</a></h2> <p>Pantograph 并不完全模仿 Lean LSP 的行为，这样才能提供更大的灵活性。为了支持树形搜索，Pantograph 有时必须区别于 Lean 的行为，但绝不以牺牲证明正确性为代价。</p> <ul> <li>当 Lean LSP 报“无法综合占位符”时，意味着人工操作员需要手动将光标移至占位符并输入正确表达式。因此此错误不应终止证明过程，占位符应被视为一个目标。</li> <li>当 Lean LSP 报“未解决的目标”时，意味着证明在 <code>by</code> 块结束时未能完成。Pantograph 会在此情况下报错，因为这表明一个证明搜索分支已终止。</li> <li><code>pick_goal</code> 或 <code>swap</code> 无法使用，因为它们与树形搜索范式相悖。但若有策略能对多个目标同时执行非平凡操作，此限制可放宽，但会给用户带来较大管理负担。</li> </ul> <p>Pantograph 无法执行 Lean 本身约束的操作，包括：</p> <ul> <li>若策略丢失元变量追踪，直到证明搜索结束才会被发现，这属于策略本身的缺陷。</li> <li>无法为策略执行设定超时，未来可能会改进。</li> <li>解析错误通常无法转成目标（例如 <code>def mystery : Nat := :=</code>），因 Lean 的解析系统限制。</li> </ul> <p>每个 Pantograph 版本都锚定在 <code>src/lean-toolchain</code> 中指定的 Lean 版本。如有需求，可以将功能回移植到旧版本 Lean。</p> <h2 id=_5>参考文献<a class=headerlink href=#_5 title="Permanent link">&para;</a></h2> <p><a href=https://arxiv.org/abs/2410.16429>论文链接</a></p> <div class=highlight><pre><span></span><code><span class=nc>@misc</span><span class=p>{</span><span class=nl>pantograph</span><span class=p>,</span>
+<span class=w>      </span><span class=na>title</span><span class=p>=</span><span class=s>{Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4}</span><span class=p>,</span>
+<span class=w>      </span><span class=na>author</span><span class=p>=</span><span class=s>{Leni Aniva and Chuyue Sun and Brando Miranda and Clark Barrett and Sanmi Koyejo}</span><span class=p>,</span>
+<span class=w>      </span><span class=na>year</span><span class=p>=</span><span class=s>{2024}</span><span class=p>,</span>
+<span class=w>      </span><span class=na>eprint</span><span class=p>=</span><span class=s>{2410.16429}</span><span class=p>,</span>
+<span class=w>      </span><span class=na>archivePrefix</span><span class=p>=</span><span class=s>{arXiv}</span><span class=p>,</span>
+<span class=w>      </span><span class=na>primaryClass</span><span class=p>=</span><span class=s>{cs.LO}</span><span class=p>,</span>
+<span class=w>      </span><span class=na>url</span><span class=p>=</span><span class=s>{https://arxiv.org/abs/2410.16429}</span><span class=p>,</span>
+<span class=p>}</span>
+</code></pre></div> <h1 id=_6>安装与配置指南<a class=headerlink href=#_6 title="Permanent link">&para;</a></h1> <h2 id=_7>安装步骤<a class=headerlink href=#_7 title="Permanent link">&para;</a></h2> <ol> <li> <p>安装 <code>poetry</code>。</p> </li> <li> <p>执行命令构建 Pantograph 的 wheel 包：</p> </li> </ol> <div class=highlight><pre><span></span><code>poetry<span class=w> </span>build
+</code></pre></div> <p>构建完成后，会在 <code>dist</code> 目录生成 Pantograph 的 wheel 文件，可以用于安装。</p> <ol> <li>在下游项目的 <code>pyproject.toml</code> 中添加依赖，例如：</li> </ol> <div class=highlight><pre><span></span><code><span class=n>pantograph</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=n>file</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=s2>&quot;path/to/wheel/dist/pantograph-0.3.0-cp312-cp312-manylinux_2_40_x86_64.whl&quot;</span><span class=w> </span><span class=p>}</span>
+</code></pre></div> <ol> <li>运行示例和实验，先进入 poetry shell 环境：</li> </ol> <div class=highlight><pre><span></span><code>poetry<span class=w> </span>install
+poetry<span class=w> </span>shell
+</code></pre></div> <p>这会启动一个包含开发包的环境，方便进行交互操作。</p> <h2 id=pantograph>使用 Pantograph 服务器<a class=headerlink href=#pantograph title="Permanent link">&para;</a></h2> <p>Pantograph 中所有与 Lean 的交互都通过 <code>Server</code> 类完成。创建服务器实例的示例代码：</p> <div class=highlight><pre><span></span><code><span class=kn>from</span><span class=w> </span><span class=nn>pantograph</span><span class=w> </span><span class=kn>import</span> <span class=n>Server</span>
+<span class=n>server</span> <span class=o>=</span> <span class=n>Server</span><span class=p>()</span>
+</code></pre></div> <h2 id=lean>Lean 依赖配置<a class=headerlink href=#lean title="Permanent link">&para;</a></h2> <p>通过默认的 <code>Server()</code> 创建的服务器，足以完成依赖于 Lean 自带的 <code>Init</code> 库的基础定理证明任务。若需要使用第三方或非内置库，如 Aesop 或 Mathlib4，则需要额外配置。</p> <p>使用外部 Lean 依赖（例如 <a href=https://github.com/leanprover-community/mathlib4>Mathlib4</a>）时，Pantograph 依赖已有的 Lean 仓库。创建仓库的具体说明见官方文档：<a href=https://docs.lean-lang.org/lean4/doc/setup.html#lake>Lean4 Setup</a>。</p> <p>创建仓库后，进入该仓库目录，执行：</p> <div class=highlight><pre><span></span><code>lake<span class=w> </span>build
+</code></pre></div> <p>该命令会编译仓库内所有文件。每次仓库文件修改后都需要执行此命令。</p> <p>启动 Pantograph 服务器时，传入该 Lean 仓库路径：</p> <div class=highlight><pre><span></span><code><span class=n>server</span> <span class=o>=</span> <span class=n>Server</span><span class=p>(</span><span class=n>project_path</span><span class=o>=</span><span class=s2>&quot;./path-to-lean-repo/&quot;</span><span class=p>)</span>
+</code></pre></div> <p>完整示例请参阅 <code>examples/</code> 目录。</p> <h2 id=_8>服务器参数说明<a class=headerlink href=#_8 title="Permanent link">&para;</a></h2> <ul> <li><code>core_options</code>：传递给 Lean 内核的选项，例如，Lean 中的 <code>set_option pp.all true</code> 对应传入参数 <code>pp.all=true</code>。</li> <li><code>options</code>：传递给 Pantograph 的自定义选项，详见下文。</li> <li><code>timeout</code>：服务器最大等待响应时间（秒），若 Lean 项目加载时间较长，可适当调大。</li> </ul> <h2 id=jupyter>Jupyter 环境使用提示<a class=headerlink href=#jupyter title="Permanent link">&para;</a></h2> <p>在 Jupyter 等异步环境中，建议使用异步版本接口，例如：</p> <div class=highlight><pre><span></span><code><span class=n>server</span> <span class=o>=</span> <span class=k>await</span> <span class=n>Server</span><span class=o>.</span><span class=n>create</span><span class=p>()</span>
+<span class=n>unit</span><span class=p>,</span> <span class=o>=</span> <span class=k>await</span> <span class=n>server</span><span class=o>.</span><span class=n>load_sorry_async</span><span class=p>(</span><span class=n>sketch</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>unit</span><span class=o>.</span><span class=n>goal_state</span><span class=p>)</span>
+</code></pre></div> <h2 id=pantograph_1>Pantograph 选项详解<a class=headerlink href=#pantograph_1 title="Permanent link">&para;</a></h2> <ul> <li><code>automaticMode</code>：布尔值，设为 <code>false</code> 以关闭自动目标续写功能。</li> <li><code>timeout</code>：正整数，设定策略执行的超时时间。</li> <li><code>printDependentMVars</code>：布尔值，设为 <code>true</code> 以显式存储目标间的依赖关系。</li> </ul> <h1 id=goals-and-tactics>目标与策略（Goals and Tactics）<a class=headerlink href=#goals-and-tactics title="Permanent link">&para;</a></h1> <p>在 Pantograph 中执行策略非常简单。要开始一个证明，调用 <code>Server.goal_start</code> 函数并传入一个表达式。</p> <div class=highlight><pre><span></span><code><span class=kn>from</span><span class=w> </span><span class=nn>pantograph</span><span class=w> </span><span class=kn>import</span> <span class=n>Server</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pantograph.expr</span><span class=w> </span><span class=kn>import</span> <span class=n>TacticHave</span><span class=p>,</span> <span class=n>TacticCalc</span><span class=p>,</span> <span class=n>TacticExpr</span>
+
+<span class=n>server</span> <span class=o>=</span> <span class=n>Server</span><span class=p>()</span>
+<span class=n>state0</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_start</span><span class=p>(</span><span class=s2>&quot;forall (p q: Prop), Or p q -&gt; Or q p&quot;</span><span class=p>)</span>
+</code></pre></div> <p>这会创建一个目标状态，包含有限数量的目标。在这个例子中，由于是状态的开始，只有一个目标。</p> <div class=highlight><pre><span></span><code><span class=nb>print</span><span class=p>(</span><span class=n>state0</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>⊢ forall (p q: Prop), Or p q -&gt; Or q p
+</code></pre></div> <p>要对目标状态执行策略，使用 <code>Server.goal_tactic</code>。该函数接收一个目标 ID 和一个策略。大多数 Lean 策略都是字符串形式。</p> <div class=highlight><pre><span></span><code><span class=n>state1</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic</span><span class=p>(</span><span class=n>state0</span><span class=p>,</span> <span class=n>goal_id</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=o>=</span><span class=s2>&quot;intro a&quot;</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>state1</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>a : Prop
+⊢ ∀ (q : Prop), a ∨ q → q ∨ a
+</code></pre></div> <p>执行策略会产生一个新的目标状态。如果该目标状态没有目标，证明即完成。你可以用 <code>str()</code> 方法获得目标的常规形式：</p> <div class=highlight><pre><span></span><code><span class=nb>str</span><span class=p>(</span><span class=n>state1</span><span class=o>.</span><span class=n>goals</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>&#39;a : Prop\n⊢ ∀ (q : Prop), a ∨ q → q ∨ a&#39;
+</code></pre></div> <h2 id=error-handling-and-gc>错误处理与垃圾回收（Error Handling and GC）<a class=headerlink href=#error-handling-and-gc title="Permanent link">&para;</a></h2> <p>当策略执行失败时，会抛出异常：</p> <div class=highlight><pre><span></span><code><span class=k>try</span><span class=p>:</span>
+    <span class=n>state2</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic</span><span class=p>(</span><span class=n>state1</span><span class=p>,</span> <span class=n>goal_id</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=o>=</span><span class=s2>&quot;assumption&quot;</span><span class=p>)</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Should not reach this&quot;</span><span class=p>)</span>
+<span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+    <span class=nb>print</span><span class=p>(</span><span class=n>e</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>[&quot;tactic &#39;assumption&#39; failed\na : Prop\n⊢ ∀ (q : Prop), a ∨ q → q ∨ a&quot;]
+</code></pre></div> <p>一个没有任何目标的状态被认为是已解决状态：</p> <div class=highlight><pre><span></span><code><span class=n>state0</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_start</span><span class=p>(</span><span class=s2>&quot;forall (p : Prop), p -&gt; p&quot;</span><span class=p>)</span>
+<span class=n>state1</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic</span><span class=p>(</span><span class=n>state0</span><span class=p>,</span> <span class=n>goal_id</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=o>=</span><span class=s2>&quot;intro&quot;</span><span class=p>)</span>
+<span class=n>state2</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic</span><span class=p>(</span><span class=n>state1</span><span class=p>,</span> <span class=n>goal_id</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=o>=</span><span class=s2>&quot;intro h&quot;</span><span class=p>)</span>
+<span class=n>state3</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic</span><span class=p>(</span><span class=n>state2</span><span class=p>,</span> <span class=n>goal_id</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=o>=</span><span class=s2>&quot;exact h&quot;</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>state3</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>GoalState(state_id=5, goals=[], _sentinel=[0, 1])
+</code></pre></div> <p>请适时调用 <code>server.gc()</code> 删除未使用的目标。</p> <div class=highlight><pre><span></span><code><span class=n>server</span><span class=o>.</span><span class=n>gc</span><span class=p>()</span>
+</code></pre></div> <h2 id=_9>特殊策略<a class=headerlink href=#_9 title="Permanent link">&para;</a></h2> <p>Lean 对某些策略有特殊处理，包括 <code>have</code>、<code>let</code>、<code>calc</code>。执行这些策略时，需创建相应的 <code>TacticHave</code>、<code>TacticLet</code>、<code>TacticCalc</code> 实例并传入 <code>server.goal_tactic</code>。</p> <p>从技术上讲，<code>have</code> 和 <code>let</code> 在 Lean 中并非真正的策略，因此其执行需要特殊关注。</p> <div class=highlight><pre><span></span><code><span class=n>state0</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_start</span><span class=p>(</span><span class=s2>&quot;1 + 1 = 2&quot;</span><span class=p>)</span>
+<span class=n>state1</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic</span><span class=p>(</span><span class=n>state0</span><span class=p>,</span> <span class=n>goal_id</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=o>=</span><span class=n>TacticHave</span><span class=p>(</span><span class=n>branch</span><span class=o>=</span><span class=s2>&quot;2 = 1 + 1&quot;</span><span class=p>,</span> <span class=n>binder_name</span><span class=o>=</span><span class=s2>&quot;h&quot;</span><span class=p>))</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>state1</span><span class=p>)</span>
+</code></pre></div> <p>输出示例：</p> <div class=highlight><pre><span></span><code>⊢ 2 = 1 + 1
+h : 2 = 1 + 1
+⊢ 1 + 1 = 2
+</code></pre></div> <p><code>TacticExpr</code> “策略”会解析一个表达式并将其赋值给当前目标。这利用了 Lean 的类型统一系统，表达能力与 Lean 表达式相同。Mathlib4 中许多证明是表达式和策略混合写成的。</p> <div class=highlight><pre><span></span><code><span class=n>state0</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_start</span><span class=p>(</span><span class=s2>&quot;forall (p : Prop), p -&gt; p&quot;</span><span class=p>)</span>
+<span class=n>state1</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic</span><span class=p>(</span><span class=n>state0</span><span class=p>,</span> <span class=n>goal_id</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=o>=</span><span class=s2>&quot;intro p&quot;</span><span class=p>)</span>
+<span class=n>state2</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic</span><span class=p>(</span><span class=n>state1</span><span class=p>,</span> <span class=n>goal_id</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=o>=</span><span class=n>TacticExpr</span><span class=p>(</span><span class=s2>&quot;fun h =&gt; h&quot;</span><span class=p>))</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>state2</span><span class=p>)</span>
+</code></pre></div> <p>要执行 <code>conv</code> 策略，使用 <code>server.goal_conv_begin</code> 进入目标的 conv 模式，使用 <code>server.goal_conv_end</code> 退出 conv 模式。Pantograph 会在 conv 模式下的每个策略执行后提供交互反馈。</p> <h1 id=_10>搜索<a class=headerlink href=#_10 title="Permanent link">&para;</a></h1> <p>Pantograph 支持基本的证明搜索。在此模式下，Pantograph 将目标视为与或树（and-or tree）上的节点。用户需要提供一个智能体，该智能体应实现两个函数：</p> <ul> <li><strong>Tactic</strong>：应对某个目标使用哪种策略？ </li> <li><strong>Guidance</strong>：某个目标的搜索优先级是多少？</li> </ul> <p>用户的智能体应继承自 <code>pantograph.search.Agent</code>。下面是一个暴力穷举的智能体示例：</p> <div class=highlight><pre><span></span><code><span class=kn>from</span><span class=w> </span><span class=nn>typing</span><span class=w> </span><span class=kn>import</span> <span class=n>Optional</span>
+<span class=kn>import</span><span class=w> </span><span class=nn>collections</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pantograph</span><span class=w> </span><span class=kn>import</span> <span class=n>Server</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pantograph.search</span><span class=w> </span><span class=kn>import</span> <span class=n>Agent</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pantograph.expr</span><span class=w> </span><span class=kn>import</span> <span class=n>GoalState</span><span class=p>,</span> <span class=n>Tactic</span>
+
+<span class=k>class</span><span class=w> </span><span class=nc>DumbAgent</span><span class=p>(</span><span class=n>Agent</span><span class=p>):</span>
+
+    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+
+        <span class=bp>self</span><span class=o>.</span><span class=n>goal_tactic_id_map</span> <span class=o>=</span> <span class=n>collections</span><span class=o>.</span><span class=n>defaultdict</span><span class=p>(</span><span class=k>lambda</span> <span class=p>:</span> <span class=mi>0</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>intros</span> <span class=o>=</span> <span class=p>[</span>
+            <span class=s2>&quot;intro&quot;</span><span class=p>,</span>
+        <span class=p>]</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>tactics</span> <span class=o>=</span> <span class=p>[</span>
+            <span class=s2>&quot;intro h&quot;</span><span class=p>,</span>
+            <span class=s2>&quot;cases h&quot;</span><span class=p>,</span>
+            <span class=s2>&quot;apply Or.inl&quot;</span><span class=p>,</span>
+            <span class=s2>&quot;apply Or.inr&quot;</span><span class=p>,</span>
+        <span class=p>]</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>no_space_tactics</span> <span class=o>=</span> <span class=p>[</span>
+            <span class=s2>&quot;assumption&quot;</span><span class=p>,</span>
+        <span class=p>]</span>
+
+    <span class=k>def</span><span class=w> </span><span class=nf>next_tactic</span><span class=p>(</span>
+            <span class=bp>self</span><span class=p>,</span>
+            <span class=n>state</span><span class=p>:</span> <span class=n>GoalState</span><span class=p>,</span>
+            <span class=n>goal_id</span><span class=p>:</span> <span class=nb>int</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Optional</span><span class=p>[</span><span class=n>Tactic</span><span class=p>]:</span>
+        <span class=n>key</span> <span class=o>=</span> <span class=p>(</span><span class=n>state</span><span class=o>.</span><span class=n>state_id</span><span class=p>,</span> <span class=n>goal_id</span><span class=p>)</span>
+        <span class=n>i</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>goal_tactic_id_map</span><span class=p>[</span><span class=n>key</span><span class=p>]</span>
+
+        <span class=n>target</span> <span class=o>=</span> <span class=n>state</span><span class=o>.</span><span class=n>goals</span><span class=p>[</span><span class=n>goal_id</span><span class=p>]</span><span class=o>.</span><span class=n>target</span>
+        <span class=k>if</span> <span class=n>target</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s1>&#39;∀&#39;</span><span class=p>):</span>
+            <span class=n>tactics</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>intros</span>
+        <span class=k>elif</span> <span class=s1>&#39; &#39;</span> <span class=ow>in</span> <span class=n>target</span><span class=p>:</span>
+            <span class=n>tactics</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>tactics</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=n>tactics</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>no_space_tactics</span>
+
+        <span class=k>if</span> <span class=n>i</span> <span class=o>&gt;=</span> <span class=nb>len</span><span class=p>(</span><span class=n>tactics</span><span class=p>):</span>
+            <span class=k>return</span> <span class=kc>None</span>
+
+        <span class=bp>self</span><span class=o>.</span><span class=n>goal_tactic_id_map</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span>
+        <span class=k>return</span> <span class=n>tactics</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
+</code></pre></div> <p>执行搜索：</p> <div class=highlight><pre><span></span><code><span class=n>server</span> <span class=o>=</span> <span class=n>Server</span><span class=p>()</span>
+<span class=n>agent</span> <span class=o>=</span> <span class=n>DumbAgent</span><span class=p>()</span>
+<span class=n>goal_state</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_start</span><span class=p>(</span><span class=s2>&quot;∀ (p q: Prop), Or p q -&gt; Or q p&quot;</span><span class=p>)</span>
+<span class=n>agent</span><span class=o>.</span><span class=n>search</span><span class=p>(</span><span class=n>server</span><span class=o>=</span><span class=n>server</span><span class=p>,</span> <span class=n>goal_state</span><span class=o>=</span><span class=n>goal_state</span><span class=p>,</span> <span class=n>verbose</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>SearchResult(n_goals_root=1, duration=0.7717759609222412, success=True, steps=16)
+</code></pre></div> <h2 id=_11>自动模式与手动模式<a class=headerlink href=#_11 title="Permanent link">&para;</a></h2> <p>智能体会选择一个目标并在该目标上执行策略。那么其它未被选择的目标怎么办？默认情况下，服务器运行在自动模式（automatic mode）。在自动模式下，所有其他目标会自动被继承到子状态中，因此智能体可以在当前状态没有剩余目标时，判定证明已完成。</p> <p>部分用户可能希望手动处理兄弟目标，例如 Aesop 对元变量耦合的处理不是自动完成的。要实现手动管理，可在创建服务器时传入参数：</p> <div class=highlight><pre><span></span><code><span class=n>server</span> <span class=o>=</span> <span class=n>Server</span><span class=p>(</span><span class=n>options</span><span class=o>=</span><span class=p>{</span><span class=s2>&quot;automaticMode&quot;</span><span class=p>:</span> <span class=kc>False</span><span class=p>})</span>
+</code></pre></div> <h1 id=_12>数据提取<a class=headerlink href=#_12 title="Permanent link">&para;</a></h1> <div class=highlight><pre><span></span><code><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pathlib</span><span class=w> </span><span class=kn>import</span> <span class=n>Path</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pantograph.server</span><span class=w> </span><span class=kn>import</span> <span class=n>Server</span>
+</code></pre></div> <h2 id=tactic-invocation>策略调用数据提取（Tactic Invocation）<a class=headerlink href=#tactic-invocation title="Permanent link">&para;</a></h2> <p>Pantograph 可以从 Lean 文件中提取策略调用数据。策略调用由一个三元组组成，包含策略执行前的目标状态、策略执行后的目标状态，以及将前状态转变为后状态的策略。</p> <p>使用 <code>server.tactic_invocations(file_name)</code> 方法，传入 Lean 文件路径即可提取策略调用数据。</p> <p>示例代码：</p> <div class=highlight><pre><span></span><code><span class=n>project_path</span> <span class=o>=</span> <span class=n>Path</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>getcwd</span><span class=p>())</span><span class=o>.</span><span class=n>parent</span><span class=o>.</span><span class=n>resolve</span><span class=p>()</span> <span class=o>/</span> <span class=s1>&#39;examples/Example&#39;</span>
+<span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;$PWD: </span><span class=si>{</span><span class=n>project_path</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
+
+<span class=n>server</span> <span class=o>=</span> <span class=n>Server</span><span class=p>(</span><span class=n>imports</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;Example&#39;</span><span class=p>],</span> <span class=n>project_path</span><span class=o>=</span><span class=n>project_path</span><span class=p>)</span>
+<span class=n>units</span> <span class=o>=</span> <span class=n>server</span><span class=o>.</span><span class=n>tactic_invocations</span><span class=p>(</span><span class=n>project_path</span> <span class=o>/</span> <span class=s2>&quot;Example.lean&quot;</span><span class=p>)</span>
+</code></pre></div> <p>输出示例：</p> <div class=highlight><pre><span></span><code>$PWD: /home/aniva/Projects/atp/PyPantograph/examples/Example
+</code></pre></div> <p>该函数返回一个 <code>CompilationUnit</code> 对象列表，对应输入 Lean 文件中的每个编译单元。为提升性能，仅加载文本边界到 <code>CompilationUnit</code> 中。</p> <p>可以通过以下方式查看每个编译单元的文本内容：</p> <div class=highlight><pre><span></span><code><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>project_path</span> <span class=o>/</span> <span class=s2>&quot;Example.lean&quot;</span><span class=p>,</span> <span class=s1>&#39;rb&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+    <span class=n>content</span> <span class=o>=</span> <span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>unit</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>units</span><span class=p>):</span>
+        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;#</span><span class=si>{</span><span class=n>i</span><span class=si>}</span><span class=s2>: [</span><span class=si>{</span><span class=n>unit</span><span class=o>.</span><span class=n>i_begin</span><span class=si>}</span><span class=s2>,</span><span class=si>{</span><span class=n>unit</span><span class=o>.</span><span class=n>i_end</span><span class=si>}</span><span class=s2>]&quot;</span><span class=p>)</span>
+        <span class=n>unit_text</span> <span class=o>=</span> <span class=n>content</span><span class=p>[</span><span class=n>unit</span><span class=o>.</span><span class=n>i_begin</span><span class=p>:</span><span class=n>unit</span><span class=o>.</span><span class=n>i_end</span><span class=p>]</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span>
+        <span class=nb>print</span><span class=p>(</span><span class=n>unit_text</span><span class=p>)</span>
+</code></pre></div> <p>示例输出：</p> <div class=highlight><pre><span></span><code>#0: [14,85]
+/-- Ensure that Aesop is running -/
+example : α → α :=
+  by aesop
+
+
+#1: [85,254]
+example : ∀ (p q: Prop), p ∨ q → q ∨ p := by
+  intro p q h
+  -- Here are some comments
+  cases h
+  . apply Or.inr
+    assumption
+  . apply Or.inl
+    assumption
+</code></pre></div> <p>每个 <code>CompilationUnit</code> 包含一个 <code>TacticInvocations</code> 列表，记录多个策略调用。每个调用包含：</p> <ul> <li><code>.before</code>：策略执行前的目标状态</li> <li><code>.after</code>：策略执行后的目标状态</li> <li><code>.tactic</code>：执行的策略</li> </ul> <p><div class=highlight><pre><span></span><code><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>units</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>invocations</span><span class=p>:</span>
+    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;[Before]</span><span class=se>\n</span><span class=si>{</span><span class=n>i</span><span class=o>.</span><span class=n>before</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
+    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;[Tactic]</span><span class=se>\n</span><span class=si>{</span><span class=n>i</span><span class=o>.</span><span class=n>tactic</span><span class=si>}</span><span class=s2> (using </span><span class=si>{</span><span class=n>i</span><span class=o>.</span><span class=n>used_constants</span><span class=si>}</span><span class=s2>)&quot;</span><span class=p>)</span>
+    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;[After]</span><span class=se>\n</span><span class=si>{</span><span class=n>i</span><span class=o>.</span><span class=n>after</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>[Before]
+α : Sort ?u.7
+⊢ α → α
+[Tactic]
+aesop (using [])
+[After]
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>units</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>invocations</span><span class=p>:</span>
+    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;[Before]</span><span class=se>\n</span><span class=si>{</span><span class=n>i</span><span class=o>.</span><span class=n>before</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
+    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;[Tactic]</span><span class=se>\n</span><span class=si>{</span><span class=n>i</span><span class=o>.</span><span class=n>tactic</span><span class=si>}</span><span class=s2> (using </span><span class=si>{</span><span class=n>i</span><span class=o>.</span><span class=n>used_constants</span><span class=si>}</span><span class=s2>)&quot;</span><span class=p>)</span>
+    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;[After]</span><span class=se>\n</span><span class=si>{</span><span class=n>i</span><span class=o>.</span><span class=n>after</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>[Before]
+⊢ ∀ (p q : Prop), p ∨ q → q ∨ p
+[Tactic]
+intro p q h (using [])
+[After]
+p q : Prop
+h : p ∨ q
+⊢ q ∨ p
+[Before]
+p q : Prop
+h : p ∨ q
+⊢ q ∨ p
+[Tactic]
+cases h (using [&#39;Eq.refl&#39;, &#39;Or&#39;])
+[After]
+case inl
+p q : Prop
+h✝ : p
+⊢ q ∨ p
+case inr p q : Prop h✝ : q ⊢ q ∨ p
+[Before]
+case inl
+p q : Prop
+h✝ : p
+⊢ q ∨ p
+[Tactic]
+apply Or.inr (using [&#39;Or.inr&#39;])
+[After]
+case inl.h
+p q : Prop
+h✝ : p
+⊢ p
+[Before]
+case inl.h
+p q : Prop
+h✝ : p
+⊢ p
+[Tactic]
+assumption (using [])
+[After]
+
+[Before]
+case inr
+p q : Prop
+h✝ : q
+⊢ q ∨ p
+[Tactic]
+apply Or.inl (using [&#39;Or.inl&#39;])
+[After]
+case inr.h
+p q : Prop
+h✝ : q
+⊢ q
+[Before]
+case inr.h
+p q : Prop
+h✝ : q
+⊢ q
+[Tactic]
+assumption (using [])
+[After]
+</code></pre></div></p> <h1 id=_13>草稿功能<a class=headerlink href=#_13 title="Permanent link">&para;</a></h1> <p>Pantograph 支持草稿功能（技术上称为草图步骤，即 Draft-Sketch-Prove）。Pantograph 的草稿功能更加强大：</p> <ul> <li>在证明的任意位置，你可以用 <code>sorry</code> 替换一个表达式，<code>sorry</code> 会变成一个新的目标（goal）。</li> <li>任何类型错误也会被转化为目标。</li> <li>为了检测是否发生了类型错误，用户可以查看每个编译单元（compilation unit）中的消息。</li> </ul> <h2 id=compilation-units>编译单元（Compilation Units）<a class=headerlink href=#compilation-units title="Permanent link">&para;</a></h2> <p>在此必须介绍“编译单元”的概念。每个 Lean 定义、定理、常量等，都是一个编译单元。当 Pantograph 从 Lean 源代码提取数据时，会将数据划分成这些编译单元。</p> <p>例如，考虑下面由语言模型证明器生成的草稿（sketch）： </p> <div class=highlight><pre><span></span><code><span class=kd>by</span>
+<span class=w>   </span><span class=n>intros</span><span class=w> </span><span class=n>n</span><span class=w> </span><span class=n>m</span>
+<span class=w>   </span><span class=n>induction</span><span class=w> </span><span class=n>n</span><span class=w> </span><span class=k>with</span>
+<span class=w>   </span><span class=bp>|</span><span class=w> </span><span class=n>zero</span><span class=w> </span><span class=bp>=&gt;</span>
+<span class=w>     </span><span class=k>have</span><span class=w> </span><span class=n>h_base</span><span class=o>:</span><span class=w> </span><span class=mi>0</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=bp>=</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=gr>sorry</span>
+<span class=w>     </span><span class=k>have</span><span class=w> </span><span class=n>h_symm</span><span class=o>:</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=mi>0</span><span class=w> </span><span class=bp>=</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=gr>sorry</span>
+<span class=w>     </span><span class=gr>sorry</span>
+<span class=w>   </span><span class=bp>|</span><span class=w> </span><span class=n>succ</span><span class=w> </span><span class=n>n</span><span class=w> </span><span class=n>ih</span><span class=w> </span><span class=bp>=&gt;</span>
+<span class=w>     </span><span class=k>have</span><span class=w> </span><span class=n>h_inductive</span><span class=o>:</span><span class=w> </span><span class=n>n</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=bp>=</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>n</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=gr>sorry</span>
+<span class=w>     </span><span class=k>have</span><span class=w> </span><span class=n>h_pull_succ_out_from_right</span><span class=o>:</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>Nat.succ</span><span class=w> </span><span class=n>n</span><span class=w> </span><span class=bp>=</span><span class=w> </span><span class=n>Nat.succ</span><span class=w> </span><span class=o>(</span><span class=n>m</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>n</span><span class=o>)</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=gr>sorry</span>
+<span class=w>     </span><span class=k>have</span><span class=w> </span><span class=n>h_flip_n_plus_m</span><span class=o>:</span><span class=w> </span><span class=n>Nat.succ</span><span class=w> </span><span class=o>(</span><span class=n>n</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>m</span><span class=o>)</span><span class=w> </span><span class=bp>=</span><span class=w> </span><span class=n>Nat.succ</span><span class=w> </span><span class=o>(</span><span class=n>m</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>n</span><span class=o>)</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=gr>sorry</span>
+<span class=w>     </span><span class=k>have</span><span class=w> </span><span class=n>h_pull_succ_out_from_left</span><span class=o>:</span><span class=w> </span><span class=n>Nat.succ</span><span class=w> </span><span class=n>n</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=bp>=</span><span class=w> </span><span class=n>Nat.succ</span><span class=w> </span><span class=o>(</span><span class=n>n</span><span class=w> </span><span class=bp>+</span><span class=w> </span><span class=n>m</span><span class=o>)</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=gr>sorry</span>
+<span class=w>     </span><span class=gr>sorry</span>
+</code></pre></div> <p>在某些情况下，我们希望自动解决 <code>sorry</code> 生成的目标，这时可以使用 hammer 策略来完成。具体做法是通过草稿功能（drafting）实现：</p> <ul> <li>首先使用 <code>load_sorry</code> 加载带有 <code>sorry</code> 的目标陈述。 </li> <li>强烈建议在一个定理陈述中不要写超过一个 <code>sorry</code>，以保证证明的清晰性和可维护性。 </li> </ul> <p><div class=highlight><pre><span></span><code><span class=kn>from</span><span class=w> </span><span class=nn>pantograph</span><span class=w> </span><span class=kn>import</span> <span class=n>Server</span>
+
+<span class=n>sketch</span> <span class=o>=</span> <span class=s2>&quot;&quot;&quot;</span>
+<span class=s2>theorem add_comm_proved_formal_sketch : ∀ n m : Nat, n + m = m + n := sorry</span>
+<span class=s2>&quot;&quot;&quot;</span>
+<span class=n>server</span> <span class=o>=</span> <span class=k>await</span> <span class=n>Server</span><span class=o>.</span><span class=n>create</span><span class=p>()</span>
+<span class=n>unit</span><span class=p>,</span> <span class=o>=</span> <span class=k>await</span> <span class=n>server</span><span class=o>.</span><span class=n>load_sorry_async</span><span class=p>(</span><span class=n>sketch</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>unit</span><span class=o>.</span><span class=n>goal_state</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>payload: {&quot;printDependentMVars&quot;: true}
+payload: {&quot;file&quot;: &quot;\ntheorem add_comm_proved_formal_sketch : ∀ n m : Nat, n + m = m + n := sorry\n&quot;, &quot;invocations&quot;: false, &quot;sorrys&quot;: true, &quot;newConstants&quot;: false, &quot;readHeader&quot;: false, &quot;inheritEnv&quot;: false, &quot;typeErrorsAsGoals&quot;: false}
+
+⊢ ∀ (n m : Nat), n + m = m + n
+</code></pre></div></p> <p>更详细的示例请参见 <code>experiments/dsp</code> 目录。 <div class=highlight><pre><span></span><code><span class=n>step</span> <span class=o>=</span> <span class=s2>&quot;&quot;&quot;</span>
+<span class=s2>by</span>
+<span class=s2>   -- Consider some n and m in Nats.</span>
+<span class=s2>   intros n m</span>
+<span class=s2>   -- Perform induction on n.</span>
+<span class=s2>   induction n with</span>
+<span class=s2>   | zero =&gt;</span>
+<span class=s2>     -- Base case: When n = 0, we need to show 0 + m = m + 0.</span>
+<span class=s2>     -- We have the fact 0 + m = m by the definition of addition.</span>
+<span class=s2>     have h_base: 0 + m = m := sorry</span>
+<span class=s2>     -- We also have the fact m + 0 = m by the definition of addition.</span>
+<span class=s2>     have h_symm: m + 0 = m := sorry</span>
+<span class=s2>     -- Combine facts to close goal</span>
+<span class=s2>     sorry</span>
+<span class=s2>   | succ n ih =&gt;</span>
+<span class=s2>     sorry</span>
+<span class=s2>&quot;&quot;&quot;</span>
+<span class=kn>from</span><span class=w> </span><span class=nn>pantograph.expr</span><span class=w> </span><span class=kn>import</span> <span class=n>TacticDraft</span>
+<span class=n>tactic</span> <span class=o>=</span> <span class=n>TacticDraft</span><span class=p>(</span><span class=n>step</span><span class=p>)</span>
+<span class=n>state1</span> <span class=o>=</span> <span class=k>await</span> <span class=n>server</span><span class=o>.</span><span class=n>goal_tactic_async</span><span class=p>(</span><span class=n>unit</span><span class=o>.</span><span class=n>goal_state</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=n>tactic</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>state1</span><span class=p>)</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>payload: {&quot;stateId&quot;: 0, &quot;goalId&quot;: 0, &quot;draft&quot;: &quot;\nby\n   -- Consider some n and m in Nats.\n   intros n m\n   -- Perform induction on n.\n   induction n with\n   | zero =&gt;\n     -- Base case: When n = 0, we need to show 0 + m = m + 0.\n     -- We have the fact 0 + m = m by the definition of addition.\n     have h_base: 0 + m = m := sorry\n     -- We also have the fact m + 0 = m by the definition of addition.\n     have h_symm: m + 0 = m := sorry\n     -- Combine facts to close goal\n     sorry\n   | succ n ih =&gt;\n     sorry\n&quot;}
+n : Nat
+m : Nat
+⊢ 0 + m = m
+n : Nat
+m : Nat
+h_base : 0 + m = m
+⊢ m + 0 = m
+n : Nat
+m : Nat
+h_base : 0 + m = m
+h_symm : m + 0 = m
+⊢ 0 + m = m + 0
+n✝ : Nat
+m : Nat
+n : Nat
+ih : n + m = m + n
+⊢ n + 1 + m = m + (n + 1)
+</code></pre></div></p> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script> <script src=../../assets/javascripts/bundle.f55a23d4.min.js></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

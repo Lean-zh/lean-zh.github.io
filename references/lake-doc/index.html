@@ -1,0 +1,460 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://leanprover.cn/references/lake-doc/ rel=canonical><link rel=icon href=../../assets/images/favicon.png><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.6.20"><title>Lake doc - Lean Prover 中文文档</title><link rel=stylesheet href=../../assets/stylesheets/main.e53b48f4.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.06af60db.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../../assets/css/admonition-custom.css><link rel=stylesheet href=../../assets/css/custom.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=green data-md-color-accent=light-green> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#lake class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <div data-md-color-scheme=default data-md-component=outdated hidden> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title="Lean Prover 中文文档" class="md-header__button md-logo" aria-label="Lean Prover 中文文档" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Lean Prover 中文文档 </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Lake doc </span> </div> </div> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" title=Share aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg> </a> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap tabindex=0 data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/Lean-zh/Lean-zh.github.io title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg> </div> <div class=md-source__repository> Lean-zh </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class=md-grid> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=../.. class=md-tabs__link> 主页 </a> </li> <li class=md-tabs__item> <a href=../../projects/verso/ class=md-tabs__link> 项目教程 </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Lean Prover 中文文档" class="md-nav__button md-logo" aria-label="Lean Prover 中文文档" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg> </a> Lean Prover 中文文档 </label> <div class=md-nav__source> <a href=https://github.com/Lean-zh/Lean-zh.github.io title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg> </div> <div class=md-source__repository> Lean-zh </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_1> <label class=md-nav__link for=__nav_1 id=__nav_1_label tabindex=0> <span class=md-ellipsis> 主页 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_1_label aria-expanded=false> <label class=md-nav__title for=__nav_1> <span class="md-nav__icon md-icon"></span> 主页 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> <span class=md-ellipsis> Lean-zh </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> 项目教程 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> 项目教程 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../projects/verso/ class=md-nav__link> <span class=md-ellipsis> Verso 教程 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#lake_1 class=md-nav__link> <span class=md-ellipsis> 获取 Lake </span> </a> </li> <li class=md-nav__item> <a href=#_1 class=md-nav__link> <span class=md-ellipsis> 创建并构建一个包 </span> </a> </li> <li class=md-nav__item> <a href=#_2 class=md-nav__link> <span class=md-ellipsis> 术语表 </span> </a> </li> <li class=md-nav__item> <a href=#_3 class=md-nav__link> <span class=md-ellipsis> 包配置选项 </span> </a> <nav class=md-nav aria-label=包配置选项> <ul class=md-nav__list> <li class=md-nav__item> <a href=#_4 class=md-nav__link> <span class=md-ellipsis> 布局 </span> </a> </li> <li class=md-nav__item> <a href=#_5 class=md-nav__link> <span class=md-ellipsis> 构建与运行 </span> </a> </li> <li class=md-nav__item> <a href=#_6 class=md-nav__link> <span class=md-ellipsis> 测试与检查 </span> </a> </li> <li class=md-nav__item> <a href=#_7 class=md-nav__link> <span class=md-ellipsis> 云发布 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#_8 class=md-nav__link> <span class=md-ellipsis> 设定构建目标 </span> </a> <nav class=md-nav aria-label=设定构建目标> <ul class=md-nav__list> <li class=md-nav__item> <a href=#lean class=md-nav__link> <span class=md-ellipsis> Lean 库 </span> </a> </li> <li class=md-nav__item> <a href=#_9 class=md-nav__link> <span class=md-ellipsis> 二进制可执行文件 </span> </a> </li> <li class=md-nav__item> <a href=#_10 class=md-nav__link> <span class=md-ellipsis> 外部库 </span> </a> </li> <li class=md-nav__item> <a href=#_11 class=md-nav__link> <span class=md-ellipsis> 自定义目标 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#facet class=md-nav__link> <span class=md-ellipsis> 定义新 facet </span> </a> </li> <li class=md-nav__item> <a href=#_12 class=md-nav__link> <span class=md-ellipsis> 添加依赖 </span> </a> </li> <li class=md-nav__item> <a href=#lean-require class=md-nav__link> <span class=md-ellipsis> Lean require </span> </a> </li> <li class=md-nav__item> <a href=#_13 class=md-nav__link> <span class=md-ellipsis> 受支持的源 </span> </a> <nav class=md-nav aria-label=受支持的源> <ul class=md-nav__list> <li class=md-nav__item> <a href=#_14 class=md-nav__link> <span class=md-ellipsis> 路径依赖 </span> </a> </li> <li class=md-nav__item> <a href=#git class=md-nav__link> <span class=md-ellipsis> Git 依赖 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#toml-require class=md-nav__link> <span class=md-ellipsis> TOML require </span> </a> </li> <li class=md-nav__item> <a href=#github class=md-nav__link> <span class=md-ellipsis> GitHub 发布构建 </span> </a> <nav class=md-nav aria-label="GitHub 发布构建"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#_15 class=md-nav__link> <span class=md-ellipsis> 下载 </span> </a> </li> <li class=md-nav__item> <a href=#_16 class=md-nav__link> <span class=md-ellipsis> 上传 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#_17 class=md-nav__link> <span class=md-ellipsis> 编写及运行脚本 </span> </a> </li> <li class=md-nav__item> <a href=#lake_2 class=md-nav__link> <span class=md-ellipsis> 从源码构建并运行 Lake </span> </a> <nav class=md-nav aria-label="从源码构建并运行 Lake"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#nix-flakes class=md-nav__link> <span class=md-ellipsis> 使用 Nix Flakes 构建 </span> </a> </li> <li class=md-nav__item> <a href=#lake_3 class=md-nav__link> <span class=md-ellipsis> 增强 Lake 的搜索路径 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <!-- 
+# Lake
+--> <h1 id=lake>Lake 官方文档<a class=headerlink href=#lake title="Permanent link">&para;</a></h1> <hr> <!--
+Lake (Lean Make) is the new build system and package manager for Lean 4. With Lake, the package's configuration is written in Lean inside a dedicated `lakefile.lean` stored in the root of the package's directory.
+--> <p>Lake（Lean Make）是 Lean 4 新的构建系统和包管理器。借助 Lake，包的配置可以写入位于包根目录下的专用 <code>lakefile.lean</code> 文件中。</p> <!--
+Each `lakefile.lean` includes a `package` declaration (akin to `main`) which defines the package's basic configuration. It also typically includes build configurations for different targets (e.g., Lean libraries and binary executables) and Lean scripts to run on the command line (via `lake script run`).
+--> <p>每个 <code>lakefile.lean</code> 文件包含一个 <code>package</code> 声明（类似于 <code>main</code> 函数），用于定义包的基本配置。通常，还包括不同目标的构建配置（例如 Lean 库文件和二进制可执行文件），以及通过 <code>lake script run</code> 运行的命令行脚本。</p> <!--
+_**This README provides information about Lake relative to the current commit. If you are looking for documentation for the Lake version shipped with a given Lean release, you should look at the README of that version.**_
+--> <p><em><strong>此 README 提供了与当前提交相关的 Lake 信息。如果您正在查找随特定 Lean 版本发布的 Lake 文档，请查看该版本的 README。</strong></em></p> <!--
+## Getting Lake
+--> <h2 id=lake_1>获取 Lake<a class=headerlink href=#lake_1 title="Permanent link">&para;</a></h2> <!--
+Lake is part of the [lean4](https://github.com/leanprover/lean4) repository and is distributed along with its official releases (e.g., as part of the [elan](https://github.com/leanprover/elan) toolchain). So if you have installed a semi-recent Lean 4 nightly, you should already have it! If you want to build the latest version from the source yourself, check out the [build instructions](https://github.com/leanprover/lean4/tree/master/src/lake#building-and-running-lake-from-the-source) at the bottom of this README.
+--> <p>Lake 是 <a href=https://github.com/leanprover/lean4>lean4</a> 仓库的一部分，随其官方版本一同发布（例如，作为 <a href=https://github.com/leanprover/elan>elan</a> 工具链的一部分）。所以，如果你已经安装了近期版本的 Lean 4，你也应该已经拥有了 Lake！如果你想自己从源码构建最新版本，请参阅此 README 最后的<a href=https://github.com/leanprover/lean4/tree/master/src/lake#building-and-running-lake-from-the-source>构建指南</a>。</p> <!--
+## Creating and Building a Package
+--> <h2 id=_1>创建并构建一个包<a class=headerlink href=#_1 title="Permanent link">&para;</a></h2> <!--
+To create a new package, either run `lake init` to setup the package in the current directory or `lake new` to create it in a new directory. For example, we could create the package `hello` like so:
+--> <p>要创建一个新包，可以运行 <code>lake init</code> 在当前目录中设置包，或运行 <code>lake new</code> 在新目录中创建包。例如，我们可以这样创建包 <code>hello</code>：</p> <div class=highlight><pre><span></span><code>$<span class=w> </span>mkdir<span class=w> </span>hello
+$<span class=w> </span><span class=nb>cd</span><span class=w> </span>hello
+$<span class=w> </span>lake<span class=w> </span>init<span class=w> </span>hello
+</code></pre></div> <!--
+or like so:
+--> <p>或者这样：</p> <div class=highlight><pre><span></span><code>$<span class=w> </span>lake<span class=w> </span>new<span class=w> </span>hello
+$<span class=w> </span><span class=nb>cd</span><span class=w> </span>hello
+</code></pre></div> <!--
+Either way, Lake will create the following template directory structure and initialize a Git repository for the package.
+--> <p>无论采用哪种方式，Lake 都会创建如下模板目录结构并为包初始化一个 Git 仓库。</p> <!--
+<div class="highlight"><pre><span></span><code>.lake/         # Lake output directory
+Hello/         # library source files; accessible via `import Hello.*`
+  Basic.lean   # an example library module file
+  ...          # additional files should be added here
+Hello.lean     # library root; imports standard modules from Hello
+Main.lean      # main file of the executable (contains `def main`)
+lakefile.lean  # Lake package configuration
+lean-toolchain # the Lean version used by the package
+.gitignore     # excludes system-specific files (e.g. `build`) from Git
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code>.lake/<span class=w>         </span><span class=c1># Lake 的输出目录</span>
+Hello/<span class=w>         </span><span class=c1># 库的源文件目录; 通过 `import Hello.*` 导入</span>
+<span class=w>  </span>Basic.lean<span class=w>   </span><span class=c1># 一个示例库模块文件</span>
+<span class=w>  </span>...<span class=w>          </span><span class=c1># 在此处添加其他文件</span>
+Hello.lean<span class=w>     </span><span class=c1># 库的根文件; 从 Hello 导入标准模块</span>
+Main.lean<span class=w>      </span><span class=c1># 可执行文件的主文件 (含 `def main`)</span>
+lakefile.lean<span class=w>  </span><span class=c1># Lake 的包配置文件</span>
+lean-toolchain<span class=w> </span><span class=c1># 包所使用的 Lean 版本</span>
+.gitignore<span class=w>     </span><span class=c1># 排除系统特定文件 (如 `build`) 从 Git 版本控制中</span>
+</code></pre></div> <!--
+The example modules files contain the following dummy "Hello World" program.
+--> <p>示例模块文件包含以下 "Hello World" 程序。</p> <p><strong>Hello/Basic.lean</strong></p> <div class=highlight><pre><span></span><code><span class=kd>def</span><span class=w> </span><span class=n>hello</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=s2>&quot;world&quot;</span>
+</code></pre></div> <p><strong>Hello.lean</strong></p> <!--
+<div class="highlight"><pre><span></span><code><span class="c1">-- This module serves as the root of the `Hello` library.</span>
+<span class="c1">-- Import modules here that should be built as part of the library.</span>
+<span class="kn">import</span><span class="w"> </span><span class="bp">«</span><span class="n">Hello</span><span class="bp">».</span><span class="n">Basic</span>
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code><span class=c1>-- 这个模块是 `Hello` 库的根文件</span>
+<span class=c1>-- 在这里导入应作为库一部分构建的模块。</span>
+<span class=kn>import</span><span class=w> </span><span class=bp>«</span><span class=n>Hello</span><span class=bp>».</span><span class=n>Basic</span>
+</code></pre></div> <p><strong>Main.lean</strong></p> <div class=highlight><pre><span></span><code><span class=kn>import</span><span class=w> </span><span class=bp>«</span><span class=n>Hello</span><span class=bp>»</span>
+
+<span class=kd>def</span><span class=w> </span><span class=n>main</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>IO</span><span class=w> </span><span class=n>Unit</span><span class=w> </span><span class=o>:=</span>
+<span class=w>  </span><span class=n>IO.println</span><span class=w> </span><span class=n>s</span><span class=bp>!</span><span class=s2>&quot;Hello, {hello}!&quot;</span>
+</code></pre></div> <!--
+Lake also creates a basic `lakefile.lean` for the package along with a `lean-toolchain` file that contains the name of the Lean toolchain Lake belongs to, which tells [`elan`](https://github.com/leanprover/elan) to use that Lean toolchain for the package.
+--> <p>Lake 还会为包创建一个基础的 <code>lakefile.lean</code> 文件以及一个包含 Lean 工具链名称的 <code>lean-toolchain</code> 文件，这样 <a href=https://github.com/leanprover/elan>elan</a> 就知道该为这个包使用哪个 Lean 工具链。</p> <p><strong>lakefile.lean</strong></p> <!--
+import Lake
+open Lake DSL
+
+package «hello» where
+  -- add package configuration options here
+
+lean_lib «Hello» where
+  -- add library configuration options here
+
+@[default_target]
+lean_exe «hello» where
+  root := `Main
+--> <div class=highlight><pre><span></span><code><span class=kn>import</span><span class=w> </span><span class=n>Lake</span>
+<span class=kn>open</span><span class=w> </span><span class=n>Lake</span><span class=w> </span><span class=n>DSL</span>
+
+<span class=n>package</span><span class=w> </span><span class=bp>«</span><span class=n>hello</span><span class=bp>»</span><span class=w> </span><span class=n>where</span>
+<span class=w>  </span><span class=c1>-- 在此添加包配置选项</span>
+
+<span class=n>lean_lib</span><span class=w> </span><span class=bp>«</span><span class=n>Hello</span><span class=bp>»</span><span class=w> </span><span class=n>where</span>
+<span class=w>  </span><span class=c1>-- 在此添加库配置选项</span>
+
+<span class=kd>@[</span><span class=n>default_target</span><span class=kd>]</span>
+<span class=n>lean_exe</span><span class=w> </span><span class=bp>«</span><span class=n>hello</span><span class=bp>»</span><span class=w> </span><span class=n>where</span>
+<span class=w>  </span><span class=n>root</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=ss>`Main</span>
+</code></pre></div> <!--
+The command `lake build` is used to build the package (and its [dependencies](https://github.com/leanprover/lean4/tree/master/src/lake#adding-dependencies), if it has them) into a native executable. The result will be placed in `.lake/build/bin`. The command `lake clean` deletes `build`.
+--> <p><code>lake build</code> 命令用于构建包（及其<a href=https://github.com/leanprover/lean4/tree/master/src/lake#adding-dependencies>依赖项</a>，如果有的话）为本地可执行文件。结果将放置在 <code>.lake/build/bin</code> 目录下。<code>lake clean</code> 命令会删除 <code>build</code> 目录。</p> <div class=highlight><pre><span></span><code>$ lake build
+...
+$ ./.lake/build/bin/hello
+Hello, world!
+</code></pre></div> <!--
+Examples of different package configurations can be found in the [`examples`](https://github.com/leanprover/lean4/blob/master/src/lake/examples) folder of this repository. You can also pass a package template tp `lake init` or `lake new` to control what files Lake creates. For example, instead of using a Lean configuration file for this package, one could produce a TOML version via `lake new hello .toml`.
+--> <p>在此仓库的 <a href=https://github.com/leanprover/lean4/blob/master/src/lake/examples><code>examples</code></a> 文件夹中可以找到不同包配置的示例。你也可以为 <code>lake init</code> 或 <code>lake new</code> 命令传入模板以控制 Lake 创建的文件。例如，你可以通过 <code>lake new hello .toml</code> 命令生成一个 TOML 版本的配置文件，而不是使用 Lean 配置文件。</p> <p><strong>lakefile.toml</strong></p> <div class=highlight><pre><span></span><code><span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;hello&quot;</span>
+<span class=n>defaultTargets</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=s2>&quot;hello&quot;</span><span class=p>]</span>
+
+<span class=k>[[lean_lib]]</span>
+<span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;Hello&quot;</span>
+
+<span class=k>[[lean_exe]]</span>
+<span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;hello&quot;</span>
+<span class=n>root</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;Main&quot;</span>
+</code></pre></div> <!--
+See `lake help init` or `lake help new` for more details on other template options.
+--> <p>使用 <code>lake help init</code> 或 <code>lake help new</code> 命令可以查看有关其他模板选项的更多详细信息。</p> <!--
+## Glossary of Terms
+--> <h2 id=_2>术语表<a class=headerlink href=#_2 title="Permanent link">&para;</a></h2> <!--
+Lake uses a lot of terms common in software development -- like workspace, package, library, executable, target, etc. -- and some more esoteric ones -- like facet. However, whether common or not, these terms mean different things to different people, so it is important to elucidate how Lake defines these terms:
+--> <p>在软件开发过程中，Lake 会用到一系列的术语 —— 如工作空间（workspace）、包（package）、库（library）、可执行文件（executable）、目标（target）等等 —— 还有些更难理解的术语，如 facet。不过，无论这些术语是否常见，不同的人对其都有着不同的理解，因此有必要明确 Lake 对这些术语的定义：</p> <!--
+- A **package** is the **fundamental unit of code distribution in Lake**. Packages can be sourced from the local file system or downloaded from the web (e.g., via Git). The `package` declaration in package's lakefile names it and [defines its basic properties](https://github.com/leanprover/lean4/tree/master/src/lake#package-configuration-options).
+--> <ul> <li><strong>包（package）</strong> 是 Lake <strong>代码分发的基本单元</strong>。包可以来源于本地文件系统，也可以从网络下载（如通过 Git）。包的 lakefile 中的 <code>package</code> 声明决定了包的名称，并<a href=#包配置选项>定义其基本属性</a>。</li> </ul> <!--
+- A **lakefile** is the Lean file that configures a package. It defines how to view, edit, build, and run the code within it, and it specifies what other packages it may require in order to do so.
+--> <ul> <li><strong>lakefile</strong> 是记录整个包配置的 Lean 文件。它定义了如何查看、编辑、构建和运行包中的代码，并指定了所依赖的其它包。</li> </ul> <!--
+- If package `B` requires package `A`, then package `A` is a **dependency** of package B and package `B` is its **dependent**. Package `A` is **upstream** of package `B` and package `B` is reversely **downstream** of package `A`. See the [Adding Dependencies section](https://github.com/leanprover/lean4/tree/master/src/lake#adding-dependencies) for details on how to specify dependencies.
+--> <ul> <li>如果包 B 依赖包 A，包 A 就是包 B 的 <strong>依赖</strong>（dependency），而包 B 就是包 A 的 <strong>下游依赖</strong>（dependent）。包 A 是包 B 的 <strong>上游</strong>，反之包 B 是包 A 的 <strong>下游</strong>。参见<a href=#添加依赖>添加依赖</a> 以了解如何指定依赖。</li> </ul> <!--
+- A **workspace** is the **broadest organizational unit in Lake**. It bundles together a package (termed the **root**), its transitive dependencies, and Lake's environment. Every package can operate as the root of a workspace and the workspace will derive its configuration from this root.
+--> <ul> <li><strong>工作空间（workspace）</strong> 是 Lake 中 <strong>最大的组织单元</strong>。它将一个被称为 <strong>root(根)</strong> 的包、传递的依赖以及 Lake 的环境组合在一起。每个包都可以作为工作区的根，并且工作区将从这个根派生其配置。</li> </ul> <!--
+A **module** is the **smallest unit of code visible to Lake's build system**. It is generally represented by a Lean source file and a set of binary libraries (i.e., a Lean `olean` and `ilean` plus a system shared library if `precompileModules` is turned on). Modules can import one another in order to use each other's code and Lake exists primarily to facilitate this process.
+--> <ul> <li><strong>模块（module）</strong> 是 Lake <strong>构建系统可见的最小代码单元</strong>。模块通常由一个 Lean 源文件和一组二进制库文件（如 <code>olean</code> 和 <code>ilean</code>，若开启 <code>precompileModules</code> 选项，还包括系统共享库）组成。模块之间可以相互导入以使用彼此的代码，Lake 的主要作用就是促进这一过程。</li> </ul> <!--
+A **Lean library** is a collection of modules that share a single configuration. Its configuration defines a set of **module roots** that determines which modules are part of the library, and a set of **module globs** that selects which modules to build on a `lake build` of the library. See the [Lean Libraries section](https://github.com/leanprover/lean4/tree/master/src/lake#lean-libraries) for more details.
+--> <ul> <li><strong>Lean 库（Lean library）</strong> 是一组共享同一配置的模块集合。其配置定义了一组 <strong>模块根（module roots）</strong>，用于确定哪些模块属于该库，以及一组 <strong>模块全局模式（module globs）</strong>，用于在库的 <code>lake build</code> 过程中选择要构建的模块。参见<a href=#lean-库>Lean 库部分</a>了解更多详情。</li> </ul> <!--
+A **Lean binary executable** is a binary executable (i.e., a program a user can run on their computer without Lean installed) built from a Lean module termed its **root** (which should have a `main` definition). See the [Binary Executables section](https://github.com/leanprover/lean4/tree/master/src/lake#binary-executables) for more details.
+--> <ul> <li><strong>Lean 二进制可执行文件（Lean binary executable）</strong> 是一个由根模块（其中应包含 <code>main</code> 定义）构建的二进制可执行文件（即用户在未安装 Lean 时就能在电脑上运行的程序）。参见<a href=#二进制可执行文件>二进制可执行文件部分</a>了解更多详情。</li> </ul> <!--
+An **external library** is a native (static) library built from foreign code (e.g., C) that is required by a package's Lean code in order to function (e.g., because it uses `@[extern]` to invoke code written in a foreign language). An `extern_lib` target is used to inform Lake of such a requirement and instruct Lake on how to build requisite library. Lake then automatically links the external library when appropriate to give the Lean code access to the foreign functions (or, more technically, the foreign symbols) it needs. See the [External Libraries section](https://github.com/leanprover/lean4/tree/master/src/lake#external-libraries) for more details.
+--> <ul> <li><strong>外部库（external library）</strong> 是由外部代码（如 C 语言）构建的原生（静态）库，Lean 代码需要这些库来实现功能（例如，使用 <code>@[extern]</code> 调用外部代码）。<code>extern_lib</code> 目标用于告知 Lake 此类需求并指示 Lake 如何构建必要的库。Lake 随后会在适当时自动链接外部库，以便使 Lean 代码能够访问所需的外部函数（或更专业地说，是外部符号）。参见<a href=#外部库>外部库部分</a>了解更多详情。</li> </ul> <!--
+A **target** is the **fundamental build unit of Lake**. A package can defining any number of targets. Each target has a name, which is used to instruct Lake to build the target (e.g., through `lake build <target>`) and to keep track internally of a target's build status. Lake defines a set of builtin target types -- [Lean libraries](https://github.com/leanprover/lean4/tree/master/src/lake#lean-libraries), [binary executables](https://github.com/leanprover/lean4/tree/master/src/lake#binary-executables), and [external libraries](https://github.com/leanprover/lean4/tree/master/src/lake#external-libraries) -- but a user can [define their own custom targets as well](https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets). Complex types (e.g., packages, libraries, modules) have multiple facets, each of which count as separate buildable targets. See the [Defining Build Targets section](https://github.com/leanprover/lean4/tree/master/src/lake#defining-build-targets) for more details.
+--> <ul> <li><strong>目标（target）</strong> 是 Lake <strong>构建的基本单元</strong>。一个包可以定义任意数量的目标。每个目标都有一个名称，用于指示 Lake 去构建该目标（例如，通过 <code>lake build &lt;target&gt;</code>）并在内部跟踪目标的构建状态。Lake 定义了一组内置目标类型 —— <a href=#lean-库>Lean 库</a>、<a href=#二进制可执行文件>二进制可执行文件</a> 和 <a href=#外部库>外部库</a> —— 但用户也可以<a href=#自定义目标>定义自己的自定义目标</a>。复杂类型（如包、库、模块）具有多个 facet，每个 facet 都算作独立的可构建目标。参见<a href=#设定构建目标>定义构建目标部分</a>了解更多详情。</li> </ul> <!--
+A **facet** is an element built from another organizational unit (e.g., a package, module, library, etc.). For instance, Lake produces `olean`, `ilean`, `c`, and `o` files all from a single module. Each of these components are thus termed a _facet_ of the module. Similarly, Lake can build both static and shared binaries from a library. Thus, libraries have both `static` and `shared` facets. Lake also allows users to define their own custom facets to build from modules and packages, but this feature is currently experimental and not yet documented.
+--> <ul> <li><strong>facet</strong> 是从其它组织单位构建出的单个元素（如包、模块、库等）。例如，Lake 从单个模块生成 <code>olean</code>、<code>ilean</code>、<code>c</code> 和 <code>o</code> 文件，这些组件都被称为该模块的一个 facet。同样地，Lake 可以从一个库中编译静态和共享两种二进制文件。也就是说，库同时具有 <code>static</code> 和 <code>shared</code> 两种 facet。Lake 还允许用户定义自己的自定义 facet 来从模块和包构建，但这一特性当前仍在试验阶段且尚无相关文档。</li> </ul> <!--
+A **trace** is a piece of data (generally a hash) which is used to verify whether a given target is up-to-date (i.e., does not need to be rebuilt). If the trace stored with a built target matches the trace computed during build, then a target is considered up-to-date. A target's trace is derived from its various **inputs** (e.g., source file, Lean toolchain, imports, etc.).
+--> <ul> <li><strong>trace</strong> 是用来检查目标是否最新（即是否需要重新构建）的一些数据（通常是哈希值）。如果已构建目标的 trace 与构建过程中计算的 trace 相匹配，则目标被认为是最新的。目标的 trace 源于其各种**输入**（如源文件、Lean 工具链、导入等）。</li> </ul> <!--
+## Package Configuration Options
+--> <h2 id=_3>包配置选项<a class=headerlink href=#_3 title="Permanent link">&para;</a></h2> <p>Lake 提供了多种多样的包配置选项。</p> <!-- ### Layout --> <h3 id=_4>布局<a class=headerlink href=#_4 title="Permanent link">&para;</a></h3> <p>这些选项控制包及其构建目录的顶层目录布局。库、可执行文件和包内的目标指定的进一步路径相对于这些目录。</p> <!--
+- `packagesDir`: The directory to which Lake should download remote dependencies. Defaults to `.lake/packages`.
+--> <ul> <li><code>packagesDir</code>: Lake 下载远程依赖项的目录。默认为 <code>.lake/packages</code>。</li> </ul> <!--
+- `srcDir`: The directory containing the package's Lean source files. Defaults to the package's directory.
+--> <ul> <li><code>srcDir</code>: 包含包的 Lean 源文件的目录。默认为包目录。</li> </ul> <!--
+- `buildDir`: The directory to which Lake should output the package's build results. Defaults to `build`.
+--> <ul> <li><code>buildDir</code>: Lake 输出包构建结果的目录。默认值为 <code>build</code>。</li> </ul> <!--
+- `leanLibDir`: The build subdirectory to which Lake should output the package's binary Lean libraries (e.g., `.olean`, `.ilean` files). Defaults to `lib`.
+--> <ul> <li><code>leanLibDir</code>: Lake 输出包的二进制 Lean 库文件（如 <code>.olean</code>、<code>.ilean</code> 文件）的构建子目录。默认为 <code>lib</code>。</li> </ul> <!--
+- `nativeLibDir`: The build subdirectory to which Lake should output the package's native libraries (e.g., `.a`, `.so`, `.dll` files). Defaults to `lib`.
+--> <ul> <li><code>nativeLibDir</code>: Lake 输出包的本地库文件（如 <code>.a</code>、<code>.so</code>、<code>.dll</code> 文件）的构建子目录。默认为 <code>lib</code>。</li> </ul> <!--
+- `binDir`: The build subdirectory to which Lake should output the package's binary executables. Defaults to `bin`.
+--> <ul> <li><code>binDir</code>: Lake 输出包的二进制可执行文件的构建子目录。默认为 <code>bin</code>。</li> </ul> <!--
+- `irDir`: The build subdirectory to which Lake should output the package's intermediary results (e.g., `.c`, `.o` files). Defaults to `ir`.
+--> <ul> <li><code>irDir</code>: Lake 输出包的中间结果（如 <code>.c</code>、<code>.o</code> 文件）的构建子目录。默认为 <code>ir</code>。</li> </ul> <!-- ### Build & Run --> <h3 id=_5>构建与运行<a class=headerlink href=#_5 title="Permanent link">&para;</a></h3> <p>这些选项配置包中代码的构建和运行方式。包内的库、可执行文件和其他目标可以进一步添加到此配置的部分内容。</p> <!--
+- `platformIndependent`: Asserts whether Lake should assume Lean modules are platform-independent. That is, whether lake should include the platform and platform-dependent elements in a module's trace. See the docstring of `Lake.LeanConfig.platformIndependent` for more details. Defaults to `none`.
+--> <ul> <li><code>platformIndependent</code>: 确定 Lake 是否应假设 Lean 模块平台无关。即，Lake 是否应在模块的 trace 中包含平台及其依赖的元素。有关更多详情，请参阅 <code>Lake.LeanConfig.platformIndependent</code> 的文档字符串。默认值为 <code>none</code>。</li> </ul> <!--
+- `precompileModules`: Whether to compile each module into a native shared library that is loaded whenever the module is imported. This speeds up the evaluation of metaprograms and enables the interpreter to run functions marked `@[extern]`. Defaults to `false`.
+--> <ul> <li><code>precompileModules</code>: 是否将每个模块编译为本地共享库文件，该文件在模块导入时加载。这加快了元程序的评估，并允许解释器运行带有 <code>@[extern]</code> 标记的函数。默认值为 <code>false</code>。</li> </ul> <!--
+- `moreServerOptions`: An `Array` of additional options to pass to the Lean language server (i.e., `lean --server`) launched by `lake serve`.
+--> <ul> <li><code>moreServerOptions</code>: 传递给由 <code>lake serve</code> 启动的 Lean 语言服务器（即 <code>lean --server</code>）的附加选项数组。</li> </ul> <!--
+- `moreGlobalServerArgs`: An `Array` of additional arguments to pass to `lean --server` which apply both to this package and anything else in the same server session (e.g. when browsing other packages from the same session via go-to-definition)
+--> <ul> <li><code>moreGlobalServerArgs</code>: 传递给 <code>lean --server</code> 的附加参数数组，这些参数适用于此包及同一服务器会话中的其他任何内容（例如，通过 go-to-definition 在同一会话中浏览其他包时）。</li> </ul> <!--
+- `buildType`: The `BuildType` of targets in the package (see [`CMAKE_BUILD_TYPE`](https://stackoverflow.com/a/59314670)). One of `debug`, `relWithDebInfo`, `minSizeRel`, or `release`. Defaults to `release`.
+--> <ul> <li><code>buildType</code>: 包中目标的 <code>BuildType</code>（参见 <a href=https://stackoverflow.com/a/59314670><code>CMAKE_BUILD_TYPE</code></a>）。可以为 <code>debug</code>、<code>relWithDebInfo</code>、<code>minSizeRel</code> 或 <code>release</code> 其中之一。默认值为 <code>release</code>。</li> </ul> <!--
+- `leanOptions`: Additional options to pass to both the Lean language server (i.e., `lean --server`) launched by `lake serve` and to `lean` while compiling Lean source files.
+--> <ul> <li><code>leanOptions</code>: 传递给由 <code>lake serve</code> 启动的 Lean 语言服务器（即 <code>lean --server</code>）和在编译 Lean 源文件时传递给 <code>lean</code> 的附加选项。</li> </ul> <!--
+- `moreLeanArgs`: An `Array` of additional arguments to pass to `lean` while compiling Lean source files.
+--> <ul> <li><code>moreLeanArgs</code>: 编译 Lean 源文件时传递给 <code>lean</code> 的附加参数数组。</li> </ul> <!--
+- `weakLeanArgs`: An `Array` of additional arguments to pass to `lean` while compiling Lean source files. Unlike `moreLeanArgs`, these arguments do not affect the trace of the build result, so they can be changed without triggering a rebuild. They come _before_ `moreLeanArgs`.
+--> <ul> <li><code>weakLeanArgs</code>: 编译 Lean 源文件时传递给 <code>lean</code> 的附加参数数组。与 <code>moreLeanArgs</code> 不同的是，这些参数不会影响构建结果的 trace，因此可以在不触发重构的情况下更改。在 <code>moreLeanArgs</code> 之前传递。</li> </ul> <!--
+- `moreLeancArgs`: An `Array` of additional arguments to pass to `leanc` while compiling the C source files generated by `lean`. Lake already passes some flags based on the `buildType`, but you can change this by, for example, adding `-O0` and `-UNDEBUG`.
+--> <ul> <li><code>moreLeancArgs</code>: 编译由 <code>lean</code> 生成的 C 源文件时传递给 <code>leanc</code> 的附加参数数组。Lake 已经根据 <code>buildType</code> 传递了一些标志，但你可以通过添加 <code>-O0</code> 和 <code>-UNDEBUG</code> 之类的参数来更改它。</li> </ul> <!--
+- `weakLeancArgs`: An `Array` of additional arguments to pass to `leanc` while compiling the C source files generated by `lean`. Unlike `moreLeancArgs`, these arguments do not affect the trace of the build result, so they can be changed without triggering a rebuild. They come _before_ `moreLeancArgs`.
+--> <ul> <li><code>weakLeancArgs</code>: 编译由 <code>lean</code> 生成的 C 源文件时传递给 <code>leanc</code> 的附加参数数组。与 <code>moreLeancArgs</code> 不同的是，这些参数不会影响构建结果的 trace，因此可以在不触发重建的情况下更改。在 <code>moreLeancArgs</code> 之前传递。</li> </ul> <!--
+- `moreLinkArgs`: An `Array` of additional arguments to pass to `leanc` when linking (e.g., binary executables or shared libraries). These will come _after_ the paths of `extern_lib` targets.
+--> <ul> <li><code>moreLinkArgs</code>: 链接时（例如，二进制可执行文件或共享库）传递给 <code>leanc</code> 的附加参数数组。这些参数将位于 <code>extern_lib</code> 目标的路径之后。</li> </ul> <!--
+- `weakLinkArgs`: An `Array` of additional arguments to pass to `leanc` when linking (e.g., binary executables or shared libraries). Unlike `moreLinkArgs`, these arguments do not affect the trace of the build result, so they can be changed without triggering a rebuild. They come _before_ `moreLinkArgs`.
+--> <ul> <li><code>weakLinkArgs</code>: 链接时（例如，二进制可执行文件或共享库）传递给 <code>leanc</code> 的附加参数数组。与 <code>moreLinkArgs</code> 不同的是，这些参数不会影响构建结果的 trace，因此可以在不触发重建的情况下更改。在 <code>moreLinkArgs</code> 之前传递。</li> </ul> <!--
+- `extraDepTargets`: An `Array` of [target](https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets) names that the package should always build before anything else.
+--> <ul> <li><code>extraDepTargets</code>: 包应始终最先构建的<a href=https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets>目标</a>名称数组。</li> </ul> <!-- ### Test & Lint --> <h3 id=_6>测试与检查<a class=headerlink href=#_6 title="Permanent link">&para;</a></h3> <!--
+The CLI commands `lake test` and `lake lint` use definitions configured by the workspace's root package to perform testing and linting (this referred to as the test or lint _driver_). In Lean configuration files, these can be specified by applying the `@[test_driver]` or `@[lint_driver]` to a `script`, `lean_exe`, or `lean_lb`. They can also be configured (in Lean or TOML format) via the following options on the package.
+--> <p>CLI 命令 <code>lake test</code> 和 <code>lake lint</code> 使用由工作空间的根包配置的定义来执行测试和检查（这称为测试或检查 <em>driver</em>）。在 Lean 配置文件中，可以通过将 <code>@[test_driver]</code> 或 <code>@[lint_driver]</code> 应用于 <code>script</code>、<code>lean_exe</code> 或 <code>lean_lib</code> 来指定这些定义。也可以通过包中的以下选项（以 Lean 或 TOML 格式）进行配置。</p> <!--
+- `testDriver`: The name of the script, executable, or library to drive `lake test`.
+--> <ul> <li><code>testDriver</code>: 驱动 <code>lake test</code> 的脚本、可执行文件或库的名称。</li> </ul> <!--
+- `testDriverArgs`: An `Array` of arguments to pass to the package's test driver.
+--> <ul> <li><code>testDriverArgs</code>: 传递给包的测试驱动程序的参数数组。</li> </ul> <!--
+- `lintDriver`: The name of the script or executable used by `lake lint`. Libraries cannot be lint drivers.
+--> <ul> <li><code>lintDriver</code>: <code>lake lint</code> 使用的脚本或可执行文件的名称。库不能用作检查驱动程序。</li> </ul> <!--
+- `lintDriverArgs`: An `Array` of arguments to pass to the package's lint driver.
+--> <ul> <li><code>lintDriverArgs</code>: 传递给包的检查驱动程序的参数数组。</li> </ul> <!--
+You can specify definition from a dependency as a package's test or lint driver by using the syntax `<pkg>/<name>`. An executable driver will be built and then run, a script driver will just be run, and a library driver will just be built. A script or executable driver is run with any arguments configured by package (e.g., via `testDriverArgs`) followed by any specified on the CLI (e.g., via `lake lint -- <args>...`).
+--> <p>你可以使用语法 <code>&lt;pkg&gt;/&lt;name&gt;</code> 将依赖项中的定义指定为包的测试或检查驱动程序。可执行驱动程序将被构建然后运行，脚本驱动程序将仅运行，而库驱动程序将仅构建。脚本或可执行驱动程序会运行包配置的任何参数（例如，通过 <code>testDriverArgs</code>），然后是 CLI 中指定的任何参数（例如，通过 <code>lake lint -- &lt;args&gt;...</code>）。</p> <!-- ### Cloud Releases --> <h3 id=_7>云发布<a class=headerlink href=#_7 title="Permanent link">&para;</a></h3> <!--
+These options define a cloud release for the package. See the section on [GitHub Release Builds](https://github.com/leanprover/lean4/tree/master/src/lake#github-release-builds) for more information.
+--> <p>这些选项为包定义云发布。详细信息参见<a href=#github-发布构建>GitHub 发布构建</a>部分。</p> <!--
+- `releaseRepo`: The URL of the GitHub repository to upload and download releases of this package. If `none` (the default), for downloads, Lake uses the URL the package was download from (if it is a dependency) and for uploads, uses `gh`'s default.
+--> <ul> <li><code>releaseRepo</code>: 上传和下载此包发布版本的 GitHub 仓库 URL。如果为 <code>none</code>（默认），则下载时，Lake 使用包的下载 URL（如果是依赖项），上传时使用 <code>gh</code> 的默认 URL。</li> </ul> <!--
+- `buildArchive`: The name of the build archive for the GitHub cloud release. Defaults to `{(pkg-)name}-{System.Platform.target}.tar.gz`.
+--> <ul> <li><code>buildArchive</code>: GitHub 云发布的构建归档名称。默认为 <code>{(pkg-)name}-{System.Platform.target}.tar.gz</code>。</li> </ul> <!--
+- `preferReleaseBuild`: Whether to prefer downloading a prebuilt release (from GitHub) rather than building this package from the source when this package is used as a dependency.
+--> <ul> <li><code>preferReleaseBuild</code>: 当此包用作依赖项时，是否优先下载预构建发布（从 GitHub），而不是从源码构建此包。</li> </ul> <!--
+## Defining Build Targets
+--> <h2 id=_8>设定构建目标<a class=headerlink href=#_8 title="Permanent link">&para;</a></h2> <!--
+A Lake package can have many build targets, such as different Lean libraries and multiple binary executables. Any number of these declarations can be marked with the `@[default_target]` attribute to tell Lake to build them on a bare `lake build` of the package.
+--> <p>一个 Lake 包可能有许多的构建目标，比如不同的 Lean 库和诸多二进制可执行文件。不论数量多少，你总可以在 <code>@[default_target]</code> 后声明它们，这样就可以用 <code>lake build</code> 轻松构建。</p> <!--
+### Lean Libraries
+--> <h3 id=lean>Lean 库<a class=headerlink href=#lean title="Permanent link">&para;</a></h3> <!--
+A Lean library target defines a set of Lean modules available to `import` and how to build them.
+--> <p>Lean 库目标定义了可供 <code>import</code> 的 Lean 模块以及它们的构建方式。</p> <!--
+**Syntax**
+--> <p><strong>语法</strong></p> <!--
+<div class="highlight"><pre><span></span><code><span class="n">lean_lib</span><span class="w"> </span><span class="bp">«</span><span class="n">target</span><span class="bp">-</span><span class="n">name</span><span class="bp">»</span><span class="w"> </span><span class="n">where</span>
+<span class="w">  </span><span class="c1">-- configuration options go here</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="k">[[lean_lib]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;«target-name»&quot;</span>
+<span class="c1"># more configuration options go here</span>
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code><span class=n>lean_lib</span><span class=w> </span><span class=bp>«</span><span class=n>target</span><span class=bp>-</span><span class=n>name</span><span class=bp>»</span><span class=w> </span><span class=n>where</span>
+<span class=w>  </span><span class=c1>-- 配置选项从这里开始</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=k>[[lean_lib]]</span>
+<span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;«target-name»&quot;</span>
+<span class=c1># 更多配置选项从这里开始</span>
+</code></pre></div> <!--
+**Configuration Options**
+--> <p><strong>配置选项</strong></p> <!--
+- `srcDir`: The subdirectory of the package's source directory containing the library's source files. Defaults to the package's `srcDir`. (This will be passed to `lean` as the `-R` option.)
+--> <ul> <li><code>srcDir</code>: 包目录下的子目录，包含库的源文件。默认值为包的 <code>srcDir</code>。（这将作为 <code>-R</code> 选项传递给 <code>lean</code>。）</li> </ul> <!--
+- `roots`: An `Array` of root module `Name`(s) of the library. Submodules of these roots (e.g., `Lib.Foo` of `Lib`) are considered part of the library. Defaults to a single root of the target's name.
+--> <ul> <li><code>roots</code>: 库的根模块名数组。这些根模块的子模块（例如，<code>Lib</code> 的 <code>Lib.Foo</code>）被视为库的一部分。默认值为目标名的单一根。</li> </ul> <!--
+- `globs`: An `Array` of module `Glob`(s) to build for the library. The term `glob` comes from [file globs](https://en.wikipedia.org/wiki/Glob_(programming)) (e.g., `foo/*`) on Unix. A submodule glob builds every Lean source file within the module's directory (i.e., ``Glob.submodules `Foo`` is essentially equivalent to a theoretical `import Foo.*`). Local imports of glob'ed files (i.e., fellow modules of the workspace) are also recursively built. Defaults to a `Glob.one` of each of the library's `roots`.
+--> <ul> <li><code>globs</code>: 构建库的模块 glob 数组。术语 <code>glob</code> 来源于 Unix 的 <a href=https://en.wikipedia.org/wiki/Glob_(programming)>文件 glob</a>（例如，<code>foo/*</code>）。子模块 glob 构建模块目录中的每个 Lean 源文件（即， <code>Glob.submodules `Foo</code> 基本上等同于理论上的 <code>import Foo.*</code>）。glob 文件的本地导入（即工作区的其他模块）也会递归构建。默认值为库中每个 <code>roots</code> 的 <code>Glob.one</code>。</li> </ul> <!--
+- `libName`: The `String` name of the library. Used as a base for the file names of its static and dynamic binaries. Defaults to the name of the target.
+--> <ul> <li><code>libName</code>: 库的字符串名称。用作其静态和动态二进制文件名的基础。默认值为目标名称。</li> </ul> <!--
+- `extraDepTargets`: An `Array` of [target](https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets) names to build before the library's modules.
+--> <ul> <li><code>extraDepTargets</code>: 在库模块之前构建的 <a href=https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets>目标</a> 名称数组。</li> </ul> <!--
+- `defaultFacets`: An `Array` of library facets to build on a bare `lake build` of the library. For example, setting this to `#[LeanLib.sharedLib]` will build the shared library facet.
+--> <ul> <li><code>defaultFacets</code>: 库的 facets 数组，用于在 <code>lake build</code> 中构建库。例如，将其设置为 <code>#[LeanLib.sharedLib]</code> 将构建共享库 facet。</li> </ul> <!--
+- `nativeFacets`: A function `(shouldExport : Bool) → Array` determining the [module facets](https://github.com/leanprover/lean4/tree/master/src/lake#defining-new-facets) to build and combine into the library's static and shared libraries. If `shouldExport` is true, the module facets should export any symbols a user may expect to lookup in the library. For example, the Lean interpreter will use exported symbols in linked libraries. Defaults to a singleton of `Module.oExportFacet` (if `shouldExport`) or `Module.oFacet`. That is, the object files compiled from the Lean sources, potentially with exported Lean symbols.
+--> <ul> <li><code>nativeFacets</code>: 一个函数 <code>(shouldExport : Bool) → Array</code>，确定构建并组合到库的静态和共享库中的 <a href=https://github.com/leanprover/lean4/tree/master/src/lake#defining-new-facets>模块 facets</a>。如果 <code>shouldExport</code> 为真，模块 facets 应导出用户可能期望在库中查找的任何符号。例如，Lean 解释器将使用链接库中的导出符号。默认值为 <code>Module.oExportFacet</code> 的单例（如果 <code>shouldExport</code>）或 <code>Module.oFacet</code>。也就是说，从 Lean 源文件编译的目标文件，可能包含导出的 Lean 符号。</li> </ul> <!--
+- `platformIndependent`, `precompileModules`, `buildType`, `leanOptions`, `<more|weak><Lean|Leanc|Link>Args`, `moreServerOptions`: Augments the package's corresponding configuration option. The library's arguments come after, modules are precompiled if either the library or package are, `platformIndependent` falls back to the package on `none`, and the build type is the minimum of the two (`debug` is the lowest, and `release` is the highest).
+--> <ul> <li><code>platformIndependent</code>、<code>precompileModules</code>、<code>buildType</code>、<code>leanOptions</code>、<code>&lt;more|weak&gt;&lt;Lean|Leanc|Link&gt;Args</code>、<code>moreServerOptions</code>：增强包的相应配置选项。库的参数紧随其后，如果库或包都预编译，则模块会被预编译，<code>platformIndependent</code> 在 <code>none</code> 情况下会回退到包，并且构建类型是两者中的最低值（<code>debug</code> 是最低的，而 <code>release</code> 是最高的）。</li> </ul> <!--
+### Binary Executables
+--> <h3 id=_9>二进制可执行文件<a class=headerlink href=#_9 title="Permanent link">&para;</a></h3> <!--
+A Lean executable target builds a binary executable from a Lean module with a `main` function.
+--> <p>一个 Lean 二进制可执行文件目标从带有 <code>main</code> 函数的 Lean 模块文件构建出可执行文件。</p> <!--
+**Syntax**
+--> <p><strong>语法</strong></p> <!--
+<div class="highlight"><pre><span></span><code><span class="n">lean_exe</span><span class="w"> </span><span class="bp">«</span><span class="n">target</span><span class="bp">-</span><span class="n">name</span><span class="bp">»</span><span class="w"> </span><span class="n">where</span>
+<span class="w">  </span><span class="c1">-- configuration options go here</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="k">[[lean_exe]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;«target-name»&quot;</span>
+<span class="c1"># more configuration options go here</span>
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code><span class=n>lean_exe</span><span class=w> </span><span class=bp>«</span><span class=n>target</span><span class=bp>-</span><span class=n>name</span><span class=bp>»</span><span class=w> </span><span class=n>where</span>
+<span class=w>  </span><span class=c1>-- 配置选项从这里开始</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=k>[[lean_exe]]</span>
+<span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;«target-name»&quot;</span>
+<span class=c1># 更多配置选项从这里开始</span>
+</code></pre></div> <!--
+**Configuration Options**
+--> <p><strong>配置选项</strong></p> <!--
+- `srcDir`: The subdirectory of the package's source directory containing the executable's source file. Defaults to the package's `srcDir`. (This will be passed to `lean` as the `-R` option.)
+--> <ul> <li><code>srcDir</code>: 包目录下的子目录，包含可执行文件的源文件。默认值为包的 <code>srcDir</code>。（这将作为 <code>-R</code> 选项传递给 <code>lean</code>。）</li> </ul> <!--
+- `root`: The root module `Name` of the binary executable. Should include a `main` definition that will serve as the entry point of the program. The root is built by recursively building its local imports (i.e., fellow modules of the workspace). Defaults to the name of the target.
+--> <ul> <li><code>root</code>: 二进制可执行文件的根模块名。应包含一个 <code>main</code> 定义，它将作为程序的入口点。通过递归构建其本地导入（即工作区的其他模块）来构建根。默认值为目标名称。</li> </ul> <!--
+- `exeName`: The `String` name of the binary executable. Defaults to the target name with any `.` replaced with a `-`.
+--> <ul> <li><code>exeName</code>: 二进制可执行文件的字符串名称。默认值为目标名称，且其中的 <code>.</code> 替换为 <code>-</code>。</li> </ul> <!--
+- `extraDepTargets`: An `Array` of [target](https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets) names to build before the executable's modules.
+--> <ul> <li><code>extraDepTargets</code>: 在可执行文件模块之前构建的 <a href=https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets>目标</a> 名称数组。</li> </ul> <!--
+- `nativeFacets`: A function `(shouldExport : Bool) → Array` determining the [module facets](https://github.com/leanprover/lean4/tree/master/src/lake#defining-new-facets) to build and link into the executable. If `shouldExport` is true, the module facets should export any symbols a user may expect to lookup in the library. For example, the Lean interpreter will use exported symbols in linked libraries. Defaults to a singleton of `Module.oExportFacet` (if `shouldExport`) or `Module.oFacet`. That is, the object file compiled from the Lean source, potentially with exported Lean symbols.
+--> <ul> <li><code>nativeFacets</code>: 一个函数 <code>(shouldExport : Bool) → Array</code>，确定将哪些 <a href=https://github.com/leanprover/lean4/tree/master/src/lake#defining-new-facets>模块 facets</a> 构建并链接到可执行文件中。如果 <code>shouldExport</code> 为真，模块 facets 应导出用户可能期望在库中查找的任何符号。例如，Lean 解释器将使用链接库中的导出符号。默认值为 <code>Module.oExportFacet</code> 的单例（如果 <code>shouldExport</code>）或 <code>Module.oFacet</code>。也就是说，从 Lean 源文件编译的目标文件，可能包含导出的 Lean 符号。</li> </ul> <!--
+- `supportInterpreter`: Whether to expose symbols within the executable to the Lean interpreter. This allows the executable to interpret Lean files (e.g., via `Lean.Elab.runFrontend`). Implementation-wise, on Windows, the Lean shared libraries are linked to the executable and, on other systems, the executable is linked with `-rdynamic`. This increases the size of the binary on Linux and, on Windows, requires `libInit_shared.dll` and `libleanshared.dll` to be co-located with the executable or part of `PATH` (e.g., via `lake exe`). Thus, this feature should only be enabled when necessary. Defaults to `false`.
+--> <ul> <li><code>supportInterpreter</code>: 是否将可执行文件中的符号暴露给 Lean 解释器。这允许可执行文件解释 Lean 文件（例如，通过 <code>Lean.Elab.runFrontend</code>）。在实现方面，在 Windows 上，Lean 共享库链接到可执行文件，其他系统上，可执行文件使用 <code>-rdynamic</code> 进行链接。这会增加 Linux 上二进制文件的大小，在 Windows 上，需要 <code>libInit_shared.dll</code> 和 <code>libleanshared.dll</code> 与可执行文件共同定位或作为 <code>PATH</code> 的一部分（例如，通过 <code>lake exe</code>）。因此，此功能应仅在必要时启用。默认值为 <code>false</code>。</li> </ul> <!--
+- `platformIndependent`, `precompileModules`, `buildType`, `leanOptions`, `<more|weak><Lean|Leanc|Link>Args`, `moreServerOptions`: Augments the package's corresponding configuration option. The library's arguments come after, modules are precompiled if either the library or package are, `platformIndependent` falls back to the package on `none`, and the build type is the minimum of the two (`debug` is the lowest, and `release` is the highest).
+--> <ul> <li><code>platformIndependent</code>、<code>precompileModules</code>、<code>buildType</code>、<code>leanOptions</code>、<code>&lt;more|weak&gt;&lt;Lean|Leanc|Link&gt;Args</code>、<code>moreServerOptions</code>：增加包的相应配置选项。可执行文件的参数在库参数之后，如果库或包都预编译，则模块会被预编译，<code>platformIndependent</code> 在 <code>none</code> 情况下会回退到包，并且构建类型是两者中的最低值（<code>debug</code> 是最低的，而 <code>release</code> 是最高的）。</li> </ul> <!--
+### External Libraries
+--> <h3 id=_10>外部库<a class=headerlink href=#_10 title="Permanent link">&para;</a></h3> <!--
+A external library target is a non-Lean **static** library that will be linked to the binaries of the package and its dependents (e.g., their shared libraries and executables).
+--> <p>外部库目标是一个非 Lean 的**静态**库，将链接到包及其依赖项的二进制文件（例如，它们的共享库和可执行文件）。</p> <!-- 
+**Important:** For the external library to link properly when `precompileModules` is on, the static library produced by an `extern_lib` target must following the platform's naming conventions for libraries (i.e., be named `foo.a` on Windows and `libfoo.a` on Unix). To make this easy, there is the `Lake.nameToStaticLib` utility function to convert a library name into its proper file name for the platform.
+--> <p><strong>重要:</strong> 为了在 <code>precompileModules</code> 开启时外部库正确链接，由 <code>extern_lib</code> 目标生成的静态库必须遵循平台的库命名约定（即在 Windows 上命名为 <code>foo.a</code>，在 Unix 上命名为 <code>libfoo.a</code>）。为了简化此操作，可以使用 <code>Lake.nameToStaticLib</code> 实用函数将库名称转换为适合平台的正确文件名称。</p> <!--
+**Syntax**
+--> <p><strong>语法</strong></p> <!--
+<div class="highlight"><pre><span></span><code><span class="n">extern_lib</span><span class="w"> </span><span class="bp">«</span><span class="n">target</span><span class="bp">-</span><span class="n">name</span><span class="bp">»</span><span class="w"> </span><span class="o">(</span><span class="n">pkg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">NPackage</span><span class="w"> </span><span class="n">_package.name</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="c1">-- a build function that produces its static library</span>
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code><span class=n>extern_lib</span><span class=w> </span><span class=bp>«</span><span class=n>target</span><span class=bp>-</span><span class=n>name</span><span class=bp>»</span><span class=w> </span><span class=o>(</span><span class=n>pkg</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>NPackage</span><span class=w> </span><span class=n>_package.name</span><span class=o>)</span><span class=w> </span><span class=o>:=</span>
+<span class=w>  </span><span class=c1>-- 生成静态库的构建函数</span>
+</code></pre></div> <!--
+The declaration is essentially a wrapper around a `System.FilePath` [target](https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets). Like such a target, the `pkg` parameter and its type specifier are optional and body should be a term of type `FetchM (BuildJob System.FilePath)` function that builds the static library. The `pkg` parameter is of type `NPackage _package.name` to provably demonstrate that it is the package in which the external library is defined.
+--> <p>该声明本质上是围绕 <code>System.FilePath</code> <a href=https://github.com/leanprover/lean4/tree/master/src/lake#custom-targets>目标</a> 的包装。类似于这样的目标，<code>pkg</code> 参数及其类型说明是可选的，主体应为类型 <code>FetchM (BuildJob System.FilePath)</code> 的函数，该函数构建静态库。<code>pkg</code> 参数的类型为 <code>NPackage _package.name</code>，以确凿地表明这是定义外部库的包。</p> <!--
+### Custom Targets
+--> <h3 id=_11>自定义目标<a class=headerlink href=#_11 title="Permanent link">&para;</a></h3> <!--
+A arbitrary target that can be built via `lake build <target-name>`.
+--> <p>可以通过 <code>lake build &lt;target-name&gt;</code> 构建的任意目标。</p> <!--
+**Syntax**
+--> <p><strong>语法</strong></p> <!--
+<div class="highlight"><pre><span></span><code><span class="n">target</span><span class="w"> </span><span class="bp">«</span><span class="n">target</span><span class="bp">-</span><span class="n">name</span><span class="bp">»</span><span class="w"> </span><span class="o">(</span><span class="n">pkg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">NPackage</span><span class="w"> </span><span class="n">_package.name</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="c1">-- a build function that produces a `BuildJob α`</span>
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code><span class=n>target</span><span class=w> </span><span class=bp>«</span><span class=n>target</span><span class=bp>-</span><span class=n>name</span><span class=bp>»</span><span class=w> </span><span class=o>(</span><span class=n>pkg</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>NPackage</span><span class=w> </span><span class=n>_package.name</span><span class=o>)</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>α</span><span class=w> </span><span class=o>:=</span>
+<span class=w>  </span><span class=c1>-- 生成一个 `BuildJob α` 的构建函数</span>
+</code></pre></div> <!--
+The `pkg` parameter and its type specifier are optional and the body should be a term of type `FetchM (BuildJob α)`. The `pkg` parameter is of type `NPackage _package.name` to provably demonstrate that it is the package in which the target is defined.
+--> <p><code>pkg</code> 参数及其类型说明是可选的，主体应为类型 <code>FetchM (BuildJob α)</code> 的表达式。<code>pkg</code> 参数的类型为 <code>NPackage _package.name</code>，以确凿地表明这是定义该目标的包。</p> <!--
+## 定义新 facet
+--> <h2 id=facet>定义新 facet<a class=headerlink href=#facet title="Permanent link">&para;</a></h2> <!--
+A Lake package can also define new _facets_ for packages, modules, and libraries. Once defined, the new facet (e.g., `facet`) can be built on any current or future object of its type (e.g., through `lake build pkg:facet` for a package facet). Module facets can also be provided to [`LeanLib.nativeFacets`](https://github.com/leanprover/lean4/tree/master/src/lake#lean-libraries) to have Lake build and use them automatically when producing shared libraries.
+--> <p>Lake 包也可以为包、模块和库定义新的 <em>facet</em>。定义后，新 facet（例如 <code>facet</code>）可以在其类型的任何当前或未来对象上构建（例如，通过 <code>lake build pkg:facet</code> 进行包 facet 的构建）。模块 facet 也可以提供给 <a href=https://github.com/leanprover/lean4/tree/master/src/lake#lean-libraries><code>LeanLib.nativeFacets</code></a> 以便在生成共享库时由 Lake 自动构建和使用。</p> <!--
+**Syntax**
+--> <p><strong>语法</strong></p> <!--
+<div class="highlight"><pre><span></span><code><span class="n">package_facet</span><span class="w"> </span><span class="bp">«</span><span class="n">facet</span><span class="bp">-</span><span class="n">name</span><span class="bp">»</span><span class="w"> </span><span class="o">(</span><span class="n">pkg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Package</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="c1">-- a build function that produces a `BuildJob α`</span>
+
+<span class="n">module_facet</span><span class="w"> </span><span class="bp">«</span><span class="n">facet</span><span class="bp">-</span><span class="n">name</span><span class="bp">»</span><span class="w"> </span><span class="o">(</span><span class="n">mod</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Module</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="c1">-- a build function that produces a `BuildJob α`</span>
+
+<span class="n">library_facet</span><span class="w"> </span><span class="bp">«</span><span class="n">facet</span><span class="bp">-</span><span class="n">name</span><span class="bp">»</span><span class="w"> </span><span class="o">(</span><span class="n">lib</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">LeanLib</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="c1">-- a build function that produces a `BuildJob α`</span>
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code><span class=n>package_facet</span><span class=w> </span><span class=bp>«</span><span class=n>facet</span><span class=bp>-</span><span class=n>name</span><span class=bp>»</span><span class=w> </span><span class=o>(</span><span class=n>pkg</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>Package</span><span class=o>)</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>α</span><span class=w> </span><span class=o>:=</span>
+<span class=w>  </span><span class=c1>-- 生成一个 `BuildJob α` 的构建函数</span>
+
+<span class=n>module_facet</span><span class=w> </span><span class=bp>«</span><span class=n>facet</span><span class=bp>-</span><span class=n>name</span><span class=bp>»</span><span class=w> </span><span class=o>(</span><span class=n>mod</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>Module</span><span class=o>)</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>α</span><span class=w> </span><span class=o>:=</span>
+<span class=w>  </span><span class=c1>-- 生成一个 `BuildJob α` 的构建函数</span>
+
+<span class=n>library_facet</span><span class=w> </span><span class=bp>«</span><span class=n>facet</span><span class=bp>-</span><span class=n>name</span><span class=bp>»</span><span class=w> </span><span class=o>(</span><span class=n>lib</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>LeanLib</span><span class=o>)</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>α</span><span class=w> </span><span class=o>:=</span>
+<span class=w>  </span><span class=c1>-- 生成一个 `BuildJob α` 的构建函数</span>
+</code></pre></div> <!--
+In all of these, the object parameter and its type specifier are optional and the body should be a term of type `FetchM (BuildJob α)`.
+--> <p>在这些定义中，目标参数及其类型说明是可选的，主体应为类型 <code>FetchM (BuildJob α)</code> 的表达式。</p> <!--
+## Adding Dependencies
+--> <h2 id=_12>添加依赖<a class=headerlink href=#_12 title="Permanent link">&para;</a></h2> <!--
+Lake packages can have dependencies. Dependencies are other Lake packages the current package needs in order to function. They can be sourced directly from a local folder (e.g., a subdirectory of the package) or come from remote Git repositories. For example, one can depend on [mathlib](https://reservoir.lean-lang.org/@leanprover-community/mathlib) like so:
+--> <p>Lake 包可添加依赖。依赖是当前包为了运行所需要的其他 Lake 包。它们可以直接来自本地文件夹（如包的子目录），也可以来自远程 Git 仓库。例如，你可以这样添加 <a href=https://reservoir.lean-lang.org/@leanprover-community/mathlib>mathlib</a> 依赖：</p> <!--
+<div class="highlight"><pre><span></span><code><span class="n">package</span><span class="w"> </span><span class="n">hello</span>
+
+<span class="n">require</span><span class="w"> </span><span class="s2">&quot;leanprover-community&quot;</span><span class="w"> </span><span class="bp">/</span><span class="w"> </span><span class="s2">&quot;mathlib&quot;</span>
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code><span class=n>package</span><span class=w> </span><span class=n>hello</span>
+
+<span class=n>require</span><span class=w> </span><span class=s2>&quot;leanprover-community&quot;</span><span class=w> </span><span class=bp>/</span><span class=w> </span><span class=s2>&quot;mathlib&quot;</span>
+</code></pre></div> <!--
+The next run of `lake build` (or refreshing dependencies in an editor like VSCode) will clone the mathlib repository and build it. Information on the specific revision cloned will then be saved to `lake-manifest.json` to enable reproducibility (i.e., ensure the same version of mathlib is used by future builds). To update `mathlib` after this, you will need to run `lake update` -- other commands do not update resolved dependencies.
+--> <p>下次运行 <code>lake build</code> （或是用 VSCode 一类的编辑器刷新依赖）时将会克隆并构建 mathlib 仓库。克隆的特定版本的信息将存入 <code>lake-manifest.json</code> 以确保可复现性（即保证未来的构建使用同一版本的 mathlib）。在这之后如果想要更新 <code>mathlib</code>，你需要使用 <code>lake update</code> —— 其它的命令都将不会更新已解析的依赖。</p> <!--
+For theorem proving packages which depend on `mathlib`, you can also run `lake new <package-name> math` to generate a package configuration file that already has the `mathlib` dependency (and no binary executable target).
+--> <p>对于依赖 <code>mathlib</code> 的定理证明包，你也可以用 <code>lake new &lt;package-name&gt; math</code> 直接创建带有 mathlib 依赖的包配置（且无二进制可执行文件目标）。</p> <!--
+**NOTE:** For mathlib in particular, you should run `lake exe cache get` prior to a `lake build` after adding or updating a mathlib dependency. Otherwise, it will be rebuilt from scratch (which can take hours). For more information, see mathlib's [wiki page](https://github.com/leanprover-community/mathlib4/wiki/Using-mathlib4-as-a-dependency) on using it as a dependency.
+--> <p><strong>注意：</strong> 对于 mathlib 而言，在添加或升级其作为依赖后，你还需要在 <code>lake build</code> 之前使用 <code>lake exe cache get</code>。否则构建将从零开始（耗时数小时）。参阅 <a href=https://github.com/leanprover-community/mathlib4/wiki/Using-mathlib4-as-a-dependency>mathlib wiki 页面</a> 获取更多信息。</p> <!--
+## Lean `require`
+--> <h2 id=lean-require>Lean <code>require</code><a class=headerlink href=#lean-require title="Permanent link">&para;</a></h2> <!--
+The `require` command in Lean Lake configuration follows the general syntax:
+--> <p>Lean 的 Lake 配置文件中 <code>require</code> 命令的基本语法如下：</p> <!--
+<div class="highlight"><pre><span></span><code><span class="n">require</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;&lt;scope&gt;&quot;</span><span class="w"> </span><span class="bp">/</span><span class="o">]</span><span class="w"> </span><span class="bp">&lt;</span><span class="n">pkg</span><span class="bp">-</span><span class="n">name</span><span class="bp">&gt;</span><span class="w"> </span><span class="o">[</span><span class="bp">@</span><span class="w"> </span><span class="bp">&lt;</span><span class="n">version</span><span class="bp">&gt;</span><span class="o">]</span>
+<span class="w">  </span><span class="o">[</span><span class="k">from</span><span class="w"> </span><span class="bp">&lt;</span><span class="n">source</span><span class="bp">&gt;</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="k">with</span><span class="w"> </span><span class="bp">&lt;</span><span class="n">options</span><span class="bp">&gt;</span><span class="o">]</span>
+</code></pre></div>
+--> <div class=highlight><pre><span></span><code><span class=n>require</span><span class=w> </span><span class=o>[</span><span class=s2>&quot;&lt;scope&gt;&quot;</span><span class=w> </span><span class=bp>/</span><span class=o>]</span><span class=w> </span><span class=bp>&lt;</span><span class=n>pkg</span><span class=bp>-</span><span class=n>name</span><span class=bp>&gt;</span><span class=w> </span><span class=o>[</span><span class=bp>@</span><span class=w> </span><span class=bp>&lt;</span><span class=n>version</span><span class=bp>&gt;</span><span class=o>]</span>
+<span class=w>  </span><span class=o>[</span><span class=k>from</span><span class=w> </span><span class=bp>&lt;</span><span class=n>source</span><span class=bp>&gt;</span><span class=o>]</span><span class=w> </span><span class=o>[</span><span class=k>with</span><span class=w> </span><span class=bp>&lt;</span><span class=n>options</span><span class=bp>&gt;</span><span class=o>]</span>
+</code></pre></div> <!--
+The `from` clause tells Lake where to locate the dependency. Without a `from` clause, Lake will lookup the package in the default registry (i.e., [Reservoir](https://reservoir.lean-lang.org/@lean-dojo/LeanCopilot)) and use the information there to download the package at the specified `version`. The optional `scope` is used to disambiguate which package with `pkg-name` to lookup. In Reservoir, this scope is the package owner (e.g., `leanprover` of [@leanprover/doc-gen4](https://reservoir.lean-lang.org/@leanprover/doc-gen4)).
+--> <p><code>from</code> 从句告知 Lake 依赖的地址。没有 <code>from</code> 从句，Lake 将从默认注册表（例如 <a href=https://reservoir.lean-lang.org/@lean-dojo/LeanCopilot>Reservoir</a>）中查找包，并使用获得的信息下载指定 <code>version</code> 的包。可选的 <code>scope</code> 用来消除同名包的歧义。在 Reservoir 中，scope 部分是包的所有者（例如，<a href=https://reservoir.lean-lang.org/@leanprover/doc-gen4>@leanprover/doc-gen4</a> 中的 <code>leanprover</code>）。</p> <!--
+The `with` clause specifies a `NameMap String` of Lake options used to configure the dependency. This is equivalent to passing `-K` options to the dependency on the command line.
+--> <p><code>with</code> 子句指定用于配置依赖项的 Lake 选项的 <code>NameMap String</code>。这相当于在命令行中将 <code>-K</code> 选项传递给依赖项。<!--TODO: NameMap--></p> <!--
+## Supported Sources
+--> <h2 id=_13>受支持的源<a class=headerlink href=#_13 title="Permanent link">&para;</a></h2> <!--
+Lake supports the following types of dependencies as sources in a `from` clause.
+--> <p>在 <code>from</code> 子句中，Lake 支持下列依赖源。</p> <!--
+### Path Dependencies
+--> <h3 id=_14>路径依赖<a class=headerlink href=#_14 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code>from &lt;path&gt;
+</code></pre></div> <p>Lake 将从 <code>path</code> 目录（相对于所依赖包的目录）中加载包。</p> <!--
+### Git Dependencies
+--> <h3 id=git>Git 依赖<a class=headerlink href=#git title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code>from git &lt;url&gt; [@ &lt;rev&gt;] [/ &lt;subDir&gt;]
+</code></pre></div> <!--
+Lake clones the Git repository available at the specified fixed Git `url`, and checks out the specified revision `rev`. The revision can be a commit hash, branch, or tag. If none is provided, Lake defaults to `master`. After checkout, Lake loads the package located in `subDir` (or the repository root if no subdirectory is specified).
+--> <p>Lake 从固定的 <code>url</code> 中克隆 Git 仓库，并 checkout 到指定的 <code>rev</code>。其中 <code>rev</code> 可以是 commit hash、branch 或 tag。如果都没有指定，Lake 将使用默认的 <code>master</code> 分支。checkout 之后，Lake 将从子目录 <code>subDir</code> 中加载包（如果未指定子目录，则从仓库根目录加载）。</p> <!--
+## TOML `require`
+--> <h2 id=toml-require>TOML <code>require</code><a class=headerlink href=#toml-require title="Permanent link">&para;</a></h2> <!--
+To `require` a package in a TOML configuration, the parallel syntax for the above examples is:
+--> <p>要在 TOML 配置文件中 <code>require</code> 一个包，其等价语法如下：</p> <div class=highlight><pre><span></span><code><span class=c1># A Reservoir dependency</span>
+<span class=k>[[require]]</span>
+<span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;pkg-name&gt;&quot;</span>
+<span class=n>scope</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;scope&gt;&quot;</span>
+<span class=n>version</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;version&gt;&quot;</span>
+<span class=n>options</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>{</span><span class=err>&lt;</span><span class=n>options</span><span class=err>&gt;</span><span class=p>}</span>
+
+<span class=c1># A path dependency</span>
+<span class=k>[[require]]</span>
+<span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;pkg-name&gt;&quot;</span>
+<span class=n>path</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;path&gt;&quot;</span>
+
+<span class=c1># A Git dependency</span>
+<span class=k>[[require]]</span>
+<span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;pkg-name&gt;&quot;</span>
+<span class=n>git</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;url&gt;&quot;</span>
+<span class=n>rev</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;rev&gt;&quot;</span>
+<span class=n>subDir</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;&lt;subDir&gt;&quot;</span>
+</code></pre></div> <!--
+## Github Release Builds
+--> <h2 id=github>GitHub 发布构建<a class=headerlink href=#github title="Permanent link">&para;</a></h2> <!--
+Lake supports uploading and downloading build artifacts (i.e., the archived build directory) to/from the GitHub releases of packages. This enables end users to fetch pre-built artifacts from the cloud without needed to rebuild the package from the source themselves.
+--> <p>Lake 支持将构建产物（即已归档的构建目录）上传到 GitHub 发布版本，或从中下载。这使得终端用户可以从云端获取预构建的产物，而无需自己从源码重建包。</p> <!--
+### Downloading
+--> <h3 id=_15>下载<a class=headerlink href=#_15 title="Permanent link">&para;</a></h3> <p>要下载产物，用户应配置包的 <a href=#云发布>选项</a><code>releaseRepo?</code> 和 <code>buildArchive?</code>，指向托管发布的 GitHub 仓库及其中的正确产物名称（如果默认设置不够）。然后，设置 <code>preferReleaseBuild := true</code> 以告知 Lake 获取并解压它作为额外的包依赖项。</p> <p>Lake 仅在其标准构建过程中才会获取发布构建，如果需要的包是依赖项（因为根包通常会被修改，因此不常与此方案兼容）。然而，如果希望获取根包的发布（例如，在克隆发布的源码后但在编辑之前），可以通过 <code>lake build :release</code> 手动执行此操作。</p> <p>Lake 内部使用 <code>curl</code> 下载发布，并使用 <code>tar</code> 解压缩它，因此终端用户必须安装这两种工具才能使用此功能。如果 Lake 由于任何原因无法获取发布，它将转而从源码构建。另外请注意，此机制在技术上不仅限于 GitHub，任何使用相同 URL 方案的 Git 主机也可以使用。</p> <!--
+### Uploading
+--> <h3 id=_16>上传<a class=headerlink href=#_16 title="Permanent link">&para;</a></h3> <p>要将构建的包作为产物上传到 GitHub 发布，Lake 提供了一个便捷的简写命令 <code>lake upload &lt;tag&gt;</code>。此命令使用 <code>tar</code> 将包的构建目录打包成档案，并使用 <code>gh release upload</code> 将其附加到 <code>tag</code> 对应的预先存在的 GitHub 发布版本中。因此，为了使用它，包上传者（但不是下载者）需要安装 <code>gh</code>，即 <a href=https://cli.github.com/ >GitHub CLI</a>，并将其添加到 <code>PATH</code>。</p> <!--
+## Writing and Running Scripts
+--> <h2 id=_17>编写及运行脚本<a class=headerlink href=#_17 title="Permanent link">&para;</a></h2> <!--
+A configuration file can also contain a number of `scripts` declaration. A script is an arbitrary `(args : List String) → ScriptM UInt32` definition that can be run by `lake script run`. For example, given the following `lakefile.lean`:
+--> <p>配置文件中也可能包含 <code>scripts</code> 声明。脚本是任意的 <code>(args : List String) → ScriptM UInt32</code> 类型的定义，可以通过 <code>lake script run</code> 来运行。例如以下的 <code>lakefile.lean</code>：</p> <div class=highlight><pre><span></span><code><span class=kn>import</span><span class=w> </span><span class=n>Lake</span>
+<span class=kn>open</span><span class=w> </span><span class=n>Lake</span><span class=w> </span><span class=n>DSL</span>
+
+<span class=n>package</span><span class=w> </span><span class=n>scripts</span>
+
+<span class=sd>/--</span>
+<span class=sd>Display a greeting</span>
+
+<span class=sd>USAGE:</span>
+<span class=sd>  lake run greet [name]</span>
+
+<span class=sd>Greet the entity with the given name. Otherwise, greet the whole world.</span>
+<span class=sd>-/</span>
+<span class=n>script</span><span class=w> </span><span class=n>greet</span><span class=w> </span><span class=o>(</span><span class=n>args</span><span class=o>)</span><span class=w> </span><span class=k>do</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=n>h</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=mi>0</span><span class=w> </span><span class=bp>&lt;</span><span class=w> </span><span class=n>args.length</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span><span class=n>IO.println</span><span class=w> </span><span class=n>s</span><span class=bp>!</span><span class=s2>&quot;Hello, {args[0]&#39;h}!&quot;</span>
+<span class=w>  </span><span class=k>else</span>
+<span class=w>    </span><span class=n>IO.println</span><span class=w> </span><span class=s2>&quot;Hello, world!&quot;</span>
+<span class=w>  </span><span class=n>return</span><span class=w> </span><span class=mi>0</span>
+</code></pre></div> <!--
+The script `greet` can be run like so:
+--> <p>脚本 <code>greet</code> 可以这样运行：</p> <div class=highlight><pre><span></span><code>$ lake script run greet
+Hello, world!
+$ lake script run greet me
+Hello, me!
+</code></pre></div> <!--
+You can print the docstring of a script with `lake script doc`:
+--> <p>你可以用 <code>lake script doc</code> 输出一个脚本的 docstring：</p> <div class=highlight><pre><span></span><code>$ lake script doc greet
+Display a greeting
+
+USAGE:
+  lake run greet [name]
+
+Greet the entity with the given name. Otherwise, greet the whole world.
+</code></pre></div> <!--
+## Building and Running Lake from the Source
+--> <h2 id=lake_2>从源码构建并运行 Lake<a class=headerlink href=#lake_2 title="Permanent link">&para;</a></h2> <!--
+If you already have a Lean installation with `lake` packaged with it, you can build a new `lake` by just running `lake build`.
+--> <p>如果你已经安装了带有 <code>lake</code> 的 Lean，可以直接用 <code>lake build</code> 构建一个新的 <code>lake</code>。</p> <!--
+Otherwise, there is a pre-packaged `build.sh` shell script that can be used to build Lake. It passes it arguments down to a `make` command. So, if you have more than one core, you will probably want to use a `-jX` option to specify how many build tasks you want it to run in parallel. For example:
+--> <p>或者，你可以使用已预打包的 <code>build.sh</code> 脚本来构建 Lake。它将参数传递给 <code>make</code> 命令。所以，如果你的处理器支持多核心，可以使用 <code>-jX</code> 选项指定希望并行运行的构建任务数。例如：</p> <div class=highlight><pre><span></span><code>$<span class=w> </span>./build.sh<span class=w> </span>-j4
+</code></pre></div> <!--
+After building, the `lake` binary will be located at `.lake/build/bin/lake` and the library's `.olean` files will be located in `.lake/build/lib`.
+--> <p>构建后，<code>lake</code> 二进制文件将位于 <code>.lake/build/bin/lake</code> 中，而库的 <code>.olean</code> 文件将位于 <code>.lake/build/lib</code> 下。</p> <!--
+### Building with Nix Flakes
+--> <h3 id=nix-flakes>使用 Nix Flakes 构建<a class=headerlink href=#nix-flakes title="Permanent link">&para;</a></h3> <p>Lake 是 Lean 4 flake 的一部分，在仓库根目录下构建。</p> <!-- 
+### Augmenting Lake's Search Path
+--> <h3 id=lake_3>增强 Lake 的搜索路径<a class=headerlink href=#lake_3 title="Permanent link">&para;</a></h3> <!--
+The `lake` executable needs to know where to find the Lean library files (e.g., `.olean`, `.ilean`) for the modules used in the package configuration file (and their source files for go-to-definition support in the editor). Lake will intelligently setup an initial search path based on the location of its own executable and `lean`.
+--> <p><code>lake</code> 可执行文件需要知道在包配置文件中使用的模块的 Lean 库文件（例如 <code>.olean</code>, <code>.ilean</code>）在哪里（以及编辑器中 go-to-definition 支持的源文件）。Lake 将基于自身可执行文件和 <code>lean</code> 的位置智能地设置初始搜索路径。</p> <!--
+Specifically, if Lake is co-located with `lean` (i.e., there is `lean` executable in the same directory as itself), it will assume it was installed with Lean and that both Lean and Lake are located under their shared sysroot. In particular, their binaries are located in `<sysroot>/bin`, their Lean libraries in `<sysroot>/lib/lean`, Lean's source files in `<sysroot>/src/lean`, and Lake's source files in `<sysroot>/src/lean/lake`. Otherwise, it will run `lean --print-prefix` to find Lean's sysroot and assume that Lean's files are located as aforementioned, but that `lake` is at `<lake-home>/.lake/build/bin/lake` with its Lean libraries at `<lake-home>/.lake/build/lib` and its sources directly in `<lake-home>`.
+--> <p>具体而言，如果 Lake 与 <code>lean</code> 位于同一位置（即与 <code>lake</code> 在同一目录下有 <code>lean</code> 可执行文件），它将假定它是与 Lean 一起安装的，并且 Lean 和 Lake 位于其共享的 sysroot 下。具体来说，它们的二进制文件位于 <code>&lt;sysroot&gt;/bin</code>，它们的 Lean 库文件位于 <code>&lt;sysroot&gt;/lib/lean</code>，Lean 的源文件位于 <code>&lt;sysroot&gt;/src/lean</code>，而 Lake 的源文件位于 <code>&lt;sysroot&gt;/src/lean/lake</code>。否则，它将运行 <code>lean --print-prefix</code> 以找到 Lean 的 sysroot，并假定 Lean 的文件如前所述，而 <code>lake</code> 位于 <code>&lt;lake-home&gt;/.lake/build/bin/lake</code>，其 Lean 库文件位于 <code>&lt;lake-home&gt;/.lake/build/lib</code>，其源文件直接位于 <code>&lt;lake-home&gt;</code>。</p> <!--
+This search path can be augmented by including other directories of Lean libraries in the `LEAN_PATH` environment variable (and their sources in `LEAN_SRC_PATH`). This can allow the user to correct Lake's search when the files for Lean (or Lake itself) are in non-standard locations. However, such directories will _not_ take precedence over the initial search path. This is important during development, as this prevents the Lake version used to build Lake from using the Lake version being built's Lean libraries (instead of its own) to elaborate Lake's `lakefile.lean` (which can lead to all kinds of errors).
+--> <p>可以通过在 <code>LEAN_PATH</code> 环境变量中包含其他 Lean 库目录（以及在 <code>LEAN_SRC_PATH</code> 中的源文件目录）来增强此搜索路径。这允许用户在 Lean 的文件（或 Lake 本身）位于非标准位置时更正 Lake 的搜索路径。然而，这些目录不会优先于初始搜索路径。这在开发期间很重要，因为这可以防止用于构建 Lake 的 Lake 版本使用正在构建的 Lake 版本的 Lean 库（而不是它自己的）来详细说明 Lake 的 <code>lakefile.lean</code>（这可能会导致各种错误）。</p> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script> <script src=../../assets/javascripts/bundle.f55a23d4.min.js></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

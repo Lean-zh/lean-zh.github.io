@@ -1,0 +1,109 @@
+:root{
+  --admon-blue-fg:#1e88e5;   --admon-blue-bg:rgba(30,136,229,.08);
+  --admon-purple-fg:#8e24aa; --admon-purple-bg:rgba(142,36,170,.08);
+  --admon-green-fg:#00897b;   --admon-green-bg:rgba(0,137,123,.08);
+}
+
+/* 容器：圆角 + 顶部留出角标空间 */
+.md-typeset .admonition.blue,
+.md-typeset .admonition.purple,
+.md-typeset .admonition.green{
+  position:relative; border:1px solid var(--md-default-fg-color--lighter);
+  border-radius:12px; padding:0.3rem 1.2rem 0.3rem; margin-top:1rem;
+  background:var(--md-default-bg-color);
+}
+
+/* 去掉默认小图标，避免挡住“胶囊” */
+.md-typeset .admonition.blue   > .admonition-title::before,
+.md-typeset .admonition.purple > .admonition-title::before,
+.md-typeset .admonition.green   > .admonition-title::before{ content:none; }
+
+/* 标题=左上角胶囊 */
+.md-typeset .admonition.blue   > .admonition-title,
+.md-typeset .admonition.purple > .admonition-title,
+.md-typeset .admonition.green   > .admonition-title{
+  position:absolute; top:-0.9rem; left:1rem; margin:0; padding:.1rem .6rem;
+  border-radius:999px; font-weight:700; font-size:.85rem;
+  background:var(--md-default-bg-color); border:1px solid currentColor;
+}
+
+/* 配色 */
+.md-typeset .admonition.blue{   border-color:var(--admon-blue-fg);   box-shadow:0 0 0 1px var(--admon-blue-bg) inset;}
+.md-typeset .admonition.blue>.admonition-title{   color:var(--admon-blue-fg); }
+
+.md-typeset .admonition.purple{ border-color:var(--admon-purple-fg); box-shadow:0 0 0 1px var(--admon-purple-bg) inset;}
+.md-typeset .admonition.purple>.admonition-title{ color:var(--admon-purple-fg); }
+
+.md-typeset .admonition.green{   border-color:var(--admon-green-fg);   box-shadow:0 0 0 1px var(--admon-green-bg) inset;}
+.md-typeset .admonition.green>.admonition-title{   color:var(--admon-green-fg); }
+
+
+/* ============================
+   Admonition grid — 强制左右两栏对齐
+   将此段放到自定义 CSS 的最底部
+   ============================ */
+
+/* 确保 grid 样式被加载并且是两栏 */
+.md-typeset .admonition .grid.grid-cols-2,
+.md-typeset .admonition .admonition-content .grid.grid-cols-2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  grid-auto-rows: auto !important;
+  align-items: start !important;
+  align-content: start !important;
+  width: 100% !important;
+}
+
+/* 所有直接子项：从顶部开始，并使用 flex 列布局以保证内部元素布局一致 */
+.md-typeset .admonition .grid.grid-cols-2 > * {
+  box-sizing: border-box !important;
+  grid-row: 1 !important;                 /* 强制放在同一行 */
+  align-self: start !important;           /* 顶部对齐 */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;                  /* 子项内部我们下面再单独加 padding */
+}
+
+/* 明确指定第 1 / 第 2 子项分别占用第 1 / 第 2 列（避免自动排布导致换行）*/
+.md-typeset .admonition .grid.grid-cols-2 > *:nth-child(1) {
+  grid-column: 1 / 2 !important;
+}
+.md-typeset .admonition .grid.grid-cols-2 > *:nth-child(2) {
+  grid-column: 2 / 3 !important;
+}
+
+/* 如果子项被额外 wrapper（比如 .admonition-content）包了一层，也确保那一层占满单元格 */
+.md-typeset .admonition .grid.grid-cols-2 > * > .admonition-content,
+.md-typeset .admonition .grid.grid-cols-2 > * > .md-typeset {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* 实际用于显示内容的容器（避免代码块 margin 带来的错位） */
+.md-typeset .admonition .grid.grid-cols-2 > * {
+  padding: 0.3rem !important;
+  background: var(--md-code-bg-color, #f6f6f6) !important;
+  border-radius: 0.35rem !important;
+}
+
+/* 移除 pre 的默认外边距以避免视觉漂移 */
+.md-typeset .admonition .grid.grid-cols-2 pre {
+  margin: 0 !important;
+  padding: 0.3rem !important; /* 需要的话保留内边距 */
+}
+
+/* 可选：在第二列左侧加一条竖线分隔（像对照表）
+.md-typeset .admonition .grid.grid-cols-2 > *:nth-child(2) {
+  border-left: 1px solid var(--md-default-fg-color--light) !important;
+  padding-left: 1rem !important;
+} */
+
+/* 调试用高亮（确认选中元素），测试完请删除或注释掉 */
+.md-typeset .admonition .grid.grid-cols-2.debug {
+  outline: 2px dashed rgba(0,0,0,0.06);
+}

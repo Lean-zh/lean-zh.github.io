@@ -2,7 +2,7 @@
 
 原文：[https://github.com/leanprover/verso](https://github.com/leanprover/verso)
 
-作者：David Thrane Christiansen 译者：子鱼 subfishzhou@gmail.com
+作者：David Thrane Christiansen 译者：子鱼和他的Cursor subfishzhou@gmail.com
 
 Verso 是用于撰写 Lean 文档的构建框架+具体工具。 你可以使用它来实现多种技术文档，包括但不限于：
 
@@ -47,13 +47,9 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
 ### 2.1 设计原则
 
 * **语法错误** 应该尽早失败（fail fast），而不是产生意外的输出或依赖复杂规则。
-
 * **减少前瞻**  解析应尽可能局部地成功或失败。
-
 * **可扩展性** 应该有专门的机制来组合式地添加新内容，而不是依赖一堆临时性的文本子格式。
-
 * **默认支持 Unicode** Lean 用户已经习惯直接输入 Unicode，并且有良好的工具支持，因此没有必要支持其他替代文本语法来输入键盘上没有的字符（例如破折号或印刷引号）。
-
 * **Markdown 兼容性** 在不违反上述原则的前提下，用户能够从已有的肌肉记忆和熟悉度中获益。
 
 ### 2.2 语法
@@ -61,16 +57,14 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
 与 Markdown 类似，Lean 的标记语法有三大主要类别：
 
 * **文档结构** 标题、脚注定义和命名链接为文档提供更丰富的结构。它们不能嵌套在区块内。
-
 * **区块元素** 书面文本的主要组织方式，包括段落、列表和引用。部分区块可以嵌套：例如，列表可以包含其他列表。
-
 * **内联元素** 书面文本的普通内容，如正文、加粗或强调文本，以及超链接。
 
 #### 2.2.1 文档结构
 
 文档被组织为若干部分。一个部分是文档内容的逻辑划分，例如章节、小节或卷。部分可以附带元数据，例如作者、发布日期、用于交叉引用的内部标识符或期望的 URL；具体的元数据由文档体裁决定。
 
-一个部分包含一系列区块，接着是一系列子部分，两者都可以为空。
+一个部分包含一系列块，接着是一系列子部分，两者都可以为空。
 
 一个部分由标题引入。标题由行首一个或多个井号（`#`）加上一系列内联元素组成。井号的数量表示标题的层级，井号越多表示层级越低。低层级标题引入前一标题的子部分，而层级不低于前一标题的标题会结束该部分。换句话说，标题层级为文档引入一棵树形结构。
 
@@ -111,7 +105,7 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     </div>
     </div>
 
-#### 2.2.1 块语法
+#### 2.2.2 块语法
 
 段落是未修饰的：任何不是另一个块的内联序列都是段落。 段落一直持续到空白行（即仅包含空格的行）或另一个块开头：
 
@@ -120,39 +114,33 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     <div markdown>
     **Verso 语言**
     ```markdown
-    This is one paragraph.
-    Even though this sentence is on a
-    new line, the paragraph continues.
+    这是一段话。
+    在下一行续写这一段。
 
-    This is a new paragraph.
-    * This list stopped the paragraph.
-    * As in Markdown and SGML, lists
-    are not part of paragraphs.
+    这是新的一段。
+    * 这一段以列表结尾。
+    * 在 Markdown 和 SGML 中, 列表不是段的一部分。
     ```
     </div>
     <div markdown>
     **结果**
     ```html
     <p>
-        This is one paragraph. Even
-        though this sentence is on a new
-        line, the paragraph continues.
+        这是一段话。
+        在下一行续写这一段。
     </p>
 
-    <p> This is a new paragraph. </p>
+    <p> 这是新的一段。 </p>
 
     <ul>
         <li>
             <p>
-                This list stopped the
-                paragraph.
+                * 这一段以列表结尾。
             </p>
         </li>
         <li>
             <p>
-                As in Markdown and SGML,
-                lists   are not part of
-                paragraphs.
+                在 Markdown 和 SGML 中, 列表不是段的一部分。
             </p>
         </li>
     </ul>
@@ -293,7 +281,7 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     </div>
     </div>
 
-有序列表项由“零个或多个空格 + 一串数字 + 指示符（`.` 或 `)`）”起始。与无序列表相同，有序列表也对缩进与指示符敏感：相同缩进与相同指示符归为同一列表层级。
+有序列表项由"零个或多个空格 + 一串数字 + 指示符（`.` 或 `)`）"起始。与无序列表相同，有序列表也对缩进与指示符敏感：相同缩进与相同指示符归为同一列表层级。
 
 !!! blue "有序列表"
     <div class="grid grid-cols-2" markdown>
@@ -347,7 +335,7 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     </div>
     </div>
 
-描述列表由若干“描述项”组成，具有相同缩进。一个描述项的第一行以“零个或多个空格 + 冒号 `:` + 一串行内元素”构成，随后必须有一行空行，然后跟随一个或多个缩进严格大于冒号位置的块。
+描述列表由若干"描述项"组成，具有相同缩进。一个描述项的第一行以"零个或多个空格 + 冒号 `:` + 一串行内元素"构成，随后必须有一行空行，然后跟随一个或多个缩进严格大于冒号位置的块。
 
 !!! blue "描述列表"
     <div class="grid grid-cols-2" markdown>
@@ -379,44 +367,219 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
 
 ##### 2.2.2.2. 引用（Quotes）
 
-引用块表示一组块是由作者以外的人说的。其语法为：一行以“零个或多个空格 + 大于号 `>`”起始，随后必须跟随缩进严格大于该 `>` 的一个或多个块，这些块共同组成引用内容。
+引用块表示一组块是由作者以外的人说的。其语法为：一行以"零个或多个空格 + 大于号 `>`"起始，随后必须跟随缩进严格大于该 `>` 的一个或多个块，这些块共同组成引用内容。
 
 !!! blue "引用"
     <div class="grid grid-cols-2" markdown>
     <div markdown>
     **Verso 语言**
     ```markdown
-    It is said that:
-    > Quotations are excellent.
+    常言道：
+    > 引用超级棒。
 
-      This paragraph is part of the
-      quotation.
+      这一段也是引用部分。
 
-     So is this one.
+     这里也是。
 
-    But not this one.
+    这里就不是了。
     ```
     </div>
     <div markdown>
     **结果**
     ```html
-    <p> It is said that: </p>
+    <p> 常言道： </p>
 
     <blockquote>
-      <p> Quotations are excellent. </p>
+      <p> 引用超级棒。 </p>
       <p>
-        This paragraph is part of the
-        quotation.
+        这一段也是引用部分。
       </p>
-      <p> So is this one. </p>
+      <p> 这里也是。 </p>
     </blockquote>
 
-    <p> But not this one. </p>
+    <p> 这里就不是了。 </p>
     ```
     </div>
     </div>
 
-### 2.2.3 行内语法（Inline Syntax）
+##### 2.2.2.3. 代码块（Code Blocks）
+
+代码块以"行首三个或更多反引号"开始（之前可有空格），称为"围栏（fence）"。可在反引号后给出名称与参数。代码块持续到"同缩进、且仅包含相同数量反引号"的行。块内每行的实际字符串为移除围栏缩进后的结果。代码块不得包含长度不小于围栏的反引号序列；如需更多反引号，应增大围栏长度。
+
+!!! blue "代码块"
+    <div class="grid grid-cols-2" markdown>
+    <div markdown>
+    **Verso 语言**
+    ````markdown
+    ```
+    这是一个代码块
+    包含两行内容
+    ```
+    ````
+    </div>
+    <div markdown>
+    **结果**
+    ```html
+    <codeblock>
+      1|这是一个代码块⏎
+      2|包含两行内容⏎
+    </codeblock>
+    ```
+    </div>
+    </div>
+
+!!! blue "作为扩展的代码块"
+    <div class="grid grid-cols-2" markdown>
+    <div markdown>
+    **Verso 语言**
+    ````markdown
+    ```lean
+    -- 该代码块的名称为
+    -- `lean`。调用时
+    -- 未传入参数。
+    def x := 5
+    ```
+    ````
+    </div>
+    <div markdown>
+    **结果**
+    ```html
+    <lean>
+      1|-- 该代码块的名称为⏎
+      2|-- `lean`。调用时⏎
+      3|-- 未传入参数。⏎
+      4|def x := 5⏎
+    </lean>
+    ```
+    </div>
+    </div>
+
+!!! blue "缩进的代码块"
+    <div class="grid grid-cols-2" markdown>
+    <div markdown>
+    **Verso 语言**
+    ```markdown
+      ```lean
+      -- 这是一个缩进的代码块
+      -- 表示去除缩进后的
+      -- 字符串
+      def x := 5
+      ```
+    ```
+    </div>
+    <div markdown>
+    **结果**
+    ```html
+    <lean>
+      1|-- 这是一个缩进的代码块⏎
+      2|-- 表示去除缩进后的⏎
+      3|-- 字符串⏎
+      4|def x := 5⏎
+    </lean>
+    ```
+    </div>
+    </div>
+
+!!! blue "代码块与命名参数"
+    <div class="grid grid-cols-2" markdown>
+    <div markdown>
+    **Verso 语言**
+    ````markdown
+    ```lean (error := true)
+    -- 该代码块的名称为
+    -- `lean`，调用时传入了
+    -- 命名参数 `error`
+    -- 并将其设为 `true`。
+    def x : String := 5
+    ```
+    ````
+    </div>
+    <div markdown>
+    **结果**
+    ```html
+    <lean error="true">
+      1|-- 该代码块的名称为⏎
+      2|-- `lean`，调用时传入了⏎
+      3|-- 命名参数 `error`⏎
+      4|-- 并将其设为 `true`。⏎
+      5|def x : String := 5⏎
+    </lean>
+    ```
+    </div>
+    </div>
+
+当代码块带名称时，会在当前 Lean 命名空间解析该名称，并据此选择扩展实现（详见"扩展"一章）。
+
+##### 2.2.2.4. 指令（Directives）
+
+指令是一类无内建语义、由扩展解释的块，类似 LaTeX 的自定义环境或 HTML 的 `<div>`。以"行首三个或更多冒号 + 名称与参数"开始，在"同缩进、且仅包含相同数量冒号"的行结束。内容可包含任意数量的块，这些块的缩进至少与冒号对齐。嵌套指令的冒号数量必须严格少于其外层。
+
+[扩展](#extension)一节更详细地描述了指令的处理。
+
+这是空指令：
+
+!!! blue "指令"
+    <div class="grid grid-cols-2" markdown>
+    <div markdown>
+    **Verso 语言**
+    ```markdown
+    :::nothing
+    :::
+    ```
+    </div>
+    <div markdown>
+    **结果**
+    ```html
+    <nothing> </nothing>
+    ```
+    </div>
+    </div>
+
+!!! blue "嵌套指令"
+    <div class="grid grid-cols-2" markdown>
+    <div markdown>
+    **Verso 语言**
+    ```markdown
+    ::::outer
+    :::inner
+    你好
+    :::
+    这是一段
+    ::::
+    ```
+    </div>
+    <div markdown>
+    **结果**
+    ```html
+    <outer>
+      <inner> <p> 你好 </p> </inner>
+      <p> 这是一段 </p>
+    </outer>
+    ```
+    </div>
+    </div>
+
+##### 2.2.2.5. 命令（Commands）
+
+仅由"花括号包裹的名称与零个或多个参数"构成的一行即为命令。名称将用于选择命令的实现，并在阐释阶段调用（详见[扩展](#extension)一章）。
+
+!!! blue "命令"
+    <div class="grid grid-cols-2" markdown>
+    <div markdown>
+    **Verso 语言**
+    ```markdown
+    {include 0 MyChapter}
+    ```
+    </div>
+    <div markdown>
+    **结果**
+    ```html
+    <include 0 MyChapter/>
+    ```
+    </div>
+    </div>
+
+#### 2.2.3 行内语法（Inline Syntax）
 
 强调（emphasis）使用下划线 `_`：
 
@@ -425,21 +588,21 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     <div markdown>
     **Verso 语言**
     ```markdown
-    Here's some _emphasized_ text
+    一些 _强调_ 文本
     ```
     </div>
     <div markdown>
     **结果**
     ```html
     <p>
-      Here's some
-      <emph> emphasized </emph> text
+      一些
+      <emph> 强调 </emph> 文本
     </p>
     ```
     </div>
     </div>
 
-外层使用更多下划线可形成“嵌套强调”：
+外层使用更多下划线可形成"嵌套强调"：
 
 !!! blue "嵌套强调"
     <div class="grid grid-cols-2" markdown>
@@ -472,14 +635,14 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     <div markdown>
     **Verso 语言**
     ```markdown
-    Here's some *bold* text
+    一些 *粗体* 文本
     ```
     </div>
     <div markdown>
     **结果**
     ```html
     <p>
-      Here's some <bold>bold</bold> text
+      一些 <bold>粗体</bold> 文本
     </p>
     ```
     </div>
@@ -565,6 +728,8 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     </div>
     </div>
 
+或带空格：
+
 !!! blue "多个空格的代码"
     <div class="grid grid-cols-2" markdown>
     <div markdown>
@@ -623,7 +788,7 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     </div>
     </div>
 
-数学：单个或双个美元符包裹的 TeX 代码。`$...$` 为行内，`$$...$$` 为陈列模式：
+数学：单个或双个美元符包裹的 TeX 代码。`$...$` 为行内，`$$...$$` 为陈列（行间）模式：
 
 !!! blue "数学"
     <div class="grid grid-cols-2" markdown>
@@ -643,7 +808,7 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     </div>
     </div>
 
-角色（role）为后续行内赋予特殊语义。可用于代码阐释、技术术语定义/使用、旁注等。语法：一行内用花括号给出名称与参数，后面紧跟一个“自我定界”的行内元素，或用方括号包裹的若干行内元素。
+角色（role）为后续行内赋予特殊语义。可用于代码阐释、技术术语定义/使用、旁注等。语法：一行内用花括号给出名称与参数，后面紧跟一个"自我定界"的行内元素，或用方括号包裹的若干行内元素。
 
 !!! blue "带显式范围的角色"
     <div class="grid grid-cols-2" markdown>
@@ -668,6 +833,8 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     </div>
     </div>
 
+下例采用单个内联代码元素，不需要方括号：
+
 !!! blue "单参数角色"
     <div class="grid grid-cols-2" markdown>
     <div markdown>
@@ -688,101 +855,219 @@ Lean 的文档标记语言与 Markdown 密切相关，但并非完全相同。
     </div>
     </div>
 
-## 2.3 与 Markdown 的差异
+### 2.3 与 Markdown 的差异
 
-### 2.3.1 语法错误
+Markdown用户的快速备忘录。
+
+#### 2.3.1 语法错误
 Markdown 允许一组优先级规则来解释不匹配的分隔符（例如 `what _is *bold_ or emph*?`），在 Lean 标记中这类情况是语法错误；同样，未闭合的分隔符（如 `*` 或 `_`）在 Markdown 中当作普通字符，而 Lean 标记中要求显式转义。长文技术写作更倾向于尽早发现此类错误。
 
-### 2.3.2 减少前瞻
+#### 2.3.2 减少前瞻
 在 Markdown 中，`[this][here]` 是否为链接取决于文档中是否定义了 `here`；在 Lean 标记中它总是链接，若缺失目标则报错。
 
-### 2.3.3 标题嵌套
+#### 2.3.3 标题嵌套
 Lean 标记认为每个文档都有标题，且强制使用 `#` 作为最外层标题、`##` 为下一层，依此类推。这样单文件既可代表节、章乃至整本书，而无需维护全局层级映射。
 
-### 2.3.4 体裁特定扩展
+#### 2.3.4 体裁特定扩展
 Markdown 没有标准方式表达特定工具/体裁的概念；Lean 标记提供标准语法以组合式扩展。
 
-### 2.3.5 移除少用特性
-为减少意外并提升可预测性，Verso 去除了少用特性，例如 CommonMark 所区分的“紧凑/宽松列表”等。
+#### 2.3.5 移除少用特性
+为减少意外并提升可预测性，Verso 移除了下列在实践中较少使用、或对多后端输出不友好的特性：
 
-## 构建文档
+- 取消"[紧凑（tight）](https://spec.commonmark.org/0.31.2/#tight)/[宽松（loose）列表](https://spec.commonmark.org/0.31.2/#loose)"的区分；
+- 使用[四个空格缩进创建代码块](https://spec.commonmark.org/0.31.2/#indented-code-blocks)（Verso 仅支持围栏代码块）；
+- [Setext 风格标题](https://spec.commonmark.org/0.31.2/#setext-headings)（以下划线表示的标题），统一使用 `#` 形式；
+- [硬换行语法](https://spec.commonmark.org/0.31.2/#hard-line-breaks)；
+- [HTML 实体与字符引用](https://spec.commonmark.org/0.31.2/#entity-and-numeric-character-references)。
+
+此外，一些特性对非 HTML 后端并不合适，可由具体体裁通过"代码块或指令"实现，因此也被移除：
+
+- [HTML 区块](https://spec.commonmark.org/0.31.2/#html-blocks)、[原始 HTML](https://spec.commonmark.org/0.31.2/#raw-html)、[主题分隔线](https://spec.commonmark.org/0.31.2/#thematic-breaks)。
+
+最后，还有少数作者偶尔使用、但不值得引入的复杂度，例如：[自动链接（autolinks）](https://spec.commonmark.org/0.31.2/#autolinks)。
+
+## 3 构建文档
 
 本节简述 Verso 文档从作者到读者的标准流程（不同体裁在细节上会作定制）：
 
-1) 使用 Verso 标记语言编写文本，解析为 Lean 的 `Syntax`。
-2) 进行阐释（elaboration），转为对应体裁的 Lean 数据结构。
-3) 将生成的 Lean 代码编译为可执行程序。
-4) 运行该程序，执行“遍历（traversal）”步骤，解析交叉引用并计算全局元数据。
-5) 生成目标输出（HTML/TeX 等）。
+1. 使用 [Verso 标记语言](#verso-markup)编写文本，解析为 Lean 的 `Syntax`。
+2. 进行阐释（elaboration），转为对应体裁的 Lean 数据结构。
+3. 将生成的 Lean 代码编译为可执行程序。
+4. 运行该程序，执行"遍历（traversal）"步骤，解析交叉引用并计算全局元数据。
+5. 生成目标输出（HTML/TeX 等）。
 
 ### 3.1 阐释（Elaboration）
-阐释把标记语言转换为内部归纳类型，并在遇到扩展点时调用注册的实现。所有文档都以“体裁（genre）”为参数；体裁约定了该文档可用的元数据、块（Block）与行内（Inline）元素等。
+阐释把[标记语言](#verso-markup)转换为内部归纳类型，并在遇到[扩展点](#elab-extension)时调用注册的实现。其他语法被转换为 Verso 数据的适当构造函数。
 
-!!! green "API（体裁定义要点）"
+所有文档都以"体裁（genre）"为参数。
+
+!!! green "structure"
     ```lean
-    structure Verso.Doc.Genre : Type where
-      PartMetadata    : Type
-      Block           : Type
-      Inline          : Type
-      TraverseContext : Type
-      TraverseState   : Type
-    -- 各体裁需定义：
-    -- 1) 自定义块/行内元素类型
-    -- 2) 遍历上下文与可变状态
-    -- 3) main：组织遍历与输出
+    Verso.Doc.Genre : Type 1
     ```
+    <hr>
+    体裁主要由其对 Verso 框架的扩展来定义，在此类型中提供。此外，每种体裁会提供一个 `main` 函数负责遍历步骤的函数，并用于生成输出。
+
+    **构造器**
+
+    `Verso.Doc.Genre.mk`
+
+    **域**
+
+    `PartMetadata : Type`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;与每个 `Part` 联系的元数据（如作者，发表时间，交叉引用指示符）。
+
+    `Block : Type`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;以体裁编写的文档的其他块级值。
+
+    `Inline : Type`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;以该体裁编写的文档的其他内联级值。
+
+    `TraverseContext : Type`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;体裁的遍历步骤中使用的阅读器样式数据。体裁中 `TraversePart` 和 `TraverseBlock` 的实例分别指定在遍历 Part 和 Block 时如何更新它。
+
+    `TraverseState : Type`              
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;该流派遍历步骤中使用的可变状态。
+
+每个文档由一个 `Part` 组成，其标题即为整个文档的标题：
+
+!!! green "def"
+    ```lean
+    Verso.Doc.Part (genre : Doc.Genre) : Type
+    ```
+    <hr>
+    -- 文档的逻辑部分
+
+`Part` 包含 `Block`：
+
+!!! green "def"
+    ```lean
+    Verso.Doc.Block (genre : Doc.Genre) : Type
+    ```
+    <hr>
+    -- 文档中的块级内容
+
+`Block` 包含 `Inline`：
+
+!!! green "def"
+    ```lean
+    Verso.Doc.Inline (genre : Doc.Genre) : Type
+    ```
+    <hr>
+    -- 文本流中的行内内容
+
+`Part` 的 `metadata` 字段通常从作者编写的元数据块获取值，但在遍历过程中可能被分配更多信息。`Block.other` 和 `Inline.other` 构造器通常来自阐释[扩展点](#elab-extension)的结果。
 
 ### 3.2 编译（Compilation）
 阐释之后，文档被编译为可执行程序。各体裁提供 `main` 入口来完成遍历与输出；网站等非线性体裁会额外提供布局/配置方式。常见参数包括输出格式以及渲染自定义项。
 
-!!! blue "最小工作流"
-    - 编译：将阐释后的 Lean 值编译为可执行程序
-    - 运行：传入命令行/代码参数（输出格式、主题、链接策略等）
-    - 体裁 `main`：执行遍历与输出
+### 3.3 遍历（Traversal） {#traversal}
+Verso 文档是 Lean 值，遵循 Lean 程序的一般结构。特别地，Lean 不支持循环 import。但是技术写作中常见"循环引用"（例如两个小节相互引用、按引用数据库生成的参考文献等）。
 
-### 3.3 遍历（Traversal）
-遍历在运行期进行，按次序多次遍历文档并累计全局表，例如交叉引用、目录、引用文献等；在达成不再改变的“不动点”前会重复。体裁通过 `Traverse` 与相关实例说明如何在块/行内级别更新上下文与状态。
+"遍历"阶段发生在运行时、在生成输出之前。在遍历期间，文档会被从头到尾反复地遍历，并将元数据累积到一张表中。文档在遍历过程中也可以被改写；这允许，例如，将小节的标题插入到交叉引用处。遍历会重复，直到得到的文档与元数据表不再发生修改；如果连续执行了设定次数的遍历并且每次都产生了修改，则遍历失败。
 
-!!! green "API（遍历接口要点）"
+Verso 为 `Part`、`Block` 与 `Inline` 提供了通用的遍历机制，体裁可以加以复用。
+`Genre.TraverseState` 在遍历过程中保存体裁特定的累计信息，`Genre.TraverseContext` 提供跟踪周围文档上下文的手段。
+要使用这一框架，各体裁应当定义 `Traverse` 的实例，它指定该体裁自定义元素的遍历方式。
+此外，`TraversePart` 与 `TraverseBlock` 的实例指定了遍历如何跟踪文档中的当前位置。
+
+!!! green "type class"
     ```lean
-    class Verso.Doc.Traverse (g : Doc.Genre) (m : outParam (Type → Type)) : Type :=
-      part   : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] →
-               Doc.Part g   → m Unit
-      block  : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] →
-               Doc.Block g  → m Unit
-      inline : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] →
-               Doc.Inline g → m Unit
+    Verso.Doc.Traverse (g : Doc.Genre) (m : outParam (Type → Type)) : Type 1
+    ```
+    <hr>
+    ```
+    特定体裁遍历。
+    遍历步骤会反复应用"体裁特定的带状态的计算"，直到对"状态与文档"都到达一个固定点为止；遍历可以更新状态，也可以对文档进行重写。
 
-      genrePart   : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] →
-                    g.PartMetadata → Doc.Part g → m (Option (Doc.Part g))
-      genreBlock  : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] →
-                    g.Block → Array (Doc.Block g) → m (Option (Doc.Block g))
-      genreInline : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] →
-                    g.Inline → Array (Doc.Inline g) → m (Option (Doc.Inline g))
+    方法 `part`、`block` 与 `inline` 提供在遍历进入给定 AST 层级之前要执行的效果；
+    其中 `part` 允许更新该 `Part` 的元数据。
 
-    class Verso.Doc.TraversePart (g : Doc.Genre) : Type :=
-      inPart  : Doc.Part g → g.TraverseContext → g.TraverseContext
+    `genrePart` 在 `part` 之后执行，它允许基于体裁特定的元数据对整个 `Part` 做体裁特定的改写 —— 典型用法是构建目录或永久链接，但原则上它可以任意重写该 `Part`。`inPart` 用于局部地改造体裁的遍历上下文，其方式类似 `withReader`；它可以用来跟踪例如"当前在目录中的位置"。
 
-    class Verso.Doc.TraverseBlock (g : Doc.Genre) : Type :=
-      inBlock : Doc.Block g → g.TraverseContext → g.TraverseContext
+    当遍历遇到 `Block.other` 与 `Inline.other`（体裁自定义值）时，会分别调用 `genreBlock` 与 `genreInline`；它们可以重写对应节点，或仅产生状态效果。
+
+    **实例构造器**
+
+    `Verso.Doc.Traverse.mk`
+
+    **方法**
+    `part   : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] → Doc.Part g   → m (Option g.PartMetadata)`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;在遍历 `Part` 前执行的效果。
+
+    `block  : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] → Doc.Block g  → m Unit`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;在遍历 `Block` 前执行的效果。
+
+    `inline : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] → Doc.Inline g → m Unit`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;在遍历 `Inline` 前执行的效果。
+
+    `genrePart   : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] → g.PartMetadata → Doc.Part g → m (Option (Doc.Part g))`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;在Part具有元数据的情况下，对Part执行的操作。它允许根据特定体裁的元数据对整个部分进行特定体裁的重写。这通常用于构建目录或永久链接，但原则上可以任意重写Part。如果它返回none，则不执行重写。
+
+    `genreBlock  : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] → g.Block → Array (Doc.Block g) → m (Option (Doc.Block g))`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;遍历特定类型的块值。如果返回空值，则不执行重写操作。
+
+    `genreInline : [MonadReader g.TraverseContext m] → [MonadState g.TraverseState m] → g.Inline → Array (Doc.Inline g) → m (Option (Doc.Inline g))`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;遍历特定类型的行内值。如果返回空值，则不执行重写操作。
+
+
+!!! green "type class"
+    ```lean
+    Verso.Doc.TraversePart (g : Doc.Genre) : Type
+    ```
+    <hr>
+    ```
+    指定在遍历某个给定 Part 的内容时，如何修改遍历上下文。
+    它在 `part` 与 `genrePart`（若适用）改写文本之后被应用；
+    该规则同样用于 HTML 生成阶段。
+
+    **实例构造器**
+
+    `Verso.Doc.TraversePart.mk`
+
+    **方法**
+    `inPart : Doc.Part g → g.TraverseContext → g.TraverseContext`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;在进入给定 `Part` 的内容时，如何更新遍历上下文。
     ```
 
-!!! blue "遍历收敛（固定点）"
-    - 从文档首到尾，反复遍历直至“文档与状态”均不再变化
-    - 若连续若干次遍历仍有变化，视为失败（避免无限循环）
+!!! green "type class"
+    ```lean
+    Verso.Doc.TraverseBlock (g : Doc.Genre) : Type
+    ```
+    <hr>
+    ```
+    指定在遍历某个给定 Block 的内容时，如何修改遍历上下文。
+    该规则同样用于 HTML 生成阶段。
+
+    **实例构造器**
+
+    `Verso.Doc.TraverseBlock.mk`
+
+    **方法**
+    `inBlock : Doc.Block g → g.TraverseContext → g.TraverseContext`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;在进入给定 `Block` 的内容时，如何更新遍历上下文。
+    ```
 
 ### 3.4 生成输出（Output Generation）
-遍历完成后生成可读版本（各体裁决定支持哪些格式）。输出为 HTML 的体裁通常会序列化交叉引用数据库，供其他文档自动链接。
 
-!!! green "API（输出对象）"
-    ```lean
-    inductive Verso.Output.Html : Type
-    inductive Verso.Output.TeX  : Type
-    -- 常用构造与工具：text / tag / seq / empty / append / asString ...
-    -- HTML 体裁可选择输出交叉引用数据库（序列化），供其他文档复用
-    ```
+完成遍历后，文档的可读版本就会生成。该版本可以是任何格式；每种体裁都定义了其支持的格式。
 
-## 扩展
+此外，生成 HTML 格式的文档可能会生成其交叉引用数据库的序列化版本。这一功能可用于自动维护实现版本间交叉引用的链接：如果内容发生变动，只需重新构建链接文档即可修复链接。
+
+## 4 扩展 {#extension}
 
 Verso 的扩展机制允许体裁组合出新的块/行内元素、为阐释与遍历插入逻辑，以及为不同输出后端提供渲染实现。扩展由普通 Lean 代码定义，具备良好的类型约束与可组合性。
 
@@ -790,398 +1075,755 @@ Verso 的扩展机制允许体裁组合出新的块/行内元素、为阐释与�
 - 在遍历（Traversal）中，扩展可读取/更新体裁状态，建立交叉引用、生成目录、注入永久链接等。
 - 为 HTML/TeX 输出实现渲染器，并按需声明额外的静态资源（脚本/CSS/许可证信息）。
 
-!!! green "API（扩展的三个面向）"
-```lean
--- 1) 数据与阐释：
-structure Verso.Genre.Manual.Block    -- 体裁自定义块
-structure Verso.Genre.Manual.Inline   -- 体裁自定义行内
--- 注册阐释器：将标记语法 → (Block/Inline) 数据
+Verso 的标记语言提供四类扩展点：
 
--- 2) 遍历：
-class Verso.Doc.Traverse (g : Doc.Genre) (m : outParam (Type → Type))
--- 通过 part/block/inline 与 genrePart/genreBlock/genreInline 钩子
--- 读取 g.TraverseContext / 更新 g.TraverseState，执行重写
+- 角色（Roles）
+- 指令（Directives）
+- 代码块（Code blocks）
+- 命令（Commands）
 
--- 3) 渲染：
-structure Verso.Genre.Manual.BlockDescr where
-  toHtml   : Option (InlineToHtml Manual (ReaderT ExtensionImpls IO))
-  toTeX    : Option (InlineToTeX  Manual (ReaderT ExtensionImpls IO))
-  extraJs  : List String
-  extraJsFiles : List JsFile
-  extraCss : List String
-  extraCssFiles : List (String × String)
-  licenseInfo  : List LicenseInfo
+这些扩展点可用于为 Verso 增添新的文档功能。
+
+### 4.1 语法
+
+四类扩展点共享一套调用语法：按名称调用，并带有一串参数。参数既可定位（positional），也可命名（by name）；其取值可以是标识符、字符串字面量或数字。布尔开关可用 `-` 或 `+` 前缀传递，分别表示 `false` 或 `true`。
+
+下例中，指令 `syntax` 以定位参数 `term` 与命名参数 `title := "Example"` 调用；标志 `check` 设为 `false`。其内容包含一段文字与一个名为 `grammar` 的代码块（调用时未带参数）：
+
+````text
+:::syntax term (title := example) -check
+grammar示例:
+```grammar
+term ::= term "<+-+>" term
+```
+:::
+````
+
+形式化地说，扩展点的调用应满足如下语法：
+
+```text
+CALL := IDENT ARG*
+ARG := VAL | "(" IDENT ":=" VAL ")" | "+" IDENT | "-" IDENT
+VAL := IDENT | STRING | NUM
 ```
 
-!!! blue "工作流要点"
-- 扩展首先定义“数据（块/行内）+阐释”，让标记语法可产出强类型的文档值。
-- 在遍历阶段填充交叉引用、目录、永久链接等全局信息；必要时对文档进行最小重写（直到收敛）。
-- 渲染阶段面向不同后端（HTML/TeX）输出，按需注入静态资源与致谢信息。
+`CALL` 可出现在代码块的开围栏之后；它在指令的冒号之后、角色的花括号中，以及命令中都是必需的。
 
-!!! purple "资源与合规（许可证）"
-- 通过 `BlockDescr.licenseInfo` / `InlineDescr.licenseInfo` 申报引入的前端依赖及许可证文本。
-- 体裁提供统一命令（如 `licenseInfo`）汇总并渲染致谢页面，便于合规与复用。
+### 4.2 阐释扩展 {#elab-extension}
 
-## 输出格式
+每一种扩展各自维护一张"名称 → 扩展器（expander）"的表。扩展器将 Verso 的语法转换为 Lean 项（terms）。当阐释器遇到代码块、角色、指令或命令的调用时，会解析名称并在表中查找扩展器；按顺序尝试扩展器，直到某个扩展器抛错或成功为止。扩展器运行在 `DocElabM` 单子中，它在 Lean 的 `TermElabM` 之上扩展了文档相关能力。扩展器首先会将参数[解析](#ArgParse)为合适的配置类型（通常借助 `FromArgs` 实例），随后返回 Lean 语法。
 
-Verso 目前主要支持 HTML 与 TeX：
+将扩展器与名称关联有两种方式：首选使用 `@[code_block]`、`@[role]`、`@[directive]` 与 `@[block_command]` 属性；或使用较低层级的 `@[code_block_expander]`、`@[role_expander]` 与 `@[directive_expander]` 属性。前一组属性会自动调用参数解析器，并使 Verso 能从 `FromArgs` 实例自动生成用法信息；后一组更底层，需要手工解析参数。
 
-- HTML：使用 `Verso.Output.Html` 的嵌入式 DSL 构建页面结构；可在模板中安全插入文本、标签与属性，最终通过 `asString` 输出字符串。
-- TeX：使用 `Verso.Output.TeX` 的 DSL 生成（La)TeX 源码，支持命令、环境与文本拼接等。
+#### 4.2.1 参数解析 {#ArgParse}
 
-体裁为各自新增元素实现对应的 HTML/TeX 渲染器，以保证风格一致与依赖注入（内置头部、脚本、样式等）。
+上述调用语法相当受限，因此具体扩展需自行解析参数以提供足够灵活性。参数解析通过 `Verso.ArgParse.FromArgs` 实例完成：
+
+!!! green "type class"
+    ```lean
+    Verso.ArgParse.FromArgs (α : Type) (m : Type → Type) : Type 1
+    ```
+    <hr>
+    将一串 Verso 参数规范地转换为给定类型的方式。
+
+    **实例构造器**
+
+    `Verso.ArgParse.FromArgs.mk`
+
+    **方法**
+    `fromArgs : ArgParse m α`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;把一组参数转换成一个值。
+
+`FromArgs.fromArgs` 的实现通常用 `Verso.ArgParse` 这一解析器 DSL 描述：
+
+!!! green "inductive type"
+    ```lean
+    Verso.ArgParse (m : Type → Type) : Type → Type 1
+    ```
+    <hr>
+    在底层单子 `m` 中进行参数解析的组合子。
+
+    **构造器**
+
+    `fail (stx? : Option Lean.Syntax) (message? : Option ArgParse.SigDoc) : ArgParse m α`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;携带给定错误信息的失败。
+
+    `pure (val : α) : ArgParse m α`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;不消费任何参数直接返回值。
+
+    `lift (desc : String) (act : m α) : ArgParse m α`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;从底层单子提升一个动作作为参数值。
+
+    `positional (nameHint : Lean.Name) (val : ArgParse.ValDesc m α) (doc? : Option ArgParse.SigDoc := none) : ArgParse m α`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;匹配一个定位参数。
+
+    `named (name : Lean.Name) (val : ArgParse.ValDesc m α) (optional : Bool) (doc? : Option ArgParse.SigDoc := none) : ArgParse m (if optional then Option α else α)`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;匹配一个具名参数，可指定是否可选。
+
+    `anyNamed (name : Lean.Name) (val : ArgParse.ValDesc m α) (doc? : Option ArgParse.SigDoc := none) : ArgParse m (Lean.Ident × α)`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;匹配任意具名参数，返回键与值。
+
+    `flag (name : Lean.Name) (default : Bool) (doc? : Option ArgParse.SigDoc := none) : ArgParse m Bool`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;匹配布尔开关标志。
+
+    `flagM (name : Lean.Name) (default : m Bool) (doc? : Option ArgParse.SigDoc := none) : ArgParse m Bool`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;从底层单子派生默认值的布尔开关。
+
+    `done : ArgParse m Unit`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;标记解析完成。
+
+    `orElse (a b : ArgParse m α) : ArgParse m α`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;若 `a` 失败，则尝试 `b`。
+
+    `seq (xs : Array (ArgParse m α)) : ArgParse m (Array α)`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;顺序运行一组解析器并收集结果。
+
+    `many (p : ArgParse m α) : ArgParse m (Array α)`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;重复匹配零次或多次 `p`，直到失败为止。
+
+    `remaining : ArgParse m (Array (Lean.Syntax × Arg))`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;返回尚未消费的所有原始参数（语法节点与值对）。
+
+单个参数值通过 `ValDesc` 进行匹配：
+
+!!! green "inductive type"
+    ```lean
+    Verso.ArgParse.ValDesc (m : Type → Type) (α : Type) : Type
+    ```
+    <hr>
+    描述如何从一个参数值解析出类型的规范。
+
+    **构造器**
+
+    `Verso.ArgParse.ValDesc.mk`
+
+    **域**
+
+    `description : ArgParse.SigDoc`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;在自动生成的签名中，应该如何记录这一参数？
+
+    `signature : ArgParse.CanMatch`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;在这三种值中，哪一种能够与这一参数相契合？
+
+    `get : Doc.ArgVal → m α`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;如何把值转换伪给定类型。
+
+对于 Lean 类型而言，其典范的值描述可以通过 `FromArgVal` 实例进行注册：
+
+!!! green "type class"
+    ```lean
+    Verso.ArgParse.FromArgVal (α : Type) (m : Type → Type) : Type
+    ```
+    <hr>
+    将一个 Verso 参数值转换为给定类型的规范方式。
+
+    **实例构造器**
+
+    `Verso.ArgParse.FromArgVal.mk`
+
+    **方法**
+    `fromArgVal : ArgParse.ValDesc m α`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;把一个参数值转换为目标类型的描述。
+
+除了 `ArgParse` 的构造器之外，`Applicative` 和 `Functor` 的实例也是很重要的，此外还有以下的一些辅助函数：
+
+!!! green "def"
+    ```lean
+    Verso.ArgParse.namedD {α m}
+      (name : Lean.Name)
+      (val  : ArgParse.ValDesc m α)
+      (default : α) : ArgParse m α
+    ```
+    <hr>
+    匹配一个具名参数；若缺失则返回给定的 `default`。
+
+!!! green "def"
+    ```lean
+    Verso.ArgParse.positional' {α m}
+      [ArgParse.FromArgVal α m]
+      (nameHint : Lean.Name)
+      (doc? : Option ArgParse.SigDoc := none)
+      : ArgParse m α
+    ```
+    <hr>
+    使用类型的 `FromArgVal` 实例匹配一个定位参数。
+
+!!! green "def"
+    ```lean
+    Verso.ArgParse.named' {α m}
+      [ArgParse.FromArgVal α m]
+      (name : Lean.Name) (optional : Bool)
+      (doc? : Option ArgParse.SigDoc := none)
+      : ArgParse m (if optional then Option α else α)
+    ```
+    <hr>
+    使用类型的 `FromArgVal` 实例匹配一个具名参数；可指定是否为可选参数。
+
+!!! green "def"
+    ```lean
+    Verso.ArgParse.namedD' {α m}
+      [ArgParse.FromArgVal α m]
+      (name : Lean.Name)
+      (default : α)
+      (doc? : Option ArgParse.SigDoc := none)
+      : ArgParse m α
+    ```
+    <hr>
+    以 `FromArgVal` 实例为基础的具名参数解析器；若缺失则返回 `default`。
+
+## 5 输出格式
+
+本章介绍 Verso 的输出格式，当前提供两类主要输出：HTML 与 TeX。每一类都既包含在 Lean 中用于构建输出的类型与 API，也包含一个便于书写的内嵌 DSL 与示例。
 
 ### 5.1 HTML
-`Verso.Output.Html` 表示 HTML 文档，常配合命名空间 `Verso.Output.Html` 提供的 DSL 使用。
 
-!!! green "API（Html）"
+Verso 的 HTML 输出使用 `Verso.Output.Html` 类型表示，用于将文档渲染到 Web。通常在打开 `Verso.Output.Html` 命名空间后，使用内嵌DSL来构造。
+
+!!! green "inductive type"
     ```lean
-    inductive Verso.Output.Html : Type
-    def Html.empty : Html
-    def Html.append : Html → Html → Html
-    def Html.seq    : Array Html → Html
-    def Html.fromArray (xs : Array Html) : Html
-    def Html.fromList  (xs : List  Html) : Html
-    def Html.text  (escape : Bool) (s : String) : Html
-    def Html.tag   (name : String) (attrs : Array (String × String)) (body : Html) : Html
-    opaque Html.asString (doc : Html) : String
+    Verso.Output.Html : Type
     ```
+    <hr>
+    一个 HTML 的表示，用于把 Verso 渲染为网页。
 
-!!! blue "示例：构建一个无序列表"
-    <div class="grid grid-cols-2" markdown>
-    <div markdown>
-    **Verso 语言**
+    **构造器**
+
+    `text (escape : Bool) (string : String) : Html`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;文本内容。若 `escape = true`，则在渲染时会将 `&` 等字符转义为实体（如 `&amp;`）。
+
+    `tag (name : String) (attrs : Array (String × String)) (contents : Html) : Html`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;带有给定名称与属性的标签。
+
+    `seq (contents : Array Html) : Html`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;将一组 HTML 值按顺序连接。
+
+!!! green "def"
     ```lean
-    open Verso.Output.Html
+    Verso.Output.Html.empty : Html
+    ```
+    <hr>
+    空的 HTML 文档。
 
-    def mkList (xs : List Html) : Html :=
-      {{ <ul> {{ xs.map ({{ <li> {{ · }} </li> }}) }} </ul> }}
+!!! green "def"
+    ```lean
+    Verso.Output.Html.fromArray (htmls : Array Html) : Html
     ```
-    </div>
-    <div markdown>
-    **结果（asString）**
-    ```html
-    <ul>
-      <li>A</li>
-      <li><emph>B</emph></li>
-      <li>C</li>
-    </ul>
+    <hr>
+    将一个 HTML 数组追加为单个 HTML。等价于对同一内容使用 `Html.seq`，但可能得到更紧凑的表示。
+
+!!! green "def"
+    ```lean
+    Verso.Output.Html.fromList (htmls : List Html) : Html
     ```
-    </div>
-    </div>
+    <hr>
+    将一个 HTML 列表追加为单个 HTML。等价于对相应数组使用 `Html.seq`，但可能更紧凑。
+
+!!! green "def"
+    ```lean
+    Verso.Output.Html.append : Html → Html → Html
+    ```
+    <hr>
+    追加两个 HTML 文档。
+
+!!! green "opaque"
+    ```lean
+    Verso.Output.Html.visitM
+      {m : Type → Type u} [Monad m]
+      (text : Bool → String → m (Option Html) := fun _ _ => pure none)
+      (tag  : String → Array (String × String) → Html → m (Option Html) := fun _ _ _ => pure none)
+      (seq  : Array Html → m (Option Html) := fun _ => pure none)
+      (html : Html) : m Html
+    ```
+    <hr>
+    在某个 monad 中遍历整棵 HTML 树并应用改写。对节点处理返回 `none` 表示不改写。
+
+!!! green "opaque"
+    ```lean
+    Verso.Output.Html.format : Html → Std.Format
+    ```
+    <hr>
+    将 HTML 转换为 pretty-printer 文档，便于调试。注意其不保留预格式内容与脚本周围的空白。
+
+!!! green "opaque"
+    ```lean
+    Verso.Output.Html.asString (html : Html) (indent : Nat := 0) (breakLines : Bool := true) : String
+    ```
+    <hr>
+    将 HTML 转为既适合发送给浏览器、又便于阅读的字符串。
+
+#### 在 Lean 中书写 HTML（内嵌 DSL）
+
+HTML 文档用双花括号 `{{ ... }}` 书写，其语法与 HTML 十分类似，但有如下差异：
+
+- **返回 Lean**：双花括号可在元素、属性值或整组属性处回到 Lean 表达式。
+- **文本是字符串**：文本内容以 Lean 字符串字面量书写，便于精准控制空白。
+- **字符串插值**：可在期望字符串的任意位置使用插值字符串 `s!`。
+
+示例：定义一个生成 `<ul>` 列表的函数，并打印其字符串表示：
+
+```lean
+open Verso.Output.Html
+
+def mkList (xs : List Html) : Html :=
+  {{ <ul> {{ xs.map ({{ <li> {{ · }} </li> }}) }} </ul> }}
+
+#eval mkList ["A", {{ <emph> "B" </emph> }}, "C"]
+  |> Html.asString
+  |> IO.println
+```
+
+可能的输出：
+
+```html
+<ul>
+  <li>
+    A</li>
+  <li>
+    <emph>B</emph></li>
+  <li>
+    C</li>
+  </ul>
+```
 
 ### 5.2 TeX
-`Verso.Output.TeX` 表示（La）TeX 文档，常配合 `Verso.Output.TeX` 提供的 DSL 使用。
 
-!!! green "API（TeX）"
+Verso 的 TeX 输出使用 `Verso.Output.TeX` 类型表示 LaTeX 文档。通常在打开命名空间 `Verso.Output.TeX` 后，使用内嵌 DSL 来构造。
+
+!!! green "inductive type"
     ```lean
-    inductive Verso.Output.TeX : Type
-    def TeX.empty : TeX
-    def TeX.text  (s : String) : TeX
-    def TeX.raw   (s : String) : TeX
-    def TeX.command (name : String) (optArgs args : Array TeX) : TeX
-    def TeX.environment (name : String) (optArgs args : Array TeX) : TeX
-    def TeX.paragraphBreak : TeX
-    def TeX.seq (xs : Array TeX) : TeX
-    opaque TeX.asString (doc : TeX) : String
+    Verso.Output.TeX : Type
     ```
+    <hr>
+    TeX 输出。
 
-!!! blue "示例：itemize 列表"
-    <div class="grid grid-cols-2" markdown>
-    <div markdown>
-    **Verso 语言**
+    **构造器**
+
+    `text (string : String) : TeX`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;放入需要时会转义的文本。
+
+    `raw (string : String) : TeX`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;原样包含的 TeX 代码（不转义）。
+
+    `command (name : String) (optArgs args : Array TeX) : TeX`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;一个 LaTeX 命令，带可选与必选参数（分别用方括号与花括号）。
+
+    `environment (name : String) (optArgs args content : Array TeX) : TeX`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;一个 LaTeX 环境，带可选与必选参数及内容。
+
+    `paragraphBreak : TeX`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;段落分隔（渲染为一行空行）。
+
+    `seq (contents : Array TeX) : TeX`
+
+    &nbsp;&nbsp;&nbsp;&nbsp;TeX 内容拼接。
+
+!!! green "def"
     ```lean
-    open Verso.Output.TeX
-
-    def mkList (xs : List TeX) : TeX :=
-      \TeX{
-        \begin{itemize}
-          \Lean{ xs.map (\TeX{\item " " \Lean{·} "\n"}) }
-        \end{itemize}
-      }
+    Verso.Output.TeX.empty : TeX
     ```
-    </div>
-    <div markdown>
-    **结果（asString）**
-    ```tex
+    <hr>
+    空的 TeX 文档。
+
+!!! green "opaque"
+    ```lean
+    Verso.Output.TeX.asString (doc : TeX) : String
+    ```
+    <hr>
+    将 TeX 文档转为可交给 LaTeX 处理的字符串。
+
+#### 在 Lean 中书写 TeX（内嵌 DSL）
+
+TeX 文档使用 `\TeX{ ... }` 书写，语法与 LaTeX 十分类似，但有如下差异：
+
+- **返回 Lean**：`\Lean{ ... }` 返回到 Lean，且应产生一个 `TeX` 值。
+- **文本是字符串**：文本内容以 Lean 字符串字面量书写，便于精准控制空白。
+- **字符串插值**：可在期望字符串的任意位置使用插值字符串 `s!`。
+
+示例：定义一个生成项目符号列表的函数，并打印其字符串表示：
+
+```lean
+open Verso.Output.TeX
+
+def mkList (xs : List TeX) : TeX :=
+  \TeX{
     \begin{itemize}
-    \item A
-    \item \emph{B}
-    \item C
+      \Lean{ xs.map (\TeX{\item " " \Lean{·} "\n"}) }
     \end{itemize}
-    ```
-    </div>
-    </div>
+  }
 
-## 网页
+#eval mkList ["A", \TeX{\emph{"B"}}, "C"]
+  |> TeX.asString
+  |> IO.println
+```
 
-“网站/博客”体裁通过站点（Site）与主题（Theme）描述网址结构与呈现模板：
+可能的输出：
 
-- Site：用小型配置语言描述页面、文章、类别、静态文件与目录结构。
-- Theme：提供模板（monadic 函数）以 `Html` 片段组合成完整页面，并可按路径覆写模板或注入额外参数。
-- blogMain：体裁提供的可执行入口，负责遍历站点、应用主题并生成 HTML；可选择相对链接、代码交叉引用目标等参数。
+```tex
+\begin{itemize}
+\item A
+\item \emph{B}
+\item C
 
-### 6.1 生成站点（blogMain）
-!!! green "API（blogMain）"
+\end{itemize}
+```
+
+## 6 网页
+
+Verso 的"网站（website）"体裁是一个静态站点生成器。它包含两个 Verso `Genre`：`Page` 与 `Post`，二者除了元数据之外完全相同：
+
+!!! green "def"
     ```lean
-    def Verso.Genre.Blog.blogMain
-      (theme : Blog.Theme) (site : Blog.Site)
+    Verso.Genre.Blog.Page : Genre
+    ```
+    <hr>
+    一个普通的网页（不是博文）。
+
+!!! green "def"
+    ```lean
+    Verso.Genre.Blog.Post : Genre
+    ```
+    <hr>
+    一篇博文。
+
+两者共享同一组扩展：
+
+!!! green "inductive type"
+    ```lean
+    Verso.Genre.Blog.BlockExt : Type
+    ```
+    <hr>
+    页面与博文中可用的"额外块（blocks）"。
+
+    **构造器**
+
+    - `highlightedCode (opts : Blog.CodeOpts) (highlighted : SubVerso.Highlighting.Highlighted) : Blog.BlockExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;高亮显示的 Lean 代码。
+
+    - `message (summarize : Bool) (msg : SubVerso.Highlighting.Highlighted.Message) (expandTraces : List Lean.Name) : Blog.BlockExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;高亮显示的 Lean 消息。
+
+    - `lexedText (content : Blog.LexedText) : Blog.BlockExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;词法切分后的文本，以高亮语法进行展示。
+
+    - `htmlDiv (classes : String) : Blog.BlockExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;渲染时将内容包裹在带给定类名的 `<div>` 标签中。
+
+    - `htmlWrapper (tag : String) (attributes : Array (String × String)) : Blog.BlockExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;渲染时将内容包裹在指定标签（含给定属性）中。
+
+    - `htmlDetails (classes : String) (summary : Output.Html) : Blog.BlockExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;渲染时将内容包裹在 `<details>` 标签中，并使用给定 `summary` 作为摘要。
+
+    - `blob (html : Output.Html) : Blog.BlockExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;一段 HTML"原样块"。其内部内容在后续处理中会被丢弃。
+
+    - `component (name : Lean.Name) (data : Lean.Json) : Blog.BlockExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;对某个"组件"的引用。
+
+!!! green "inductive type"
+    ```lean
+    Verso.Genre.Blog.InlineExt : Type
+    ```
+    <hr>
+    页面与博文中可用的"额外行内元素（inline elements）"。
+
+    **构造器**
+
+    - `highlightedCode (opts : Blog.CodeOpts) (highlighted : SubVerso.Highlighting.Highlighted) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;高亮显示的 Lean 代码。
+
+    - `message (msg : SubVerso.Highlighting.Highlighted.Message) (expandTraces : List Lean.Name) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;高亮显示的 Lean 消息。
+
+    - `lexedText (content : Blog.LexedText) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;词法切分后的文本，以高亮语法进行展示。
+
+    - `customHighlight (highlighted : SubVerso.Highlighting.Highlighted) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;高亮代码，但不一定来自 Lean。
+
+    - `label (name : Lean.Name) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;作为交叉引用目标的标签。
+
+    - `ref (name : Lean.Name) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;对某个标签的引用。
+
+    - `pageref (name : Lean.Name) (id? : Option String) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;引用某个页面/博文的"内部 Lean 名称"，以链接形式显示。若 `id? = some X`，则链接将追加 `#X` 作为片段标识。
+
+    - `htmlSpan (classes : String) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;一个带给定类名的 HTML `<span>` 元素。
+
+    - `blob (html : Output.Html) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;一段 HTML"原样行内块"。其内部内容在后续处理中会被丢弃。
+
+    - `component (name : Lean.Name) (data : Lean.Json) : Blog.InlineExt`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;对某个"组件"的引用。
+
+然而，页面与博文的"元数据（metadata）"是不同的：
+
+!!! green "structure"
+    ```lean
+    Verso.Genre.Blog.Page.Meta : Type
+    ```
+    <hr>
+    非博文页面使用的元数据。
+
+    **构造器**
+
+    `Verso.Genre.Blog.Page.Meta.mk`
+
+    **域**
+
+    `showInNav : Bool`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;是否在导航中显示该页面。
+
+    `htmlId : Option String`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;分配给该页面标题的 HTML id。
+
+!!! green "structure"
+    ```lean
+    Verso.Genre.Blog.Post.Meta : Type
+    ```
+    <hr>
+    博文使用的元数据。
+
+    **构造器**
+
+    `Verso.Genre.Blog.Post.Meta.mk`
+
+    **域**
+
+    `date : Blog.Date`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;文章日期。默认情况下它也用于生成 URL，并显示在页面内容中。
+
+    `authors : List String`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;作者列表。
+
+    `categories : List Post.Category`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;该文章归属的分类。
+
+    `draft : Bool`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;若为 `true`，默认不渲染该文章（草稿）。
+
+    `htmlId : Option String`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;分配给该文章标题的 HTML id。
+
+### 6.1 生成站点 {#blogMain}
+
+博客项目通常应提供一个可执行程序，它对"合适的[站点与主题](#site-config)"调用 `blogMain`，并将命令行参数原样转发。`blogMain` 负责对站点执行[遍历](#traversal)并生成 HTML。
+
+!!! green "def"
+    ```lean
+    Verso.Genre.Blog.blogMain
+      (theme : Blog.Theme)
+      (site : Blog.Site)
       (relativizeUrls : Bool := true)
       (linkTargets : Code.LinkTargets Blog.TraverseContext := {})
       (options : List String)
-      (components : Blog.Components := %registered_components)
+      (components : Blog.Components := by exact %registered_components)
       (header : String := Output.Html.doctype)
       : IO UInt32
-    -- 说明：遍历站点并生成 HTML，可选择将绝对链接改为相对链接、指定 Lean 代码的交叉引用目标、注入组件与 HTML 头部等。
     ```
+    <hr>
+    生成给定 `site` 的 HTML。
 
-### 6.2 配置站点（Site/Dir/Page/Post）
-!!! green "API（站点结构）"
+    **参数：**
+
+    - `theme`：用于渲染内容的主题。
+    - `site`：要生成的站点。
+    - `options`：传入的命令行选项。
+
+    **可选参数：**
+
+    - `relativizeUrls`：将站点内部链接从绝对路径改写为相对路径，以便将博客托管在某个子目录下。默认 `true`。
+    - `linkTargets`：指定如何把 Lean 代码中的超链接指向进一步的文档。默认不生成链接。
+    - `components`：组件实现表；默认从已注册的表自动填充。
+    - `header`：在每个 HTML 文档前输出的文本。默认输出 `<!doctype html>`，可以覆盖以便与其他静态站点生成器集成。
+
+### 6.2 配置站点 {#site-config}
+
+站点的 URL 与目录布局由 `Site` 指定：
+
+!!! green "inductive type"
     ```lean
-    inductive Verso.Genre.Blog.Site : Type
-    inductive Verso.Genre.Blog.Dir  : Type
-    structure Verso.Genre.Blog.Page.Meta : Type -- 页面元信息
-    structure Verso.Genre.Blog.Post.Meta : Type -- 博文元信息（日期、作者、分类、草稿等）
+    Verso.Genre.Blog.Site : Type
     ```
+    <hr>
+    用于描述"整个站点"的布局。
 
-!!! blue "小贴士"
-    - `Dir.static files`: 从指定目录拷贝静态资源至站点根
-    - 页面/文章均可通过 `htmlId` 自定义标题的 HTML id，用于锚点
+    **构造器**
 
-### 6.3 主题与模板（Theme/Template）
-!!! green "API（主题）"
+    - `page (id : Lean.Name) (text : Part Page) (contents : Array Blog.Dir) : Blog.Site`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;站点的根是一个"页面"。
+
+    - `blog (id : Lean.Name) (text : Part Page) (contents : Array Blog.BlogPost) : Blog.Site`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;站点的根是一个"博客"，并带有其文章。
+
+!!! green "inductive type"
     ```lean
-    structure Verso.Genre.Blog.Theme : Type where
-      primaryTemplate       : Blog.Template
-      pageTemplate          : Blog.Template
-      postTemplate          : Blog.Template
-      archiveEntryTemplate  : Blog.Template
-      categoryTemplate      : Blog.Template
-      adHocTemplates        : Array String → Option Blog.Template.Override
-    -- 模板是从动态参数构造 Html 的过程（TemplateM Html），
-    -- primaryTemplate 负责整页（含 <html>/<head>/<body>）。
+    Verso.Genre.Blog.Dir : Type
     ```
+    <hr>
+    站点布局中的"目录"。
 
-!!! purple "约定"
-    - 在 `<head>` 中调用 `builtinHeader` 以注入必要依赖与初始化脚本
-    - `primaryTemplate` 读取参数 `"content"`/`"posts"`/`"categories"` 决定页类型与内容布局
+    **构造器**
 
+    - `page (name : String) (id : Lean.Name) (text : Part Page) (contents : Array Blog.Dir) : Blog.Dir`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;该目录的根是给定的页面。
 
-## 手册和书
+    - `blog (name : String) (id : Lean.Name) (text : Part Page) (contents : Array Blog.BlogPost) : Blog.Dir`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;该目录的根是一个博客。
 
-“手册/书籍”体裁侧重线性文本的结构与长期可维护性：
+    - `static (name : String) (files : System.FilePath) : Blog.Dir`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;该目录的根包含静态文件；生成站点时，从 `files` 路径拷贝到站点的静态文件目录。
 
-- 标签与引用：为章节与术语指定稳定 `tag`，可用于索引、快速跳转与跨文档链接。
-- 段落指令：`paragraph` 指示一组块逻辑上构成段落（HTML/TeX 渲染会相应调整边距/空行）。
-- Docstring/选项文档：可内嵌 Lean 常量的文档与系统选项说明，保持代码与文档一致。
-- 术语表：`deftech` 定义术语，`tech` 在其他位置引用，键的标准化可配置。
-- 开源许可证：块/行内元素可申报前端依赖的许可证，体裁汇总到致谢页面。
+通常，`Site` 会用一个"小型内嵌的配置语言"来构建。
 
-### 7.1 标签与引用（Tags & References）
-!!! blue "要点"
-    - 通过为章节/术语等指定 `tag`，可：
-      - 加入快速跳转与索引
-      - 生成稳定的永久链接（重构时链接不失效）
-      - 跨文档自动链接
+博客通过"主题（theme）"进行渲染。主题是一组模板（templates）的集合。模板是"单子函数"，从一组"动态类型"的参数构造 `Html`：
 
-### 7.2 段落指令（paragraph）
-!!! blue "段落合并"
-    使用 `paragraph` 将多块合并为一个逻辑段落：HTML 渲染会减小内部边距；TeX 渲染会省略段落间空行。
-
-### 7.3 Docstring 与选项文档
-!!! blue "示例"
-    ```text
-    {docstring List.forM}
-    {optionDocs pp.deepTerms.threshold}
-    ```
-    将从 Lean 源中提取常量/选项的文档，保持代码与文档同步。
-
-### 7.4 术语（deftech/tech）
-!!! green "API（术语）"
+!!! green "structure"
     ```lean
-    def Verso.Genre.Manual.deftech : Elab.RoleExpanderOf TechArgs
-    def Verso.Genre.Manual.tech    : Elab.RoleExpanderOf TechArgs
-    -- deftech 定义术语，内部对关键字作规范化（小写、"ies"→"y"、合并空白/连字符），
-    -- tech 在使用处引用；二者共享键的派生规则，可覆盖（normalize=false / 指定 key）。
+    Verso.Genre.Blog.Theme : Type
     ```
+    <hr>
+    站点如何渲染的规范。
 
-### 7.5 开源许可证（OSS Licenses）
-!!! green "API（许可证描述）"
+    **域**
+
+    `primaryTemplate : Blog.Template`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;用于渲染每一个页面的模板。它应当构造整个页面的 HTML（包括 `<html>` 元素）。
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;在 `<head>` 元素中，它应调用 `builtinHeader`，以确保所需依赖已加载且执行 Verso 特定的初始化。
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;在 `<body>` 中，它应检查 `"posts" : Html` 参数是否存在：若存在，则当前页面为"博客索引"，应把该参数值当作"文章列表"放置；若存在 `"categories" : Post.Categories`，则应将其渲染为"分类列表"。
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;`"content" : Html` 参数包含页面主体，应当合适地插入到结果中。
+
+    `pageTemplate : Blog.Template`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;用于渲染"普通页面"的模板。它应使用 `"title"` 与 `"content"` 两个参数构造页面内容；其结果通过 `"content"` 参数传给 `primaryTemplate`。
+
+    `postTemplate : Blog.Template`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;用于渲染"博文"的模板。它应使用 `"title"` 与 `"content"` 两个参数构造文章内容；其结果通过 `"content"` 参数传给 `primaryTemplate`。
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;此外，若存在 `"metadata" : Post.PartMetadata`，可用来渲染作者、日期与分类等信息。
+
+    `archiveEntryTemplate : Blog.Template`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;用于在"文章归档"中摘要展示一篇文章的模板。接收 `"post"`（文章本身）与 `"summary"`（要展示的 HTML 摘要）两个参数。
+
+    `categoryTemplate : Blog.Template`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;用于在"某分类的文章列表"页面顶部展示分类信息的模板。接收单个参数 `"category" : Post.Category`。
+
+    `adHocTemplates : Array String → Option Blog.Template.Override`
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;为给定路径自定义渲染：可以替换所用模板，并提供额外参数。
+
+!!! green "def"
     ```lean
-    structure Verso.Genre.Manual.LicenseInfo : Type where
-      identifier : String    -- SPDX 标识
-      dependency : String    -- 依赖名称（用于排序与标题）
-      howUsed    : Option String
-      link       : Option String
-      text       : Array (Option String × String) -- 按段落分节的纯文本许可证
-
-    def Verso.Genre.Manual.licenseInfo : Elab.BlockCommandOf Unit
-    -- 汇总文档中声明的所有前端依赖许可证并渲染致谢页面
+    Verso.Genre.Blog.Template : Type
     ```
+    <hr>
+    由参数生成 HTML 的过程。等价写法为 `TemplateM Html`。
+
+!!! green "def"
+    ```lean
+    Verso.Genre.Blog.TemplateM (α : Type) : Type
+    ```
+    <hr>
+    提供"以动态类型参数实例化模板"的单子。
+
+!!! green "def"
+    ```lean
+    Verso.Genre.Blog.Template.param [TypeName α] (key : String) : Blog.TemplateM α
+    ```
+    <hr>
+    读取给定模板参数 `key` 的值；若不存在或类型不匹配，则抛出异常。
+
+!!! green "def"
+    ```lean
+    Verso.Genre.Blog.Template.param? [TypeName α] (key : String) : Blog.TemplateM (Option α)
+    ```
+    <hr>
+    读取给定模板参数 `key` 的值；若存在但类型不匹配则抛出异常；否则返回 `none`。
+
+!!! green "def"
+    ```lean
+    Verso.Genre.Blog.Template.builtinHeader : Blog.TemplateM Output.Html
+    ```
+    <hr>
+    返回 `<head>` 中为确保站点正常工作所需包含的内容（依赖与 Verso 初始化等）。
+
+## 7 手册和书
+
+Verso 的 Manual 体裁可用于编写参考手册、教科书或其他类似书籍的文档。它支持通过 LaTeX 生成 HTML 和 PDF，但与 HTML 支持相比，PDF 支持相对不成熟且未经测试。
+
+!!! green "def"
+    ```lean
+    Verso.Genre.Manual : Genre
+    ```
+    <hr>
+    一种用于编写参考手册和其他类似书籍的文档的类型。
+
+（太长了，请参考原文）
 
 ## 索引 依赖项 （请参考原文）
-
-## 附：标记示例（markup-example）
-
-下列示例使用自定义蓝色块，左列是“Verso 语言”，右列是渲染“结果”。
-
-!!! blue "有序列表"
-    <div class="grid grid-cols-2" markdown>
-    <div markdown>
-    **Verso 语言**
-    ```markdown
-    1. 第一项
-    2. 第二项
-    3. 第三项
-    ```
-    </div>
-    <div markdown>
-    **结果**
-    ```html
-    <ol>
-      <li><p>第一项</p></li>
-      <li><p>第二项</p></li>
-      <li><p>第三项</p></li>
-    </ol>
-    ```
-    </div>
-    </div>
-
-!!! blue "描述列表（术语–说明）"
-    <div class="grid grid-cols-2" markdown>
-    <div markdown>
-    **Verso 语言**
-    ```markdown
-    术语A: 说明文字A
-    术语B: 说明文字B
-    ```
-    </div>
-    <div markdown>
-    **结果**
-    ```html
-    <dl>
-      <dt>术语A</dt><dd><p>说明文字A</p></dd>
-      <dt>术语B</dt><dd><p>说明文字B</p></dd>
-    </dl>
-    ```
-    </div>
-    </div>
-
-!!! blue "行内样式与链接"
-    <div class="grid grid-cols-2" markdown>
-    <div markdown>
-    **Verso 语言**
-    ```markdown
-    *强调* 与 **加粗**，以及 `代码` 片段。
-    还可以写链接：[可点击文本](#anchor)
-    ```
-    </div>
-    <div markdown>
-    **结果**
-    ```html
-    <p>
-      <em>强调</em> 与 <strong>加粗</strong>，以及 <code>代码</code> 片段。
-      还可以写链接：<a href="#anchor">可点击文本</a>
-    </p>
-    ```
-    </div>
-    </div>
-
-!!! blue "代码块（围栏）"
-    <div class="grid grid-cols-2" markdown>
-    <div markdown>
-    **Verso 语言**
-    ```markdown
-    ```lean
-    def hello : String := "hello"
-    ```
-    ```
-    </div>
-    <div markdown>
-    **结果**
-    ```html
-    <pre><code class="language-lean">def hello : String := "hello"</code></pre>
-    ```
-    </div>
-    </div>
-
-!!! blue "脚注与脚注引用"
-    <div class="grid grid-cols-2" markdown>
-    <div markdown>
-    **Verso 语言**
-    ```markdown
-    脚注示例[^note]。
-
-    [^note]: 这里是脚注内容。
-    ```
-    </div>
-    <div markdown>
-    **结果**
-    ```html
-    <p>脚注示例<sup id="fnref-note"><a href="#fn-note">1</a></sup>。</p>
-    <section class="footnotes">
-      <ol>
-        <li id="fn-note"><p>这里是脚注内容。</p></li>
-      </ol>
-    </section>
-    ```
-    </div>
-    </div>
-
-## 附：命名文档块（namedocs）摘要
-
-以下以绿色“API”样式概括常用构件（保留关键签名与用途）。
-
-!!! green "Verso.Doc.Genre"
-    ```lean
-    structure Verso.Doc.Genre : Type
-    -- 关键字段：PartMetadata / Block / Inline / TraverseContext / TraverseState
-    -- 说明：定义体裁扩展点与遍历所需上下文与状态。
-    ```
-
-!!! green "Verso.Doc.Part / Block / Inline"
-    ```lean
-    def   Verso.Doc.Part   (g : Doc.Genre) : Type
-    def   Verso.Doc.Block  (g : Doc.Genre) : Type
-    def   Verso.Doc.Inline (g : Doc.Genre) : Type
-    -- 说明：文档的层级元素；Part 含 Block，Block 含 Inline。
-    ```
-
-!!! green "遍历接口（Traversal）"
-    ```lean
-    class Verso.Doc.Traverse      (g : Doc.Genre) (m : outParam (Type → Type)) : Type
-    class Verso.Doc.TraversePart  (g : Doc.Genre) : Type
-    class Verso.Doc.TraverseBlock (g : Doc.Genre) : Type
-    -- 说明：提供遍历钩子与基于上下文/状态的重写。
-    ```
-
-!!! green "HTML 输出 DSL"
-    ```lean
-    inductive Verso.Output.Html : Type
-    -- 构造：text / tag / seq；工具：empty / append / fromArray / fromList / asString
-    ```
-
-!!! green "TeX 输出 DSL"
-    ```lean
-    inductive Verso.Output.TeX : Type
-    -- 构造：text / raw / command / environment / paragraphBreak / seq；工具：empty / asString
-    ```
-
-!!! blue "def"
-    ```lean
-    List.forM {u v w} {m : Type u → Type v} [Monad m]
-    {a : Type w} (as : List a) (f : a → m PUnit) : m PUnit
-    ```
-    Applies the monadic action `f` to every element in the list, in order.
-
-    参数说明：
-    : **as** — 输入列表
-    : **f**  — 作用在元素上的 monadic 函数
-
-    参见：`List.mapM`（收集结果的变体）。
-
-!!! purple "lemma"
-    这里是一个引理块的示例。
-
-!!! green "API"
-    这里是 API 描述块的示例。

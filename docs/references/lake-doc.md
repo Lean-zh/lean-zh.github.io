@@ -291,7 +291,7 @@ A **trace** is a piece of data (generally a hash) which is used to verify whet
 <!--
 ## Package Configuration Options
 -->
-## 包配置选项
+## 包配置选项 {#包配置选项}
 
 Lake 提供了多种多样的包配置选项。
 
@@ -443,7 +443,7 @@ You can specify definition from a dependency as a package's test or lint driver 
 
 <!-- ### Cloud Releases -->
 
-### 云发布
+### 云发布 {#云发布}
 
 
 <!--
@@ -471,7 +471,7 @@ These options define a cloud release for the package. See the section on [GitHu
 ## Defining Build Targets
 -->
 
-## 设定构建目标
+## 设定构建目标 {#设定构建目标}
 
 <!--
 A Lake package can have many build targets, such as different Lean libraries and multiple binary executables. Any number of these declarations can be marked with the `@[default_target]` attribute to tell Lake to build them on a bare `lake build` of the package.
@@ -483,7 +483,7 @@ A Lake package can have many build targets, such as different Lean libraries and
 ### Lean Libraries
 -->
 
-### Lean 库
+### Lean 库 {#lean-库}
 
 <!--
 A Lean library target defines a set of Lean modules available to `import` and how to build them.
@@ -570,7 +570,7 @@ name = "«target-name»"
 ### Binary Executables
 -->
 
-### 二进制可执行文件
+### 二进制可执行文件 {#二进制可执行文件}
 
 <!--
 A Lean executable target builds a binary executable from a Lean module with a `main` function.
@@ -653,7 +653,7 @@ name = "«target-name»"
 ### External Libraries
 -->
 
-### 外部库
+### 外部库 {#外部库}
 
 <!--
 A external library target is a non-Lean **static** library that will be linked to the binaries of the package and its dependents (e.g., their shared libraries and executables).
@@ -696,7 +696,7 @@ The declaration is essentially a wrapper around a `System.FilePath` [target](h
 -->
 
 
-### 自定义目标
+### 自定义目标 {#自定义目标}
 
 <!--
 A arbitrary target that can be built via `lake build <target-name>`.
@@ -773,7 +773,7 @@ In all of these, the object parameter and its type specifier are optional and th
 ## Adding Dependencies
 -->
 
-## 添加依赖
+## 添加依赖 {#添加依赖}
 
 <!--
 Lake packages can have dependencies. Dependencies are other Lake packages the current package needs in order to function. They can be sourced directly from a local folder (e.g., a subdirectory of the package) or come from remote Git repositories. For example, one can depend on [mathlib](https://reservoir.lean-lang.org/@leanprover-community/mathlib) like so:
@@ -917,7 +917,7 @@ subDir = "<subDir>"
 ## Github Release Builds
 -->
 
-## GitHub 发布构建
+## GitHub 发布构建 {#github-发布构建}
 
 <!--
 Lake supports uploading and downloading build artifacts (i.e., the archived build directory) to/from the GitHub releases of packages. This enables end users to fetch pre-built artifacts from the cloud without needed to rebuild the package from the source themselves.

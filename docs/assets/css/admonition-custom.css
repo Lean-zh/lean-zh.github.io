@@ -38,6 +38,10 @@
 .md-typeset .admonition.green>.admonition-title{   color:var(--admon-green-fg); }
 
 
+.md-typeset .admonition.blue hr { border-color: var(--admon-blue-fg); }
+.md-typeset .admonition.purple hr { border-color: var(--admon-purple-fg); }
+.md-typeset .admonition.green hr { border-color: var(--admon-green-fg); }
+
 /* ============================
    Admonition grid — 强制左右两栏对齐
    将此段放到自定义 CSS 的最底部

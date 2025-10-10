@@ -73,7 +73,7 @@ elan 配置记录可以在 `~/.elan/settings.toml` 查看。
 
 [lake](https://github.com/leanprover/lake) 全称 Lean Make，是 Lean 4 的包管理器，用于创建 Lean 项目，构建 Lean 包和编译 Lean 可执行文件。
 
-本节介绍 `lake` 的基本用法，[Lean 函数式编程](https://www.leanprover.cn/fp-lean-zh/hello-world/starting-a-project.html)也提供了创建 Lean 项目的例子，而更全面的参数介绍可参考 [lake 文档](../references/lake-doc.md)。
+本节介绍 `lake` 的基本用法，[Lean 函数式编程](/fp-lean-zh/hello-world/starting-a-project.html)也提供了创建 Lean 项目的例子，而更全面的参数介绍可参考 [lake 文档](../references/lake-doc.md)。
 
 在终端中运行（`your_project_name` 替换为你自己起的名字）
 

@@ -18,7 +18,7 @@
 **参考资源**
 
 - 元编程示例教程：[MetaExamples](https://github.com/siddhartha-gadgil/MetaExamples)
-- Lean 中文文档：[函数式编程](https://www.leanprover.cn/fp-lean-zh/)，[Lake 文档](../references/lake-doc.md)以及 [Lean4 安装指南](../install.md)
+- Lean 中文文档：[函数式编程](/fp-lean-zh/)，[Lake 文档](../references/lake-doc.md)以及 [Lean4 安装指南](../install.md)
 
 **准备工作**
 
@@ -263,7 +263,7 @@ import Hello.Greet
 > - 而是一个描述了 IO 操作的声明性表达
 > - 可以将 IO 操作视为一个接收"整个世界"作为输入，并返回新的世界状态的纯函数
 >
-> 更多关于 Lean 函数式编程的讨论，可以参考 [Lean 函数式编程指南](https://www.leanprover.cn/fp-lean-zh/hello-world/running-a-program.html)。
+> 更多关于 Lean 函数式编程的讨论，可以参考 [Lean 函数式编程指南](/fp-lean-zh/hello-world/running-a-program.html)。
 
 
 ### 交互式程序

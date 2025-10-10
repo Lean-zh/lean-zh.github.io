@@ -15,7 +15,7 @@ description: Lean-zh Documentation
   <a href="https://t.me/Lean_zh_CN">
     <img src="https://img.shields.io/badge/Telegram-加入讨论-blue?style=flat&logo=telegram&logoColor=white" alt="Telegram Badge">
   </a>
-  <a href="https://www.leanprover.cn">
+  <a href="https://docs.leanprover.cn">
     <img src="https://img.shields.io/badge/Website-访问主页-blue.svg?style=flat" alt="Website">
   </a>
 </div>
@@ -52,11 +52,11 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 
 目前 Lean-zh 已翻译的资源：
 
-- [Lean4 函数式编程（Functional Programming in Lean）](https://www.leanprover.cn/fp-lean-zh/)
-- [Lean4 定理证明（Theorem Proving in Lean）](https://www.leanprover.cn/tp-lean-zh/)
-- [Lean4 元编程（Metaprogramming in Lean）](https://www.leanprover.cn/mp-lean-zh/)
-- [Lean 形式化数学（Mathematics in Lean）](https://www.leanprover.cn/math-in-lean-zh/)
-- [Lean4 中的类型检查（Type Checking in Lean）](https://www.leanprover.cn/type-checking-in-lean-zh/)
+- [Lean4 函数式编程（Functional Programming in Lean）](/fp-lean-zh/)
+- [Lean4 定理证明（Theorem Proving in Lean）](/tp-lean-zh/)
+- [Lean4 元编程（Metaprogramming in Lean）](/mp-lean-zh/)
+- [Lean 形式化数学（Mathematics in Lean）](/math-in-lean-zh/)
+- [Lean4 中的类型检查（Type Checking in Lean）](/type-checking-in-lean-zh/)
 
 **进行中**
 

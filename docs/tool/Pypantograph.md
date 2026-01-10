@@ -64,30 +64,31 @@ Pantograph 无法执行 Lean 本身约束的操作，包括：
 
 ## 安装步骤
 
-1. 安装 `poetry`。
+1. 安装 `uv`。
 
-2. 执行命令构建 Pantograph 的 wheel 包：
+2. 安装elan：参考[Lean Manual](https://lean-lang.org/install/)
+
+3. clone项目与子模块
+   ```sh
+   git clone --recurse-submodules https://github.com/stanford-centaur/PyPantograph.git
+   ```
+   
+4. 执行命令构建 Pantograph 的 wheel 包：
 
    ```sh
-   poetry build
+   cd <repo-path>
+   uv build
    ```
 
    构建完成后，会在 `dist` 目录生成 Pantograph 的 wheel 文件，可以用于安装。
 
-3. 在下游项目的 `pyproject.toml` 中添加依赖，例如：
-
-   ```toml
-   pantograph = { file = "path/to/wheel/dist/pantograph-0.3.0-cp312-cp312-manylinux_2_40_x86_64.whl" }
-   ```
-
-4. 运行示例和实验，先进入 poetry shell 环境：
+5. 在下游项目中添加依赖：
 
    ```sh
-   poetry install
-   poetry shell
+   uv add <repo-path>
    ```
-
-   这会启动一个包含开发包的环境，方便进行交互操作。
+> 注意事项：
+> 1. 在windows可能无法build，可以尝试wsl或Linux
 
 ## 使用 Pantograph 服务器
 

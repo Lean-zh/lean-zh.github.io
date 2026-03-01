@@ -3,7 +3,7 @@
 
 本篇介绍如何用 Lean4Game 添加 Lean4 游戏。这类互动游戏不仅利于 Lean 本身的学习，还能促进对学科知识的理解，让关联的学科群体对 Lean 有更直观的认识。
 
-当前部署了 NNG4 游戏：[nng4.leanprover.cn](https://nng4.leanprover.cn) ，可在线体验，后续计划写一个李代数入门的（mark 开坑）。
+当前部署了 NNG4 在线游戏(托管 @rexwzh )：[nng4.leanprover.cn](https://nng4.leanprover.cn) ，可在线体验。
 
 ### 相关项目与资源
 
@@ -85,7 +85,7 @@ nvm use node
 # 下载 Lean4Game
 git clone https://github.com/leanprover-community/lean4game.git
 cd lean4game
-# 安装依赖
+# 安装依赖 (必须加上 --force 以解决依赖冲突)
 npm install --force
 ```
 
@@ -99,7 +99,12 @@ export VITE_CLIENT_DEFAULT_LANGUAGE=zh
 
 其中 `PORT` 为运行 Lean 代码的后端端口，默认是 `8080`；`CLIENT_PORT` 为前端访问端口，默认是 `3000`；`VITE_CLIENT_DEFAULT_LANGUAGE` 为界面语言，默认为 `en`。
 
-执行 `npm start` 启动游戏，如果看到以下页面，就表示访问成功：
+执行 `npm start` 启动游戏。该命令会同时启动三个服务：
+- **Server**: 后端 Lean 代码执行环境（8080 端口）。
+- **Relay**: WebSocket 中继服务。
+- **Client**: 前端 Vite 界面（3000 端口）。
+
+如果看到以下页面，就表示访问成功：
 
 ![20240623121710](https://qiniu.wzhecnu.cn/PicBed6/picgo/20240623121710.png)
 
@@ -109,61 +114,104 @@ export VITE_CLIENT_DEFAULT_LANGUAGE=zh
 
 ### Nginx 配置
 
-如果一切顺利，访问 `http://localhost:3000/#/g/local/GameSkeleton` 会看到 “Hello World” 的界面：
+假设服务启动在 3000 端口（且后端通过 8080 端口或 websocket 通信），我们需要配置 Nginx 来反向代理这些服务。
 
-![20240623130158](https://qiniu.wzhecnu.cn/PicBed6/picgo/20240623130158.png)
+以下是一个完整的生产环境配置示例，包含两部分：
+1. **游戏主站** (`lean4game.leanprover.cn`)：代理到本地服务，支持 WebSocket。
+2. **游戏跳转** (`nng4.leanprover.cn`)：将特定子域名重定向到具体的游戏路径。
 
-假设服务启动在 3000 端口，可以将域名 `game.leanprover.cn` 配置为游戏主页面，参考配置如下：
+```nginx
+# WebSocket 支持所必需的配置
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    '' close;
+}
 
-```bash
+# 1. 游戏主站配置
+server {
+    listen 80;
+    server_name lean4game.leanprover.cn;
+    rewrite ^(.*)$ https://$host$1 permanent;
+}
+
 server {
     listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/game.leanprover.cn/fullchain.pem; 
-    ssl_certificate_key /etc/letsencrypt/live/game.leanprover.cn/privkey.pem; 
-    server_name game.leanprover.cn;
+    server_name lean4game.leanprover.cn;
+
+    # SSL 证书配置 (请替换为实际路径)
+    ssl_certificate cert/leanprover.cn/fullchain.pem; 
+    ssl_certificate_key cert/leanprover.cn/privkey.pem;
+    
+    # SSL 优化配置
+    ssl_session_cache shared:le_nginx_SSL:10m;
+    ssl_session_timeout 1440m;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+
     location / {
-        proxy_pass http://localhost:3000;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "Upgrade";
-        proxy_set_header Host $host;
-        proxy_read_timeout 86400;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # 代理到本地服务端口 (例如 frp 映射的端口或本地 3000)
+        proxy_pass http://127.0.0.1:3110;
+        
         proxy_ssl_server_name on;
+        proxy_set_header Host $host;
+        proxy_set_header Connection $connection_upgrade;
         proxy_http_version 1.1;
         chunked_transfer_encoding off;
         proxy_buffering off;
         proxy_cache off;
+        proxy_set_header X-Forwarded-For $remote_addr;
         proxy_set_header X-Forwarded-Proto $scheme;
-        client_max_body_size 0;
+        proxy_set_header Upgrade $http_upgrade;
     }
 }
-```
 
-为简化输入，可以为游戏单独配置一个子域名进行跳转，例如 `nng4.leanprover.cn`：
-
-```bash
+# 2. 特定游戏重定向 (例如 NNG4)
 server {
-    listen 443 ssl; 
-    ssl_certificate /etc/letsencrypt/live/nng4.leanprover.cn/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/nng4.leanprover.cn/privkey.pem;
+    listen 80;
     server_name nng4.leanprover.cn;
-    return 301 https://game.leanprover.cn/#/g/local/NNG4;
+    rewrite ^(.*)$ https://$host$1 permanent;
+}
+
+server {
+    listen 443 ssl;
+    server_name nng4.leanprover.cn;
+
+    ssl_certificate cert/leanprover.cn/fullchain.pem; 
+    ssl_certificate_key cert/leanprover.cn/privkey.pem;
+
+    # 重定向到具体的游戏路径
+    return 301 https://lean4game.leanprover.cn/#/g/local/NNG4;
 }
 ```
 
-这样只需访问 nng4.leanprover.cn，而不需要输入后面的一长串 URI。
+这样配置后：
+- 访问 `lean4game.leanprover.cn` 将进入游戏大厅或主界面。
+- 访问 `nng4.leanprover.cn` 将直接跳转到自然数游戏 (NNG4)。
 
 
 <!-- 通常，对 `client/` 或 `relay/` 中文件的任何更改都会导致服务器自动重新启动。
 
-在生产环境中，可以执行 `npm run build` 在 `client/dist` 下构建代码，再启动服务：
+在生产环境中，推荐的启动流程如下：
 
+```bash
+# 构建所有组件 (Server, Relay, Client)
 npm run build
-npm run start_client
-npm run production
 
-这里似乎存在 bug
+# 启动生产环境中继器 (会自动管理 Server 进程)
+npm run production
+```
 -->
+
+## 本地开发技巧
+
+如果你正在修改 `lean4game/server` 中的代码，并希望 NNG4 使用本地的服务器逻辑而非远程仓库版本，请在 NNG4 目录下执行：
+
+```bash
+lake update -Klean4game.local
+lake build
+```
+
+这样可以方便地调试游戏引擎的功能。
 
 ## 游戏修改指南
 
@@ -396,7 +444,14 @@ Statement
 
 ## 游戏翻译
 
-通过使用 lean-i18n 和 i18next，可以为游戏添加多语言支持。TODO Ref： https://github.com/leanprover-community/lean4game/blob/main/doc/translate.md
+通过使用 lean-i18n 和 i18next，可以为游戏添加多语言支持。详细流程如下：
+
+1. **生成模板**：在游戏目录下运行 `lake build`，会自动生成 `.i18n/en/Game.pot` 模板文件。
+2. **翻译文件**：使用 Poedit 等工具打开 `.pot` 文件，进行翻译并保存为目标语言的 `.po` 文件（例如 `.i18n/zh/Game.po`）。
+3. **导出 JSON**：运行 `lake exe i18n --export-json`，将翻译导出为服务器所需的 JSON 格式。
+4. **前端翻译**：对于 lean4game 框架本身的界面翻译，可以查看 `lean4game/client/public/locales` 目录。可以使用 `npm run translate` 扫描前端代码中的新字符串。
+
+更多详情请参考 [translate.md](https://github.com/leanprover-community/lean4game/blob/main/doc/translate.md)。
 
 ---
 

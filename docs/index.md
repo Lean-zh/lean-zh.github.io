@@ -22,7 +22,7 @@ description: Lean-zh Documentation
 
 ## Lean 是什么
 
-Lean 是微软研究院在 2013 年推出的计算机定理证明器。Lean4 于 2021 年发布，为 Lean 定理证明器的重新实现，能够生成 C 代码后进行编译，以便开发高效的特定领域自动化。
+Lean 是微软研究院在 2013 年推出的计算机定理证明器。Lean 4 于 2021 年发布，为 Lean 定理证明器的重新实现，能够生成 C 代码后进行编译，以便开发高效的特定领域自动化。
 
 Lean 作为一门独特的语言，兼具 **数学和编程** 两方面的特性。
 
@@ -52,16 +52,16 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 
 目前 Lean-zh 已翻译的资源：
 
-- [Lean4 函数式编程（Functional Programming in Lean）](/fp-lean-zh/)
-- [Lean4 定理证明（Theorem Proving in Lean）](/tp-lean-zh/)
-- [Lean4 元编程（Metaprogramming in Lean）](/mp-lean-zh/)
+- [Lean 4 函数式编程（Functional Programming in Lean）](/fp-lean-zh/)
+- [Lean 4 定理证明（Theorem Proving in Lean）](/tp-lean-zh/)
+- [Lean 4 元编程（Metaprogramming in Lean）](/mp-lean-zh/)
 - [Lean 形式化数学（Mathematics in Lean）](/math-in-lean-zh/)
-- [Lean4 中的类型检查（Type Checking in Lean）](/type-checking-in-lean-zh/)
+- [Lean 4 类型检查（Type Checking in Lean）](/type-checking-in-lean-zh/)
 
 **进行中**
 
 
-- [逻辑验证漫游指南 2025 版（The Hitchhiker's Guide to Logical Verification 2025）](https://github.com/Lean-zh/LoVe2025-zh)
+- [逻辑验证漫游指南 2026 版（The Hitchhiker's Guide to Logical Verification 2026）](https://github.com/Lean-zh/LoVe-zh)
 - Lean 交互工具的使用教程
 - Lean 项目的实践教程
 
@@ -75,7 +75,7 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 ### 其他推荐
 
 - [The Mechanics of Proof](https://hrmacbeth.github.io/math2001/)
-- [软件基础：Software Foundations](https://coq-zh.github.io/SF-zh/)
+- [软件基础：Software Foundations](https://rocq-zh.github.io/SF-zh/)
 - [编程语言基础：Agda 描述](https://agda-zh.github.io/PLFA-zh/)
 
 ## 联系我们

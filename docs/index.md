@@ -57,11 +57,10 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 - [Lean 4 元编程（Metaprogramming in Lean）](/mp-lean-zh/)
 - [Lean 形式化数学（Mathematics in Lean）](/math-in-lean-zh/)
 - [Lean 4 类型检查（Type Checking in Lean）](/type-checking-in-lean-zh/)
+- [逻辑验证漫游指南 2026 版（The Hitchhiker's Guide to Logical Verification 2026）](https://github.com/Lean-zh/LoVe-zh)
 
 **进行中**
 
-
-- [逻辑验证漫游指南 2026 版（The Hitchhiker's Guide to Logical Verification 2026）](https://github.com/Lean-zh/LoVe-zh)
 - Lean 交互工具的使用教程
 - Lean 项目的实践教程
 

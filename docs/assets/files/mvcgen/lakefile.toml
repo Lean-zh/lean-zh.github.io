@@ -1,0 +1,5 @@
+name = "mvcgentutorial"
+defaultTargets = ["MVCGenTutorial"]
+
+[[lean_lib]]
+name = "MVCGenTutorial"

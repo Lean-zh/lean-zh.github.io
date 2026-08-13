@@ -94,6 +94,7 @@ nav:
     - Lean4Game 教程: projects/lean4game.md
     - Verso 教程: projects/verso.md
     - mvcgen 命令式程序验证: projects/mvcgen.md
+    - grind 有序映射验证: projects/grind-index-map.md
   - Mathlib4Help:
     - Mathlib4Help: mathlib4_help/index.md
     - attributes: mathlib4_help/attributes.md

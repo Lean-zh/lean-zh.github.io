@@ -1,0 +1,30 @@
+/* custom.css */
+body {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .badge-container {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+  }
+
+  .md-content img {
+    max-width: 75%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  
+  .md-content p {
+    margin-top: 20px;
+  }
+  
+  .md-content a {
+    color: #1e88e5;
+    text-decoration: none;
+  }
+  
+  .md-content a:hover {
+    text-decoration: underline;
+  }

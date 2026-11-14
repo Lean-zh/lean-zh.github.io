@@ -52,6 +52,7 @@ Lean-zh 提供一个实践，交流，和知识分享的平台。如果你对 Le
 
 目前 Lean-zh 已翻译的资源：
 
+- [Lean 语言参考手册（Lean Language Reference）](/reference-manual/)
 - [Lean 4 函数式编程（Functional Programming in Lean）](/fp-lean-zh/)
 - [Lean 4 定理证明（Theorem Proving in Lean）](/tp-lean-zh/)
 - [Lean 4 元编程（Metaprogramming in Lean）](/mp-lean-zh/)
